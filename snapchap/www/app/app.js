@@ -1,4 +1,4 @@
-angular.module('snapchat', ['ionic', 'ngCordova'])
+angular.module('snapchat', ['ionic'])
 
 .config(function($ionicConfigProvider, $stateProvider, $urlRouterProvider){
 
@@ -67,10 +67,10 @@ angular.module('snapchat', ['ionic', 'ngCordova'])
       controller: 'myFriendsCtrl'
     })
 
-    .state('outgoingMessage', {
-      url: '/outgoingmessage',
-      templateUrl: 'app/components/outgoingMessage/outgoingMessage.html',
-      controller: 'outgoingMessageCtrl'
+    .state('editMessage', {
+      url: '/editmessage',
+      templateUrl: 'app/components/editMessage/editMessage.html',
+      controller: 'editMessageCtrl'
     })
 
     .state('password', {
