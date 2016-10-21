@@ -1,0 +1,7 @@
+Inky
+
+Pinky
+
+Blinky
+
+Clyde
