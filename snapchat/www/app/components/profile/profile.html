@@ -1,0 +1,21 @@
+<ion-view title="Profile" id="profile-view">
+
+    <ion-content>
+        <nav id="profile-view__nav-top">
+            <button id="profile-view__share-btn"></button>
+            <button id="profile-view__trophy-btn"></button>
+            <button id="profile-view__settings-btn" ui-sref="settings"></button>
+        </nav>
+        <div id="profile-view__main-content">
+          <img id="snap-confetti" src="img/snap-confetti.png">
+          <p id="profile-view__display-name" class="profile-view__display-name">Display Name</p>
+          <p id="profile-view__username" class="profile-view__username">username</p>
+
+          <div ui-sref="addedMe" id="profile-view__added-me-btn" class="profile-view__main-content-btn">Added Me</div>
+          <div ui-sref="addFriends" id="profile-view__add-friends-btn" class="profile-view__main-content-btn">Add Friends</div>
+          <div ui-sref="myFriends" id="profile-view__my-friends-btn" class="profile-view__main-content-btn">My Friends</div>
+          <div ui-sref="camera" id="profile-view__camera-btn" class="profile-view__main-content-btn"></div>
+        </div>
+
+    </ion-content>
+</ion-view>

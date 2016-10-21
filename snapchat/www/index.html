@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app="snapchat">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' http://localhost:8100 ws://localhost:35729 data: gap: https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *;script-src 'self' localhost:35729 'unsafe-eval' 'unsafe-inline';"> -->
+    <title>Snapchat</title>
+
+    <link rel="manifest" href="manifest.json">
+
+    <!-- un-comment this code to enable service worker
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(() => console.log('service worker installed'))
+          .catch(err => console.log('Error', err));
+      }
+    </script>-->
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="./main.css" rel="stylesheet">
+
+    <!-- If using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <script src="app/app.js"></script>
+    <!-- <script src="js/routes.js"></script> -->
+    <script src="app/directives.js"></script>
+    <script src="app/mainCtrl.js"></script>
+    <script src="app/service.js"></script>
+    <script src="app/components/addedMe/addedMeCtrl.js"></script>
+    <script src="app/components/addFriends/addFriendsCtrl.js"></script>
+    <script src="app/components/addUsername/addUsernameCtrl.js"></script>
+    <script src="app/components/birthday/birthdayCtrl.js"></script>
+    <script src="app/components/camera/cameraCtrl.js"></script>
+    <script src="app/components/chat/chatCtrl.js"></script>
+    <script src="app/components/email/emailCtrl.js"></script>
+    <script src="app/components/logIn/logInCtrl.js"></script>
+    <script src="app/components/logInSignUp/logInSignUpCtrl.js"></script>
+    <script src="app/components/myFriends/myFriendsCtrl.js"></script>
+    <script src="app/components/outgoingMessage/outgoingMessageCtrl.js"></script>
+    <script src="app/components/password/passwordCtrl.js"></script>
+    <script src="app/components/profile/profileCtrl.js"></script>
+    <script src="app/components/sendTo/sendToCtrl.js"></script>
+    <script src="app/components/settings/settingsCtrl.js"></script>
+    <script src="app/components/signUp/signUpCtrl.js"></script>
+    <script src="app/components/watchMessages/watchMessagesCtrl.js"></script>
+
+
+  </head>
+  <body ng-controller="mainCtrl" animation="slide-left-right-ios7">
+    <!-- <ion-nav-bar></ion-nav-bar> -->
+    <ion-nav-view></ion-nav-view>
+    <!-- <ion-pane>
+      <ion-header-bar class="bar-stable">
+        <h1 class="title">Ionic Blank Starter</h1>
+      </ion-header-bar>
+      <ion-content></ion-content>
+    </ion-pane> -->
+  </body>
+</html>

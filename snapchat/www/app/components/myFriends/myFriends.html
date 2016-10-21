@@ -1,0 +1,22 @@
+<ion-view title="My Friends" id="my-friends-view">
+
+    <ion-content>
+        <nav>
+          <button ui-sref="profile" id="my-friends-view_back-btn" class="back-btn"><</button>
+          FRIENDS
+        </nav>
+        <form>
+            <span class="magnifying-glass"></span>
+            <input type="text" placeholder="Search">
+        </form>
+
+        <ul><span>BEST FRIENDS</span>
+          <li>Best Friends</li>
+        </ul>
+
+        <span>MY FRIENDS</span>
+        <ul ng-repeat="friend in friends">
+          <li>{{friend.username}}</li>
+        </ul>
+    </ion-content>
+</ion-view>
