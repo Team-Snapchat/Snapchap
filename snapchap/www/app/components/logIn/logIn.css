@@ -1,0 +1,62 @@
+#log-in-view-back-btn {
+  color: #9A3497;
+}
+
+#log-in-view h3 {
+  font-size: 1.4rem;
+  margin: 12vh 0 0 0;
+}
+
+#log-in-view__form div {
+  position: relative;
+}
+
+#log-in-view .heading {
+  color: gray;
+  display: flex;
+  justify-content: flex-start;
+  position: absolute;
+  left: -3vw;
+  bottom: 27px;
+  font-size: 0.7rem;
+}
+
+#log-in-view__form {
+  width: 100vw;
+  height: 67vh;
+  background-color: white: ;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#log-in-view input {
+  margin-top: 8vh;
+  width: 90vw;
+}
+
+#forgot-your-password {
+  margin-top: 2vh;
+  padding: 0 5vw;
+}
+
+#log-in-view__log-in-btn {
+  background-color: darkgray;
+  font-size: 1.1rem;
+  margin-top: 3vh;
+  padding-left: 70px;
+  padding-right: 70px;
+}
+
+#log-in-view__form .valid{
+  background-color: #9A3497;
+}
+
+#log-in-view__keyboard {
+  width: 100vw;
+  height: 33vh;
+  background-color: lightgray;
+  /*position: absolute;*/
+  /*top: calc(100vh - 180px);*/
+}

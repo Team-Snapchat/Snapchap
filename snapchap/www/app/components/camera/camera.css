@@ -1,0 +1,32 @@
+#camera-view {
+  height: 100%;
+  background-color: rgb(50, 50, 50);
+}
+
+#camera-view__nav-bottom {
+  top: calc(100vh - 80px);
+}
+#camera-view__flash-btn {
+  background-image: url('../../../img/icon/flash-white.png');
+}
+#camera-view__profile-btn {
+  background-image: url('../../../img/icon/snap-white.png');
+}
+#camera-view__switch-camera-btn {
+  background-image: url('../../../img/icon/switch-white.png');
+}
+#camera-view__chat-btn {
+  background-image: url('../../../img/icon/chat-white.png');
+}
+#camera-view__take-photo-btn {
+  background-image: url('../../../img/icon/circle-white-big.png');
+  width: 70px;
+  height: 70px;
+  position: relative;
+  bottom: 34px;
+  -webkit-background-size: 70px;
+          background-size: 70px;
+}
+#camera-view__dots-btn {
+  background-image: url('../../../img/icon/dots-white.png');
+}

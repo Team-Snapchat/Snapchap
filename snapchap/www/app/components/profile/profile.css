@@ -1,0 +1,58 @@
+#profile-view {
+  height: 100%;
+  background-color: rgb(20, 20, 20);
+  color: white;
+}
+
+#profile-view__main-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#snap-confetti {
+  margin-top: 14vh;
+  height: 50%;
+  width: 50%;
+}
+
+#profile-view__share-btn {
+  background-image: url('../../../img/icon/share-white.png');
+  cursor: pointer;
+
+}
+#profile-view__trophy-btn {
+  background-image: url('../../../img/icon/trophy-white.png');
+  cursor: pointer;
+
+}
+#profile-view__settings-btn {
+  background-image: url('../../../img/icon/settings-white.png');
+  cursor: pointer;
+
+}
+
+.profile-view__display-name {
+  font-size: 1.05rem;
+  margin-top: 1vh;
+}
+
+.profile-view__username {
+  font-size: .85rem;
+  margin-top: -10px;
+}
+
+.profile-view__main-content-btn {
+  font-size: 1.4rem;
+  margin-top: 5vh;
+}
+
+#profile-view__camera-btn {
+  background-image: url('../../../img/icon/circle-white-big.png');
+  width: 64px;
+  height: 64px;
+  margin-top: 5vh;
+  -webkit-background-size: 64px;
+          background-size: 64px;
+  cursor: pointer;
+}

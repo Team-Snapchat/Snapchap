@@ -1,0 +1,39 @@
+#settings-view nav {
+  color: #00A686;
+  font-size: 1.4rem;
+  text-align: center;
+  padding: 18px;
+  border-bottom: thin solid lightgray;
+  margin-top: 10px;
+}
+#settings-view .heading {
+  display: flex;
+  align-items: center;
+  background-color: rgba(244, 244, 244, 1);
+  padding-left: 10px;
+  width: 100vw;
+  height: 40px;
+  border-bottom: thin solid lightgray;
+  /*font-size: 0.85rem;*/
+  color: #00A686;
+}
+#settings-view ul {
+  margin-left: 9px;
+  font-size: 1.1rem;
+}
+#settings-view li {
+  color: black;
+  padding: 13px 9px;
+  border-bottom: thin solid lightgray;
+}
+#settings-view_back-btn {
+  color: #00A686;
+  /*font-size: 1.7rem;
+  left: 15px;
+  top: 8px;*/
+}
+#settings-view .forward-btn {
+  /*position: absolute;
+  right: 15px;
+  color: gray;*/
+}

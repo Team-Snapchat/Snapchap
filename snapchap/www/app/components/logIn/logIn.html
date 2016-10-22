@@ -1,18 +1,28 @@
-<ion-view title="Log In" id="page14">
-    <ion-content padding="true" class="has-header">
-        <h5 id="logIn-heading2" style="color:#888888;font-weight:400;">USERNAME OR EMAIL</h5>
-        <form id="logIn-form3" class="list">
-            <label class="item item-input" id="logIn-input3">
-                <input type="text" placeholder="">
-            </label>
-            <h5 id="logIn-heading3" style="color:#888888;font-weight:400;">PASSWORD</h5>
-            <label class="item item-input" id="logIn-input4">
-                <input type="text" placeholder="">
-            </label>
-        </form>
-        <div id="logIn-markdown11" style="color:#2E8BC7;font-size:11px;text-align:center;">
-            <p>Forgot your password?</p>
+<ion-view title="Log In" id="log-in-view">
+    <ion-content>
+
+      <nav>
+        <button ui-sref="logInSignUp" id="log-in-view-back-btn" class="back-btn"><</button>
+      </nav>
+
+
+      <div id="log-in-view__form">
+        <h3>Log In</h3>
+        <div>
+          <p class="heading">USERNAME OR EMAIL</p>
+          <input class="input" />
         </div>
-        <button id="logIn-button33" style="border-radius:30px 30px 30px 30px;" class="button button-dark  button-block">Log In</button>
+        <div>
+          <p class="heading">PASSWORD</p>
+          <input class="input" />
+        </div>
+        <p id="forgot-your-password" class="text-link">
+          Forgot your password?
+        </p>
+        <button id="log-in-view__log-in-btn" class="btn pill-btn" ui-sref="camera">Log In</button>
+      </div>
+
+      <div id="log-in-view__keyboard"></div>
+
     </ion-content>
 </ion-view>
