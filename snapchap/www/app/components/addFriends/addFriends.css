@@ -1,0 +1,72 @@
+#add-friends-view nav {
+  color: rgba(154, 52, 151, 1);
+  font-size: 1.4rem;
+  text-align: center;
+  padding: 18px;
+  margin-top: 10px;
+  background-color: #fff;
+  border-bottom: thin solid lightgray;
+}
+#add-friends-view .heading {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  width: 100vw;
+  height: 40px;
+  color: rgba(154, 52, 151, 1);
+}
+#add-friends-view_back-btn {
+  font-size: 1.7rem;
+  color: rgba(154, 52, 151, 1);
+  left: 15px;
+  top: 8px;
+}
+
+#add-friends-view li {
+  padding: 13px 9px;
+  border-bottom: thin solid lightgray;
+  position: relative;
+  line-height: 1em;
+}
+
+.add-friends-view__add-option {
+  padding: 13px 0 0 9px;
+  font-size: 1.1rem;
+  position: relative;
+  left: 30px;
+}
+.add-friends-view__add-option:before {
+  content: '';
+  height: 27px;
+  width: 27px;
+  position: absolute;
+  left: -25px;
+  top: 7px;
+  color: black;
+  background-image: url('../../../img/icon/ghost.png');
+  -webkit-background-size: 27px;
+          background-size: 27px;
+}
+
+#add-by-username:before {
+  background-image: url('../../../img/icon/search-gray.png');
+}
+#add-from-contacts:before {
+  background-image: url('../../../img/icon/contacts-gray.png');
+}
+#add-by-snapcode:before {
+  background-image: url('../../../img/icon/snapchat-box-gray.png');
+}
+#add-nearby:before {
+  background-image: url('../../../img/icon/wifi-gray.png');
+}
+#share-username:before {
+  background-image: url('../../../img/icon/share-gray.png');
+}
+
+#add-friends-view .forward-btn {
+  color: gray;
+  right: 30px;
+  top: 4px;
+  font-size: 1.3rem;
+}

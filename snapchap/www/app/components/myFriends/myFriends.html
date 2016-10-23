@@ -7,20 +7,32 @@
           FRIENDS
         </nav>
 
-        <form>
+        <form id="my-friends-view__form">
             <span class="magnifying-glass"></span>
             <input type="text" placeholder="Search">
         </form>
 
         <p class="heading">BEST FRIENDS</p>
         <ul>
-          <li>Best Friends</li>
+          <li>
+            <span>Molly</span>
+          </li>
+          <li>
+            <span>Ronald</span>
+          </li>
+          <li>
+            <span>Lucy</span>
+          </li>
         </ul>
 
         <p class="heading">MY FRIENDS</p>
+
         <ul ng-repeat="friend in friends">
-          <li>{{friend.username}}</li>
+          <li>
+            <span>{{friend.username}}</span>
+          </li>
         </ul>
 
     </ion-content>
+
 </ion-view>

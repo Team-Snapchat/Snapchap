@@ -1,15 +1,25 @@
-<ion-view title="Chat" id="page2">
-    <ion-content padding="true" class="has-header">
-        <form id="chat-form1" class="list">
-            <label class="item item-input" id="chat-input1">
-                <input type="text" placeholder="Search">
-            </label>
-        </form>
-        <div class="spacer" style="width: 300px; height: 365px;"></div>
-        <div id="chat-button-bar3" class="button-bar">
-            <button id="chat-button12" class="button button-light  button-block icon-right ion-chatbubble"></button>
-            <a ui-sref="camera" id="chat-button13" class="button button-light button-large button-block icon ion-ios-circle-outline"></a>
-            <button id="chat-button14" style="text-align:right;" class="button button-light  button-block"></button>
-        </div>
+<ion-view title="Chat" id="chat-view">
+    <ion-content>
+      <nav id="chat-view__nav-top" class="nav-top">
+          <button id="chat-view__flash-btn" class="icon-btn"></button>
+          <!-- <button id="chat-view__profile-btn" class="icon-btn" ui-sref="profile"></button> -->
+          <div class="nav-top-heading">Chat</div>
+          <button id="chat-view__switch-camera-btn" class="icon-btn"></button>
+      </nav>
+
+      <form>
+          <label>
+              <input type="text" placeholder="Search">
+          </label>
+      </form>
+
+
+      <nav id="chat-view__nav-bottom" class="nav-bottom">
+          <button id="chat-view__chat-btn" class="icon-btn"></button>
+          <button id="chat-view__take-photo-btn" class="icon-btn" ui-sref="camera"></button>
+          <button id="chat-view__dots-btn" class="icon-btn"></button>
+      </nav>
+
+
     </ion-content>
 </ion-view>

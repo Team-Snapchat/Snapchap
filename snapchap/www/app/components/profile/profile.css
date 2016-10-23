@@ -1,3 +1,7 @@
+#profile-view__main-content {
+  height: 100vh;
+}
+
 #profile-view {
   height: 100%;
   background-color: rgb(20, 20, 20);
@@ -10,10 +14,21 @@
   justify-content: center;
   align-items: center;
 }
+
 #snap-confetti {
-  margin-top: 14vh;
-  height: 50%;
-  width: 50%;
+  margin-top: 10vh;
+  height: 50vw;
+  width: 50vw;
+  position: relative;
+}
+
+#snap-confetti span {
+  background-image: url('../../../img/snap-confetti.png');
+  -webkit-background-size: 100%;
+          background-size: 100%;
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }
 
 #profile-view__share-btn {

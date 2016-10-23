@@ -1,6 +1,29 @@
-<ion-view title="Added Me" id="page8">
-    <ion-nav-buttons side="left" class="has-header">
-        <!-- <button class="button icon ion-ios-arrow-back"></button> -->
-    </ion-nav-buttons>
-    <ion-content padding="true" class="has-header"></ion-content>
+<ion-view title="Added Me" id="added-me-view">
+
+    <ion-content>
+
+      <nav>
+        <button ui-sref="profile" id="added-me-view_back-btn" class="back-btn"><</button>
+        Added Me
+      </nav>
+
+      <ul>
+        <li>
+          <p class="added-me-view__display-name">Forrest Dean</p>
+          <p class="added-me-view__username">like_nothings_changed</p>
+          <button class="pill-btn added-me-view__add-btn"><span class="added-me-view__add-btn__plus">Add</span></button>
+        </li>
+        <li>
+          <p class="added-me-view__display-name">H. B. P.</p>
+          <p class="added-me-view__username">ur_father_wuz_a_swyn</p>
+          <button class="pill-btn added-me-view__add-btn"><span class="added-me-view__add-btn__plus">Add</span></button>
+        </li>
+      </ul>
+      <!-- <ul ng-repeat="requester in requesters">
+        <li>{{requester.display_name}}</li>
+        <li>{{requester.username}}</li>
+      </ul> -->
+
+    </ion-content>
+
 </ion-view>

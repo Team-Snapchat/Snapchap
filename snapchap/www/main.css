@@ -3,7 +3,11 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 @import url('https://fonts.googleapis.com/css?family=Quicksand');
 @import url('https://fonts.googleapis.com/css?family=Lato:700');
+@import "./app/components/addedMe/addedMe.css";
+@import "./app/components/addFriends/addFriends.css";
+@import "./app/components/addUsername/addUsername.css";
 @import "./app/components/camera/camera.css";
+@import "./app/components/chat/chat.css";
 @import "./app/components/myFriends/myFriends.css";
 @import "./app/components/logInSignUp/logInSignUp.css";
 @import "./app/components/logIn/logIn.css";
@@ -20,15 +24,24 @@
   margin-left: 9px;
 }
 
+.nav-top-heading {
+  font-size: 1.2rem;
+  color: white;
+  font-family: 'Lato', sans-serif;
+}
+
 .nav-top,
 .nav-bottom {
   display: flex;
   justify-content: space-between;
-  height: 80px;
+  align-items: flex-end;
+  height: 60px;
   width: 100vw;
   position: absolute;
   top: 0px;
   padding: 22px 11px 11px 11px;
+  /*border-top: thin dotted red;
+  border-bottom: thin dotted red;*/
 }
 
 .input {
@@ -48,17 +61,16 @@
 .pill-btn {
   padding: 9px 27px;
   border-radius: 22px;
-  color: white;
 }
 .icon-btn {
   display: inline-block;
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   border: 0px;
   background-color: rgba(255, 255, 255, 0);
   background-repeat: no-repeat;
-  -webkit-background-size: 22px;
-          background-size: 22px;
+  -webkit-background-size: 24px;
+          background-size: 24px;
 }
 
 .back-btn, .forward-btn {
@@ -85,7 +97,7 @@
   -webkit-background-size: 17px;
           background-size: 17px;
   position: absolute;
-  left: 10px;
+  left: 15px;
   top: 10px;
 }
 

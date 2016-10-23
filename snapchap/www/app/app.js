@@ -115,15 +115,20 @@ angular.module('snapchat', ['ionic'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-    if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-      cordova.plugins.Keyboard.disableScroll(true);
-    }
-    if (window.StatusBar) {
-      // org.apache.cordova.statusbar required
-      StatusBar.styleDefault();
-    }
+    // Hide the accessory bar by default (remove this to show the accessory bar above the form inputs)
+    // if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
+    //   cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+    //   cordova.plugins.Keyboard.disableScroll(true);
+    // }
+    ionic.Platform.fullScreen();
+    // if (window.StatusBar) {
+                        // org.apache.cordova.statusbar required
+      // StatusBar.styleDefault();
+      // StatusBar.backgroundColorByHexString("#333");
+      // console.log('StatusBar:', StatusBar);
+      // console.log('isInvisible:', StatusBar.isInvisible);
+      // showStatusBar(false);
+      // return StatusBar.hide();
+    // }
   });
 })

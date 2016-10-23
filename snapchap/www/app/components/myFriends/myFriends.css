@@ -13,28 +13,31 @@
   width: 100vw;
   height: 40px;
   color: #9A3497;
+  margin-bottom: -5px;
 }
 #my-friends-view ul {
-  margin-left: 9px;
   font-size: 1rem;
 }
 #my-friends-view li {
   color: black;
-  padding: 13px 9px;
-  border-bottom: thin solid lightgray;
+  padding: 17px 0;
+  border-bottom: thin solid rgba(150, 150, 150, 0.5);
   position: relative;
-  left: 55px;
 }
-#my-friends-view li:before {
+#my-friends-view ul>li>span {
+  position: relative;
+  left: 70px;
+}
+#my-friends-view ul>li>span:before {
   content: '';
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   position: absolute;
   left: -55px;
-  top: 0px;
-  background-image: url('../../../img/icon/ghost.png');
-  -webkit-background-size: 50px;
-          background-size: 50px;
+  top: -12px;
+  background-image: url('../../../img/icon/snapchat-bw.png');
+  -webkit-background-size: 40px;
+          background-size: 40px;
 }
 #my-friends-view_back-btn {
   font-size: 1.7rem;
@@ -44,13 +47,19 @@
 }
 
 
-#my-friends-view form {
+#my-friends-view__form {
   position: relative;
-  border-top: thin solid lightgray;
-  border-bottom: thin solid lightgray;
+  border-top: thin solid rgba(150, 150, 150, 0.5);
+  border-bottom: thin solid rgba(150, 150, 150, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 #my-friends-view input {
   position: relative;
   width: 100vw;
-  left: 34px;
+  left: 39px;
+  font-size: 1.2em;
+  padding: 22px 0;
 }

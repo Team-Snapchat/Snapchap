@@ -1,0 +1,42 @@
+#chat-view {
+  height: 100%;
+  background-color: white;
+}
+
+#chat-view__nav-top {
+  background-color: RGBA(60, 178, 226, 1.00);
+}
+#chat-view__nav-bottom {
+  top: calc(100vh - 60px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+#chat-view__flash-btn {
+  background-image: url('../../../img/icon/flash-white.png');
+}
+#chat-view__profile-btn {
+  background-image: url('../../../img/icon/snapchat-white.png');
+}
+#chat-view__switch-camera-btn {
+  background-image: url('../../../img/icon/switch-white.png');
+}
+
+#chat-view__chat-btn {
+  background-image: url('../../../img/icon/chat-gray.png');
+  position: relative;
+}
+#chat-view__take-photo-btn {
+  background-image: url('../../../img/icon/circle-gray-big.png');
+  width: 50px;
+  height: 50px;
+  position: relative;
+  margin: 0 31px;
+  -webkit-background-size: 50px;
+          background-size: 50px;
+}
+#chat-view__dots-btn {
+  background-image: url('../../../img/icon/dots-gray.png');
+  position: relative;
+}

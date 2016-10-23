@@ -1,0 +1,51 @@
+#add-username-view nav {
+  color: rgba(154, 52, 151, 1);
+  font-size: 1.4rem;
+  text-align: center;
+  padding: 18px;
+  margin-top: 10px;
+  background-color: #fff;
+  border-bottom: thin solid lightgray;
+}
+#add-username-view .heading {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  width: 100vw;
+  height: 40px;
+  color: rgba(154, 52, 151, 1);
+}
+#add-username-view_back-btn {
+  font-size: 1.7rem;
+  color: rgba(154, 52, 151, 1);
+  left: 15px;
+  top: 8px;
+}
+
+#add-username-view__form {
+  border-bottom: thin solid lightgray;
+  position: relative;
+  padding: 5px 0;
+}
+
+#add-username-view__form .magnifying-glass {
+  top: 15px;
+}
+
+#add-username-view input {
+  width: 100vw;
+  position: relative;
+  left: 37px;
+  font-size: 1.2em;
+  padding: 22px 0;
+}
+
+.add-username-view__text {
+  margin: 24px 0;
+  line-height: 1em;
+}
+
+.add-username-view__text p {
+  color: rgba(170, 170, 170, 1);;
+  text-align: center;
+}
