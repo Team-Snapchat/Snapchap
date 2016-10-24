@@ -1,6 +1,6 @@
-select users.id, username, user1_id, user2_id
+select users.id, username, initiator, acceptor, first_name, last_name
 from users
 join friendships
-on users.id = friendships.user1_id or users.id = friendships.user2_id
-where users.id != $1 and (user1_id = $1 or user2_id = $1)
+on users.id = friendships.initiator or users.id = friendships.acceptor
+where users.id != $1 and (initiator = $1 or acceptor = $1)
 order by username
