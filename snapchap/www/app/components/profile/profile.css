@@ -11,10 +11,10 @@
 #profile-view__main-content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   position: relative;
-  bottom: 5vh;
+  top: 3vh;
 }
 
 #snap-confetti {

@@ -5,12 +5,12 @@
 #chat-view__nav-top {
   background-color: RGBA(60, 178, 226, 1.00);
 }
-#chat-view__nav-bottom {
+/*#chat-view__nav-bottom {
   top: calc(100vh - 60px);
   display: flex;
   justify-content: center;
   align-items: flex-end;
-}
+}*/
 
 #chat-view__flash-btn {
   background-image: url('../../../img/icon/chat-white.png');
@@ -22,7 +22,7 @@
   background-image: url('../../../img/icon/camera-white.png');
 }
 
-#chat-view__chat-btn {
+/*#chat-view__chat-btn {
   background-image: url('../../../img/icon/chat-gray.png');
   position: relative;
 }
@@ -38,4 +38,4 @@
 #chat-view__dots-btn {
   background-image: url('../../../img/icon/dots-gray.png');
   position: relative;
-}
+}*/

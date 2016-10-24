@@ -1,7 +1,4 @@
 angular.module('snapchat')
-// .factory('BlankFactory', [function(){
-//
-// }])
 .service('mainService', function($http) {
 
 
@@ -20,14 +17,6 @@ angular.module('snapchat')
   this.hideMenu = function() {
     document.getElementById('index-html__nav-bottom').style.display = 'none';
   };
-
-  // this.showMenu = function() {
-  //   document.getElementById('index-html__nav-bottom').style.visibility = 'visible';
-  // };
-  // this.hideMenu = function() {
-  //   document.getElementById('index-html__nav-bottom').style.visibility = 'hidden';
-  // };
-
 
 
 });
