@@ -1,4 +1,4 @@
-angular.module('snapchat').controller('cameraCtrl', function ($scope, $stateParams, mainService) {
+angular.module('snapchat').controller('cameraCtrl', function ($scope, $stateParams, mainService, $cordovaCamera) {
 
   mainService.showMenu();
   $('#index-html__chat-btn, #index-html__take-photo-btn, #index-html__dots-btn').removeClass('chatty-nav profile-nav');
@@ -28,5 +28,38 @@ angular.module('snapchat').controller('cameraCtrl', function ($scope, $statePara
   //     return StatusBar.hide();
   //   }
   // });
+
+  document.addEventListener("deviceready", function(){
+
+
+  $scope.takePicture = function() {
+  var options = {
+    quality: 50,
+    destinationType: Camera.DestinationType.DATA_URL,
+    sourceType: Camera.PictureSourceType.CAMERA,
+    allowEdit: true,
+    encodingType: Camera.EncodingType.JPEG,
+    targetWidth: 400,
+    targetHeight: 500,
+    popoverOptions: CameraPopoverOptions,
+    saveToPhotoAlbum: false,
+    correctOrientation:true
+  };
+
+  $cordovaCamera.getPicture(options).then(function(imageData) {
+    // var image = document.getElementById('myImage');
+    // image.src = "data:image/jpeg;base64," + imageData;
+    $scope.imgURI = "data:image/jpeg;base64," + imageData;
+  }, function(err) {
+    console.log(err);
+    // error
+  });
+
+};
+
+
+
+}, false);
+
 
 });
