@@ -4,7 +4,7 @@ angular.module('snapchat', ['ionic'])
 
     $ionicConfigProvider.backButton.text('').previousTitleText(false);
 
-    $urlRouterProvider.otherwise('/loginsignup')
+    $urlRouterProvider.otherwise('/loginsignup');
 
     $stateProvider
     .state('addedMe', {
