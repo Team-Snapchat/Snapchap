@@ -32,7 +32,7 @@
     <script src="app/mainCtrl.js"></script>
     <script src="app/services/mainService.js"></script>
     <script src="app/services/tempService.js"></script>
-    <script src="app/directives/animateChatNav.js"></script>
+    <script src="app/directives/animateChattyNav.js"></script>
     <script src="app/directives/animateProfileNav.js"></script>
 
     <script src="app/components/addedMe/addedMeCtrl.js"></script>
@@ -45,6 +45,7 @@
     <script src="app/components/logIn/logInCtrl.js"></script>
     <script src="app/components/logInSignUp/logInSignUpCtrl.js"></script>
     <script src="app/components/myFriends/myFriendsCtrl.js"></script>
+    <!-- <script src="app/components/nav/navCtrl.js"></script> -->
     <script src="app/components/editMessage/editMessageCtrl.js"></script>
     <script src="app/components/password/passwordCtrl.js"></script>
     <script src="app/components/profile/profileCtrl.js"></script>
@@ -55,14 +56,15 @@
 
 
   </head>
-  <body ng-controller="mainCtrl" animation="slide-left-right-ios7">
+  <!-- <body ng-controller="mainCtrl" animation="slide-left-right-ios7"> -->
+  <body ng-controller="mainCtrl">
     <!-- <ion-nav-bar></ion-nav-bar> -->
     <ion-nav-view></ion-nav-view>
 
     <nav id="index-html__nav-bottom" class="nav-bottom">
-        <button id="index-html__chat-btn" class="icon-btn" ui-sref="chat" ui-sref-active="active-state" animate-chat-nav ng-click="addChattyNav()"></button>
-        <button id="index-html__take-photo-btn" class="icon-btn" ui-sref="camera" ui-sref-active="active-state" ng-click="takePhoto(); removeChattyNav(); removeProfileNav()" animate-chat-nav animate-profile-nav></button>
-        <button id="index-html__dots-btn" class="icon-btn" ui-sref-active="active-state"></button>
+      <button id="index-html__chat-btn" class="icon-btn" ui-sref="chat" animate-chatty-nav="" ng-click="addChattyNav()"></button>
+      <button id="index-html__take-photo-btn" class="icon-btn" ui-sref="camera" ng-click="takePhoto(); removeChattyNav(); removeProfileNav()" animate-chatty-nav="" animate-profile-nav=""></button>
+      <button id="index-html__dots-btn" class="icon-btn"></button>
     </nav>
 
     <!-- <ion-pane>

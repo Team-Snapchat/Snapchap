@@ -1,5 +1,5 @@
 angular.module('snapchat')
-.directive('animateChatNav', function() {
+.directive('animateChattyNav', function() {
   return {
 
     restrict: 'AE',

@@ -2,4 +2,9 @@ angular.module('snapchat').controller('signUpCtrl', function ($scope, $statePara
 
   mainService.hideMenu();
 
+  $scope.showMenu = function() {
+    mainService.showMenu();
+  };
+
+
 });

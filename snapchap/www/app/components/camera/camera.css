@@ -14,7 +14,7 @@
 }
 
 
-#camera-view__nav-bottom {
+/*#camera-view__nav-bottom {
   top: calc(100vh - 60px);
 }
 #camera-view__nav-bottom .icon-btn {
@@ -34,4 +34,4 @@
 }
 #camera-view__dots-btn {
   background-image: url('../../../img/icon/dots-white.png');
-}
+}*/

@@ -12,6 +12,7 @@
 @import "./app/components/myFriends/myFriends.css";
 @import "./app/components/logInSignUp/logInSignUp.css";
 @import "./app/components/logIn/logIn.css";
+/*@import "./app/components/nav/nav.css";*/
 @import "./app/components/profile/profile.css";
 @import "./app/components/settings/settings.css";
 @import "./app/components/signUp/signUp.css";
@@ -33,8 +34,8 @@
   bottom: 4px;
 }
 
-.nav-top {
-/*.nav-top, .nav-bottom {*/
+/*.nav-top {*/
+.nav-top, .nav-bottom {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -66,13 +67,13 @@
 }
 .icon-btn {
   display: inline-block;
-  width: 27px;
-  height: 27px;
+  width: 29px;
+  height: 29px;
   border: 0px;
   background-color: rgba(255, 255, 255, 0);
   background-repeat: no-repeat;
-  -webkit-background-size: 27px;
-          background-size: 27px;
+  -webkit-background-size: 29px;
+          background-size: 29px;
 }
 
 .back-btn, .forward-btn {
@@ -108,19 +109,6 @@
   color: RGBA(50, 125, 233, 1.00);
 }
 
-/*.active-state:after {
-  content: '';
-  height: 5px;
-  width: 40px;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: -10px;
-  background-color: white;
-  border-radius: 5px;
-}*/
-
-
 
 #index-html__nav-bottom {
   display: flex;
@@ -130,8 +118,8 @@
   top: calc(100vh - 60px);
   height: 60px;
   width: 100vw;
-  padding: 22px 11px 11px 11px;
-  z-index: 3;
+  /*padding: 22px 11px 11px 11px;*/
+  z-index: 4;
   transition: justify-content 0.3s;
 }
 
@@ -141,17 +129,17 @@
 }
 
 
-
-
 #index-html__chat-btn {
-  background-image: url('../../../img/icon/chat-white.png');
+  background-image: url('./img/icon/chat-white.png');
   left: 7vw;
   opacity: 1;
   transition: left 0.3s, opacity 0.3s;
+  display: flex;
 }
 #index-html__chat-btn.chatty-nav {
-  background-image: url('../../../img/icon/chat-gray.png');
+  background-image: url('./img/icon/chat-gray.png');
   left: 24vw;
+  display: flex;
 }
 #index-html__chat-btn.chatty-nav:after {
   content: '';
@@ -166,41 +154,57 @@
 }
 #index-html__chat-btn.profile-nav {
   opacity: 0;
+  display: none;
 }
 
 
 #index-html__take-photo-btn {
-  background-image: url('../../../img/icon/circle-white-big.png');
-  width: 80px;
-  height: 80px;
-  /*margin: 0 40px;*/
-  -webkit-background-size: 80px;
-          background-size: 80px;
+  background-image: url('./img/icon/circle-white-big.png');
+  left: 50%;
+  bottom: 3vh;
+  transform: translateX(-50%);
+  width: 85px;
+  height: 85px;
+  -webkit-background-size: 85px;
+          background-size: 85px;
   transition: -webkit-background-size 0.3s, background-size 0.3s, width 0.3s, height 0.3s, background-image 0.3s;
 }
 #index-html__take-photo-btn.chatty-nav,
 #index-html__take-photo-btn.profile-nav {
-  background-image: url('../../../img/icon/circle-gray-big.png');
+  background-image: url('./img/icon/circle-gray-big.png');
   width: 58px;
   height: 58px;
   -webkit-background-size: 58px;
           background-size: 58px;
 }
 #index-html__take-photo-btn.profile-nav {
-  background-image: url('../../../img/icon/circle-white-big.png');
+  background-image: url('./img/icon/circle-white-big.png');
 }
 
 
 #index-html__dots-btn {
-  background-image: url('../../../img/icon/dots-white.png');
+  background-image: url('./img/icon/dots-white.png');
   right: 7vw;
   opacity: 1;
   transition: right 0.3s, opacity 0.3s;
+  display: flex;
 }
 #index-html__dots-btn.chatty-nav {
-  background-image: url('../../../img/icon/dots-gray.png');
+  background-image: url('./img/icon/dots-gray.png');
   right: 24vw;
+  display: flex;
 }
 #index-html__dots-btn.profile-nav {
   opacity: 0;
+  display: none;
 }
+
+
+/*.unicorn {
+  z-index: 100;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+}*/

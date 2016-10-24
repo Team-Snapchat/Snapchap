@@ -43,6 +43,12 @@ angular.module('snapchat', ['ionic'])
       controller: 'chatCtrl'
     })
 
+    .state('editMessage', {
+      url: '/editMessage',
+      templateUrl: 'app/components/editMessage/editMessage.html',
+      controller: 'editMessageCtrl'
+    })
+
     .state('email', {
       url: '/email',
       templateUrl: 'app/components/email/email.html',
@@ -67,11 +73,11 @@ angular.module('snapchat', ['ionic'])
       controller: 'myFriendsCtrl'
     })
 
-    .state('editMessage', {
-      url: '/editmessage',
-      templateUrl: 'app/components/editMessage/editMessage.html',
-      controller: 'editMessageCtrl'
-    })
+    // .state('nav', {
+    //   url: '/nav',
+    //   templateUrl: 'app/components/nav/nav.html',
+    //   controller: 'navCtrl'
+    // })
 
     .state('password', {
       url: '/password',
