@@ -1,4 +1,6 @@
-var app = require('./server.js');
+var server = require('./server.js');
+var app = server.app 
+var io = server.io
 var db = app.get('db');
 
 
@@ -23,14 +25,22 @@ module.exports = {
  uploadMessage: function(req, res){
    db.upload_message([req.body.senderId, req.body.recipientId, req.body.message], function(err, pending_messages){
       if(err) console.log(err);
-      else res.status(200)
+      else {
+        io.emit('getPendingMessages',{test: '.io working!!!'});
+        res.status(200).send('return through .then')
+      }
     })
  },
 
  getMessages: function(req, res){
    db.get_messages([req.params.id], function(err, pending_messages){
       if(err) console.log(err);
-      else res.status(200).send(pending_messages)
+      
+
+      else {
+        
+        res.status(200).send(pending_messages)
+      }
     })
   },
 
