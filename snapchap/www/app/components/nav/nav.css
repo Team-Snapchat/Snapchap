@@ -1,0 +1,102 @@
+/*#index-html__nav-bottom {
+  display: flex;
+  background-color: red;
+  align-items: flex-end;
+  justify-content: center;
+  position: absolute;
+  top: calc(100vh - 60px);
+  height: 60px;
+  width: 100vw;
+  padding: 22px 11px 11px 11px;
+  z-index: 4;
+  transition: justify-content 0.3s;
+}
+
+#index-html__nav-bottom .icon-btn {
+  position: absolute;
+  bottom: 4vh;
+  z-index: 4;
+}
+
+
+#index-html__chat-btn {
+  background-image: url('../../../img/icon/chat-white.png');
+  left: 7vw;
+  opacity: 1;
+  transition: left 0.3s, opacity 0.3s;
+  z-index: 4;
+}
+#index-html__chat-btn.chatty-nav {
+  background-image: url('../../../img/icon/chat-gray.png');
+  left: 24vw;
+  z-index: 4;
+}
+#index-html__chat-btn.chatty-nav:after {
+  content: '';
+  height: 5px;
+  width: 40px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
+  background-color: rgba(200, 200, 200, 1);
+  border-radius: 5px;
+  z-index: 4;
+}
+#index-html__chat-btn.profile-nav {
+  opacity: 0;
+  z-index: 4;
+}
+
+
+#index-html__take-photo-btn {
+  background-image: url('../../../img/icon/circle-white-big.png');
+  width: 80px;
+  height: 80px;
+  /*margin: 0 40px;*/
+  -webkit-background-size: 80px;
+          background-size: 80px;
+  transition: -webkit-background-size 0.3s, background-size 0.3s, width 0.3s, height 0.3s, background-image 0.3s;
+  z-index: 4;
+}
+#index-html__take-photo-btn.chatty-nav,
+#index-html__take-photo-btn.profile-nav {
+  background-image: url('../../../img/icon/circle-gray-big.png');
+  width: 58px;
+  height: 58px;
+  -webkit-background-size: 58px;
+          background-size: 58px;
+          z-index: 4;
+}
+#index-html__take-photo-btn.profile-nav {
+  background-image: url('../../../img/icon/circle-white-big.png');
+  z-index: 4;
+}
+
+
+#index-html__dots-btn {
+  background-image: url('../../../img/icon/dots-white.png');
+  right: 7vw;
+  opacity: 1;
+  transition: right 0.3s, opacity 0.3s;
+  z-index: 4;
+}
+#index-html__dots-btn.chatty-nav {
+  background-image: url('../../../img/icon/dots-gray.png');
+  right: 24vw;
+  z-index: 4;
+}
+#index-html__dots-btn.profile-nav {
+  opacity: 0;
+  z-index: 4;
+}
+
+
+.unicorn {
+  z-index: 100;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+}*/

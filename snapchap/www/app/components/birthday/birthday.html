@@ -1,7 +1,31 @@
-<ion-view title="Birthday" id="page15">
-    <ion-content padding="true" class="has-header">
-        <form id="birthday-form4" class="list">
-            <ion-toggle toggle-class="toggle-positive" id="birthday-toggle1">Birthday Party</ion-toggle>
-        </form>
+<ion-view title="Birthday" id="birthday-view">
+
+    <ion-content>
+
+
+      <nav>
+        <button ui-sref="settings" id="birthday-view__back-btn" class="back-btn"><</button>
+        <div class="nav-top-heading">Birthday</div>
+      </nav>
+
+      <div id="birthday-warning">
+        Choose carefully — you can only change your birthday a limited number of times.
+      </div>
+      <div id="birth-date">
+          January 1, 1991
+      </div>
+      <form>
+          <ion-toggle toggle-class="toggle-positive">
+            Birthday Party
+            <div id="birthday-text">
+            Adds a 🎂 &nbsp;next to your name on your<br> birthday, allows your friends to send you<br> Birthday Snaps, and some other fun<br> surprises. This does not reveal your age to<br> other Snapchatters.
+            </div>
+          </ion-toggle>
+
+      </form>
+
+
     </ion-content>
+
+
 </ion-view>

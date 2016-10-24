@@ -1,0 +1,65 @@
+#my-friends-view nav {
+  color: #9A3497;
+  font-size: 0.7rem;
+  text-align: center;
+  padding: 18px;
+  margin-top: 10px;
+  background-color: #fff;
+}
+#my-friends-view .heading {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  width: 100vw;
+  height: 40px;
+  color: #9A3497;
+  margin-bottom: -5px;
+}
+#my-friends-view ul {
+  font-size: 1rem;
+}
+#my-friends-view li {
+  color: black;
+  padding: 17px 0;
+  border-bottom: thin solid rgba(150, 150, 150, 0.5);
+  position: relative;
+}
+#my-friends-view ul>li>span {
+  position: relative;
+  left: 70px;
+}
+#my-friends-view ul>li>span:before {
+  content: '';
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  left: -55px;
+  top: -12px;
+  background-image: url('../../../img/icon/snapchat-bw.png');
+  -webkit-background-size: 40px;
+          background-size: 40px;
+}
+#my-friends-view_back-btn {
+  font-size: 1.7rem;
+  color: #9A3497;
+  left: 15px;
+  top: 8px;
+}
+
+
+#my-friends-view__form {
+  position: relative;
+  border-top: thin solid rgba(150, 150, 150, 0.5);
+  border-bottom: thin solid rgba(150, 150, 150, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#my-friends-view input {
+  position: relative;
+  width: 100vw;
+  left: 39px;
+  font-size: 1.2em;
+  padding: 22px 0;
+}

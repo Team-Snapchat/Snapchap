@@ -1,0 +1,33 @@
+#log-in-sign-up-view__main {
+  width: 100vw;
+  height: 75vh;
+  background-color: yellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#log-in-sign-up-view__ghost {
+  position: relative;
+  bottom: 17px;
+  height: 75px;
+  width: 75px;
+  background-image: url('../../../img/icon/snapchat-bw.gif');
+  background-repeat: no-repeat;
+  -webkit-background-size: 75px;
+          background-size: 75px;
+}
+
+.log-in-sign-up-view__btn {
+  width: 100%;
+  height: 12.5vh;
+  width: 100vw;
+  font-size: 1.64em;
+}
+
+#log-in-btn {
+  background-color: RGBA(233, 39, 84, 1.00);
+}
+
+#sign-up-btn {
+  background-color: RGBA(60, 178, 226, 1.00);
+}

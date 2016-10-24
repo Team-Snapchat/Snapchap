@@ -5,9 +5,7 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' http://localhost:8100 ws://localhost:35729 data: gap: https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *;script-src 'self' localhost:35729 'unsafe-eval' 'unsafe-inline';"> -->
     <title>Snapchat</title>
-
     <link rel="manifest" href="manifest.json">
-
     <!-- un-comment this code to enable service worker
     <script>
       if ('serviceWorker' in navigator) {
@@ -16,7 +14,6 @@
           .catch(err => console.log('Error', err));
       }
     </script>-->
-
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="./main.css" rel="stylesheet">
 
@@ -25,15 +22,19 @@
     -->
 
     <!-- ionic/angularjs js -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
     <script src="app/app.js"></script>
-    <!-- <script src="js/routes.js"></script> -->
     <script src="app/mainCtrl.js"></script>
     <script src="app/services/mainService.js"></script>
+    <script src="app/services/tempService.js"></script>
+    <script src="app/directives/animateChattyNav.js"></script>
+    <script src="app/directives/animateProfileNav.js"></script>
+
     <script src="app/components/addedMe/addedMeCtrl.js"></script>
     <script src="app/components/addFriends/addFriendsCtrl.js"></script>
     <script src="app/components/addUsername/addUsernameCtrl.js"></script>
@@ -44,6 +45,7 @@
     <script src="app/components/logIn/logInCtrl.js"></script>
     <script src="app/components/logInSignUp/logInSignUpCtrl.js"></script>
     <script src="app/components/myFriends/myFriendsCtrl.js"></script>
+    <!-- <script src="app/components/nav/navCtrl.js"></script> -->
     <script src="app/components/editMessage/editMessageCtrl.js"></script>
     <script src="app/components/password/passwordCtrl.js"></script>
     <script src="app/components/profile/profileCtrl.js"></script>
@@ -54,9 +56,17 @@
 
 
   </head>
-  <body ng-controller="mainCtrl" animation="slide-left-right-ios7">
+  <!-- <body ng-controller="mainCtrl" animation="slide-left-right-ios7"> -->
+  <body ng-controller="mainCtrl">
     <!-- <ion-nav-bar></ion-nav-bar> -->
     <ion-nav-view></ion-nav-view>
+
+    <nav id="index-html__nav-bottom" class="nav-bottom">
+      <button id="index-html__chat-btn" class="icon-btn" ui-sref="chat" animate-chatty-nav="" ng-click="addChattyNav()"></button>
+      <button id="index-html__take-photo-btn" class="icon-btn" ui-sref="camera" ng-click="takePhoto(); removeChattyNav(); removeProfileNav()" animate-chatty-nav="" animate-profile-nav=""></button>
+      <button id="index-html__dots-btn" class="icon-btn"></button>
+    </nav>
+
     <!-- <ion-pane>
       <ion-header-bar class="bar-stable">
         <h1 class="title">Ionic Blank Starter</h1>

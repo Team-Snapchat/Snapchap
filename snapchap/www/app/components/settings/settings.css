@@ -1,0 +1,35 @@
+#settings-view .nav-top-heading {
+  color: #00A686;
+  text-align: center;
+  padding: 18px;
+  border-bottom: thin solid rgba(150, 150, 150, 0.3);
+  margin-top: 10px;
+}
+#settings-view .heading {
+  display: flex;
+  align-items: center;
+  background-color: rgba(244, 244, 244, 1);
+  padding-left: 14px;
+  width: 100vw;
+  height: 34px;
+  border-bottom: thin solid rgba(150, 150, 150, 0.3);
+  /*font-size: 0.85rem;*/
+  color: #00A686;
+  margin-left: 0px;
+}
+#settings-view ul {
+  font-size: 1.1rem;
+}
+#settings-view li {
+  color: black;
+  border-bottom: thin solid rgba(150, 150, 150, 0.3);
+  padding: 13px 14px;
+}
+
+#settings-view__back-btn {
+  z-index: 1;
+  color: #00A686;
+}
+#settings-view .forward-btn {
+  color: gray;
+}

@@ -1,244 +1,95 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  COMPONENT STYLES
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 @import url('https://fonts.googleapis.com/css?family=Quicksand');
+@import url('https://fonts.googleapis.com/css?family=Lato:700');
+@import "./app/components/addedMe/addedMe.css";
+@import "./app/components/addFriends/addFriends.css";
+@import "./app/components/addUsername/addUsername.css";
+@import "./app/components/birthday/birthday.css";
+@import "./app/components/camera/camera.css";
+@import "./app/components/chat/chat.css";
+@import "./app/components/myFriends/myFriends.css";
+@import "./app/components/logInSignUp/logInSignUp.css";
+@import "./app/components/logIn/logIn.css";
+/*@import "./app/components/nav/nav.css";*/
+@import "./app/components/profile/profile.css";
+@import "./app/components/settings/settings.css";
+@import "./app/components/signUp/signUp.css";
 
 
-#camera-view {
-  height: 100%;
-  background-color: rgb(50, 50, 50);
-}
-
-#camera-view__nav-top, #camera-view__nav-bottom {
-  display: flex;
-  justify-content: space-between;
-  height: 80px;
-  width: 100vw;
-  position: absolute;
-  top: 0px;
-}
-
-#camera-view__nav-bottom {
-  top: calc(100vh - 80px);
-}
-
-#camera-view__flash-btn, #camera-view__profile-btn, #camera-view__switch-camera-btn, #camera-view__chat-btn, #camera-view__take-photo-btn, #camera-view__dots-btn {
-  background-color: rgba(255, 255, 255, 0);
-  width: 40px;
-  height: 40px;
-  margin: 24px;
-  border: 0px;
-  -webkit-background-size: 40px;
-          background-size: 40px;
-}
-#camera-view__flash-btn {
-  background-image: url('./img/icon/flash-white.png');
-}
-#camera-view__profile-btn {
-  background-image: url('./img/icon/snap-white.png');
-}
-#camera-view__switch-camera-btn {
-  background-image: url('./img/icon/switch-white.png');
-}
-#camera-view__chat-btn {
-  background-image: url('./img/icon/chat-white.png');
-}
-#camera-view__take-photo-btn {
-  background-image: url('./img/icon/circle-white-big.png');
-  width: 80px;
-  height: 80px;
-  position: relative;
-  bottom: 40px;
-  -webkit-background-size: 80px;
-          background-size: 80px;
-}
-#camera-view__dots-btn {
-  background-image: url('./img/icon/chat-white.png');
-}
-
-
-#profile-view {
-  height: 100%;
-  background-color: rgb(20, 20, 20);
-  color: white;
-}
-
-#profile-view__main-content {
-  display: block;
-  align-items: center;
-  position: relative;
-  top: 110px;
-  text-align: center;
-  cursor: pointer;
-}
-#snap-confetti {
-  height: 50%;
-  width: 50%;
-}
-
-#profile-view__nav-top {
-  display: flex;
-  justify-content: space-between;
-  height: 80px;
-  width: 100vw;
-  position: absolute;
-  top: 0px;
-}
-
-#profile-view__share-btn, #profile-view__trophy-btn, #profile-view__settings-btn, #profile-view__camera-btn {
-  background-color: rgba(255, 255, 255, 0);
-  width: 40px;
-  height: 40px;
-  margin: 24px;
-  border: 0px;
-  -webkit-background-size: 40px;
-          background-size: 40px;
-}
-#profile-view__share-btn {
-  background-image: url('./img/icon/share-white.png');
-}
-#profile-view__trophy-btn {
-  background-image: url('./img/icon/trophy-white.png');
-}
-#profile-view__settings-btn {
-  background-image: url('./img/icon/settings-white.png');
-}
-
-.profile-view__main-content-btn {
-  font-size: 1.4rem;
-  margin: 37px 0;
-}
-
-.profile-view__display-name {
-  font-size: 1.05rem;
-}
-
-.profile-view__username {
-  font-size: .85rem;
-  margin: -10px 0;
-}
-
-#profile-view__camera-btn {
-  background-image: url('./img/icon/circle-white-big.png');
-  position: absolute;
-  left: 50%;
-  transform: translateX(-100%);
-  width: 64px;
-  height: 64px;
-  margin: 24px;
-  -webkit-background-size: 64px;
-          background-size: 64px;
-  cursor: pointer;
-}
-
-
-
-#settings-view nav {
-  color: #00A686;
-  font-size: 1.4rem;
-  text-align: center;
-  padding: 18px;
-  border-bottom: thin solid lightgray;
-  margin-top: 10px;
-}
-#settings-view span {
-  display: flex;
-  align-items: center;
-  background-color: rgba(244, 244, 244, 1);
-  padding-left: 10px;
-  width: 100vw;
-  height: 40px;
-  border-bottom: thin solid lightgray;
-  font-size: 0.85rem;
-}
-#settings-view ul {
-  color: #00A686;
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  UNIVERSAL STYLES
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.heading {
+  font-size: 0.8rem;
   margin-left: 9px;
+}
+
+.nav-top-heading {
+  font-size: 1.4rem;
+  color: white;
+  font-family: 'Lato', sans-serif;
+  position: relative;
+  bottom: 4px;
+}
+
+/*.nav-top {*/
+.nav-top, .nav-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 60px;
+  width: 100vw;
+  position: absolute;
+  top: 0px;
+  padding: 22px 11px 11px 11px;
+  z-index: 3;
+}
+
+.input {
+  border: 0;
+  border-bottom: thin solid lightgray;
   font-size: 1.1rem;
 }
-#settings-view li {
-  color: black;
-  padding: 13px 9px;
-  border-bottom: thin solid lightgray;
+
+.btn {
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 2px;
+  border: 0;
+  color: white;
+  font-weight: bolder;
+  display: block;
+}
+.pill-btn {
+  padding: 9px 27px;
+  border-radius: 22px;
+}
+.icon-btn {
+  display: inline-block;
+  width: 29px;
+  height: 29px;
+  border: 0px;
+  background-color: rgba(255, 255, 255, 0);
+  background-repeat: no-repeat;
+  -webkit-background-size: 29px;
+          background-size: 29px;
 }
 
 .back-btn, .forward-btn {
   font-family: 'Quicksand', sans-serif;
-  position: absolute;
   border: 0;
   background-color: rgba(255, 255, 255, 0);
-}
-#settings-view_back-btn {
-  font-size: 1.7rem;
-  color: #00A686;
-  left: 15px;
-  top: 8px;
-}
-#settings-view .forward-btn {
   position: absolute;
-  right: 15px;
   color: gray;
 }
-
-
-
-
-
-
-#my-friends-view nav {
-  color: #9A3497;
-  font-size: 0.7rem;
-  text-align: center;
-  padding: 18px;
-  margin-top: 10px;
-  background-color: #fff;
-}
-#my-friends-view span {
-  display: flex;
-  align-items: center;
-  padding-left: 10px;
-  width: 100vw;
-  height: 40px;
-  font-size: 0.8rem;
-}
-#my-friends-view ul {
-  color: #9A3497;
-  margin-left: 9px;
-  font-size: 1rem;
-}
-#my-friends-view li {
-  color: black;
-  padding: 13px 9px;
-  border-bottom: thin solid lightgray;
-  position: relative;
-  left: 55px;
-}
-#my-friends-view li:before {
-  content: '';
-  height: 50px;
-  width: 50px;
-  position: absolute;
-  left: -55px;
-  top: 0px;
-  /*background-color: red;*/
-  background-image: url('./img/icon/ghost.png');
-  -webkit-background-size: 50px;
-          background-size: 50px;
-}
-#my-friends-view_back-btn {
-  font-size: 1.7rem;
-  color: #9A3497;
+.back-btn {
+  font-size: 1.55rem;
   left: 15px;
-  top: 8px;
+  top: 9px;
 }
-
-
-#my-friends-view form {
-  position: relative;
-  border-top: thin solid lightgray;
-  border-bottom: thin solid lightgray;
-}
-#my-friends-view input {
-  position: relative;
-  width: 100vw;
-  left: 34px;
+.forward-btn {
+  right: 15px;
 }
 
 .magnifying-glass {
@@ -249,6 +100,111 @@
   -webkit-background-size: 17px;
           background-size: 17px;
   position: absolute;
-  left: 10px;
+  left: 15px;
   top: 10px;
 }
+
+.text-link {
+  font-size: 0.8rem;
+  color: RGBA(50, 125, 233, 1.00);
+}
+
+
+#index-html__nav-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: absolute;
+  top: calc(100vh - 60px);
+  height: 60px;
+  width: 100vw;
+  /*padding: 22px 11px 11px 11px;*/
+  z-index: 4;
+  transition: justify-content 0.3s;
+}
+
+#index-html__nav-bottom .icon-btn {
+  position: absolute;
+  bottom: 4vh;
+}
+
+
+#index-html__chat-btn {
+  background-image: url('./img/icon/chat-white.png');
+  left: 7vw;
+  opacity: 1;
+  transition: left 0.3s, opacity 0.3s;
+  display: flex;
+}
+#index-html__chat-btn.chatty-nav {
+  background-image: url('./img/icon/chat-gray.png');
+  left: 24vw;
+  display: flex;
+}
+#index-html__chat-btn.chatty-nav:after {
+  content: '';
+  height: 5px;
+  width: 40px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
+  background-color: rgba(200, 200, 200, 1);
+  border-radius: 5px;
+}
+#index-html__chat-btn.profile-nav {
+  opacity: 0;
+  display: none;
+}
+
+
+#index-html__take-photo-btn {
+  background-image: url('./img/icon/circle-white-big.png');
+  left: 50%;
+  bottom: 3vh;
+  transform: translateX(-50%);
+  width: 85px;
+  height: 85px;
+  -webkit-background-size: 85px;
+          background-size: 85px;
+  transition: -webkit-background-size 0.3s, background-size 0.3s, width 0.3s, height 0.3s, background-image 0.3s;
+}
+#index-html__take-photo-btn.chatty-nav,
+#index-html__take-photo-btn.profile-nav {
+  background-image: url('./img/icon/circle-gray-big.png');
+  width: 58px;
+  height: 58px;
+  -webkit-background-size: 58px;
+          background-size: 58px;
+}
+#index-html__take-photo-btn.profile-nav {
+  background-image: url('./img/icon/circle-white-big.png');
+}
+
+
+#index-html__dots-btn {
+  background-image: url('./img/icon/dots-white.png');
+  right: 7vw;
+  opacity: 1;
+  transition: right 0.3s, opacity 0.3s;
+  display: flex;
+}
+#index-html__dots-btn.chatty-nav {
+  background-image: url('./img/icon/dots-gray.png');
+  right: 24vw;
+  display: flex;
+}
+#index-html__dots-btn.profile-nav {
+  opacity: 0;
+  display: none;
+}
+
+
+/*.unicorn {
+  z-index: 100;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+}*/

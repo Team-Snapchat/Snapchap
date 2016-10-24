@@ -1,4 +1,5 @@
-angular.module('snapchat').controller('logInSignUpCtrl', function ($scope, $stateParams) {
+angular.module('snapchat').controller('logInSignUpCtrl', function ($scope, $stateParams, mainService) {
 
+  mainService.hideMenu();
 
 });

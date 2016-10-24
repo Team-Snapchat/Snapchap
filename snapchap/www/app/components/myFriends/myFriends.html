@@ -1,22 +1,38 @@
 <ion-view title="My Friends" id="my-friends-view">
 
     <ion-content>
+
         <nav>
-          <button ui-sref="profile" id="my-friends-view_back-btn" class="back-btn"><</button>
+          <button ui-sref="profile" id="my-friends-view_back-btn" class="back-btn" ng-click="showMenu()"><</button>
           FRIENDS
         </nav>
-        <form>
+
+        <form id="my-friends-view__form">
             <span class="magnifying-glass"></span>
             <input type="text" placeholder="Search">
         </form>
 
-        <ul><span>BEST FRIENDS</span>
-          <li>Best Friends</li>
+        <p class="heading">BEST FRIENDS</p>
+        <ul>
+          <li>
+            <span>Molly</span>
+          </li>
+          <li>
+            <span>Ronald</span>
+          </li>
+          <li>
+            <span>Lucy</span>
+          </li>
         </ul>
 
-        <span>MY FRIENDS</span>
+        <p class="heading">MY FRIENDS</p>
+
         <ul ng-repeat="friend in friends">
-          <li>{{friend.username}}</li>
+          <li>
+            <span>{{friend.username}}</span>
+          </li>
         </ul>
+
     </ion-content>
+
 </ion-view>
