@@ -26,7 +26,8 @@
   padding: 13px 14px;
 }
 
-#settings-view_back-btn {
+#settings-view__back-btn {
+  z-index: 1;
   color: #00A686;
 }
 #settings-view .forward-btn {

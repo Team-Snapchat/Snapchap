@@ -1,11 +1,12 @@
 <ion-view title="Settings" id="settings-view">
     <ion-content>
       <nav>
-        <button ui-sref="profile" id="settings-view_back-btn" class="back-btn"><</button>
+        <button ui-sref="profile" ng-click="showMenu()" id="settings-view__back-btn" class="back-btn"><</button>
         <div class="nav-top-heading">Settings</div>
       </nav>
 
-        <span class="heading">MY ACCOUNT</span>    <ul>
+      <span class="heading">MY ACCOUNT</span>    
+      <ul>
         <li>Name<button ui-sref="name" class="forward-btn">></button></li>
         <li>Username<button ui-sref="username" class="forward-btn">></button></li>
         <li>Birthday<button ui-sref="birthday" class="forward-btn">></button></li>

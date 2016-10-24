@@ -1,6 +1,5 @@
 #chat-view {
   height: 100%;
-  background-color: white;
 }
 
 #chat-view__nav-top {
@@ -14,13 +13,13 @@
 }
 
 #chat-view__flash-btn {
-  background-image: url('../../../img/icon/flash-white.png');
+  background-image: url('../../../img/icon/chat-white.png');
 }
 #chat-view__profile-btn {
   background-image: url('../../../img/icon/snapchat-white.png');
 }
-#chat-view__switch-camera-btn {
-  background-image: url('../../../img/icon/switch-white.png');
+#chat-view__camera-btn {
+  background-image: url('../../../img/icon/camera-white.png');
 }
 
 #chat-view__chat-btn {

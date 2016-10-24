@@ -13,10 +13,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+  bottom: 5vh;
 }
 
 #snap-confetti {
-  margin-top: 10vh;
+  /*margin-top: 10vh;*/
   height: 50vw;
   width: 50vw;
   position: relative;

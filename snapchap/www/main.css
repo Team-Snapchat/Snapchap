@@ -6,6 +6,7 @@
 @import "./app/components/addedMe/addedMe.css";
 @import "./app/components/addFriends/addFriends.css";
 @import "./app/components/addUsername/addUsername.css";
+@import "./app/components/birthday/birthday.css";
 @import "./app/components/camera/camera.css";
 @import "./app/components/chat/chat.css";
 @import "./app/components/myFriends/myFriends.css";
@@ -25,13 +26,15 @@
 }
 
 .nav-top-heading {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: white;
   font-family: 'Lato', sans-serif;
+  position: relative;
+  bottom: 4px;
 }
 
-.nav-top,
-.nav-bottom {
+.nav-top {
+/*.nav-top, .nav-bottom {*/
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -40,8 +43,7 @@
   position: absolute;
   top: 0px;
   padding: 22px 11px 11px 11px;
-  /*border-top: thin dotted red;
-  border-bottom: thin dotted red;*/
+  z-index: 3;
 }
 
 .input {
@@ -64,13 +66,13 @@
 }
 .icon-btn {
   display: inline-block;
-  width: 24px;
-  height: 24px;
+  width: 27px;
+  height: 27px;
   border: 0px;
   background-color: rgba(255, 255, 255, 0);
   background-repeat: no-repeat;
-  -webkit-background-size: 24px;
-          background-size: 24px;
+  -webkit-background-size: 27px;
+          background-size: 27px;
 }
 
 .back-btn, .forward-btn {
@@ -104,4 +106,101 @@
 .text-link {
   font-size: 0.8rem;
   color: RGBA(50, 125, 233, 1.00);
+}
+
+/*.active-state:after {
+  content: '';
+  height: 5px;
+  width: 40px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
+  background-color: white;
+  border-radius: 5px;
+}*/
+
+
+
+#index-html__nav-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: absolute;
+  top: calc(100vh - 60px);
+  height: 60px;
+  width: 100vw;
+  padding: 22px 11px 11px 11px;
+  z-index: 3;
+  transition: justify-content 0.3s;
+}
+
+#index-html__nav-bottom .icon-btn {
+  position: absolute;
+  bottom: 4vh;
+}
+
+
+
+
+#index-html__chat-btn {
+  background-image: url('../../../img/icon/chat-white.png');
+  left: 7vw;
+  opacity: 1;
+  transition: left 0.3s, opacity 0.3s;
+}
+#index-html__chat-btn.chatty-nav {
+  background-image: url('../../../img/icon/chat-gray.png');
+  left: 24vw;
+}
+#index-html__chat-btn.chatty-nav:after {
+  content: '';
+  height: 5px;
+  width: 40px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
+  background-color: rgba(200, 200, 200, 1);
+  border-radius: 5px;
+}
+#index-html__chat-btn.profile-nav {
+  opacity: 0;
+}
+
+
+#index-html__take-photo-btn {
+  background-image: url('../../../img/icon/circle-white-big.png');
+  width: 80px;
+  height: 80px;
+  /*margin: 0 40px;*/
+  -webkit-background-size: 80px;
+          background-size: 80px;
+  transition: -webkit-background-size 0.3s, background-size 0.3s, width 0.3s, height 0.3s, background-image 0.3s;
+}
+#index-html__take-photo-btn.chatty-nav,
+#index-html__take-photo-btn.profile-nav {
+  background-image: url('../../../img/icon/circle-gray-big.png');
+  width: 58px;
+  height: 58px;
+  -webkit-background-size: 58px;
+          background-size: 58px;
+}
+#index-html__take-photo-btn.profile-nav {
+  background-image: url('../../../img/icon/circle-white-big.png');
+}
+
+
+#index-html__dots-btn {
+  background-image: url('../../../img/icon/dots-white.png');
+  right: 7vw;
+  opacity: 1;
+  transition: right 0.3s, opacity 0.3s;
+}
+#index-html__dots-btn.chatty-nav {
+  background-image: url('../../../img/icon/dots-gray.png');
+  right: 24vw;
+}
+#index-html__dots-btn.profile-nav {
+  opacity: 0;
 }
