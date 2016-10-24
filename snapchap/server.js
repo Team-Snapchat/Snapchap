@@ -13,7 +13,7 @@ var config = require('./config.js');
 var app = module.exports = express();
 
 var db = massive.connectSync({
-  connectionString: 'postgres://ashman@localhost:5432/snap'
+  connectionString: 'postgres://postgres@localhost:5432/snap'
 });
 
 var app = module.exports = express();
@@ -29,25 +29,15 @@ app.use(express.static(__dirname + '/www'));
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   ENDPOINTS
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-// app.get('/api/users', controller.getUsers);
-// app.get('/api/users/:id', controller.getThisUser);
-// app.post('/api/users', controller.postUser);
-// app.put('/api/users/info', controller.updateUserInfo);
-// app.put('/api/users/password', controller.updatePassword);
+
 app.get('/user/friends/:id', controller.getUserFriends);
-// app.post('/user/friend/:id/:friend', controller.addUserFriend);
-// app.delete('/user/friend/:id1/:id2', controller.unfriendUserFriend);
-//
-// app.get('/api/orders/unfilled', controller.getUnfilledOrders);
-// app.get('/api/orders/filled', controller.getFilledOrders);
-// app.get('/api/orders/:id', controller.getUserOrders);
-// app.get('/api/orders/details/:id', controller.getOrderDetails);
-// app.post('/api/orders', controller.placeOrder);
-// app.put('/api/orders/mark/filled/:id', controller.markOrderFilled);
-// app.put('/api/orders/mark/unfilled/:id', controller.markOrderUnfilled);
-//
-// app.get('/api/products', controller.getProducts); // no login required for this endpoint
-// app.put('/api/products/:id', controller.updateProducts);
+app.get('/api/getMessages/:id', controller.getMessages);
+app.put('/api/changeFriendship', controller.acceptFriendship);
+app.post('/api/uploadMessage', controller.uploadMessage);
+app.post('/api/sendRequest', controller.sendRequest);
+app.delete('/api/deleteFriendship', controller.deleteFriendship);
+
+
 
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
