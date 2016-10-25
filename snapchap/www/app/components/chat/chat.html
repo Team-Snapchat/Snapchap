@@ -3,6 +3,7 @@
 
       <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
         TOP NAV
+          Top nav is 60px high and absolute-positioned
           animateProfileNav directive alters bottom nav on view change
           removeChattyNav is a fn in the animateProfileNav directive
       <~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -14,13 +15,16 @@
       </nav>
 
       <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
-        SEARCH BAR
+        MAIN CONTENT
+          Main content is height of screen minus 60px and positioned below top nav
       <~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-      <form>
-          <label>
-              <input type="text" placeholder="Search">
-          </label>
-      </form>
+      <div id="chat-view__main-content">
+        <form>
+            <label>
+                <input id="chat-view__input" type="text" placeholder="Search">
+            </label>
+        </form>
+      </div>
 
 
       <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>

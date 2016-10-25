@@ -118,7 +118,7 @@
   align-items: flex-end;
   height: 60px;
   width: 100vw;
-  position: relative;
+  position: absolute;
   top: 0px;
   padding: 22px 11px 11px 11px;
   z-index: 3;
