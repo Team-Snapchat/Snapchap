@@ -6,7 +6,8 @@ platforms/
 plugins/
 www/lib/
 
+*/.DS_Store
+../.DS_Store
 .DS_Store
-../node_modules/                                                                                                                       
-../sockets/                                                                                                                            
-                      
+../node_modules/
+../sockets/

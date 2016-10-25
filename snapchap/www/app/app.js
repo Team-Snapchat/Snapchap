@@ -236,7 +236,14 @@ angular.module('snapchat', ['ionic', 'ngCordova', 'satellizer'])
       // console.log('StatusBar:', StatusBar);
       // console.log('isInvisible:', StatusBar.isInvisible);
       // showStatusBar(false);
-      // return StatusBar.hide();
+      // $cordovaStatusBar.hide();
+      // StatusBar.hide();
     // }
+
+    // if(ionic.Platform.isWebView()) {
+      //  $cordovaStatusbar.styleHex('#FF0000'); //Do what you want
+    //  }
+
+
   });
 })

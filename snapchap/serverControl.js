@@ -110,6 +110,27 @@ module.exports = {
     });
   },
 
+  updateEmail: function(req, res) {
+    db.update_email([req.body.id, req.body.email], function(err, users) {
+      if(err) console.log(err);
+      else res.status(200);
+    });
+  },
+
+  updateName: function(req, res) {
+    db.update_name([req.body.id, req.body.firstname, req.body.lastname], function(err, users) {
+      if(err) console.log(err);
+      else res.status(200);
+    });
+  },
+
+  updatePassword: function(req, res) {
+    db.update_password([req.body.id, req.body.password], function(err, users) {
+      if(err) console.log(err);
+      else res.status(200);
+    });
+  },
+
  uploadMessage: function(req, res){
    db.upload_message([req.body.senderId, req.body.recipientId, req.body.message], function(err, pending_messages){
       if(err) console.log(err);
@@ -137,6 +158,13 @@ module.exports = {
       if(err) console.log(err);
       else res.status(200);
     })
+  },
+
+  updateRequests: function(req, res) {
+    db.update_requests([req.params.id], function(err, friendships) {
+      if(err) console.log(err);
+      else res.status(200).send(friendships);
+    });
   },
 
   acceptFriendship: function(req, res){
