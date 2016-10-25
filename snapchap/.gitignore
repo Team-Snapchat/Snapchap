@@ -11,3 +11,4 @@ www/lib/
 .DS_Store
 ../node_modules/
 ../sockets/
+config.js/
