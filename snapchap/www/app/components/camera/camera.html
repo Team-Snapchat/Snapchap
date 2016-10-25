@@ -1,11 +1,22 @@
 <ion-view title="Camera" hide-nav-bar="true" id="camera-view">
     <ion-content id="camera-view__content">
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
+          TOP NAV
+            animateProfileNav directive alters bottom nav on view change
+        <~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <nav id="camera-view__nav-top" class="nav-top">
             <button id="camera-view__flash-btn" class="icon-btn"></button>
             <button id="camera-view__profile-btn" class="icon-btn" ui-sref="profile" animate-profile-nav ng-click="addProfileNav()"></button>
             <button id="camera-view__rear-camera-btn" class="icon-btn"></button>
         </nav>
 
+
+        <!-- <img ng-show="imgURI !== undefined" ng-src="{{imgURI}}" alt="This is not working" ng-click="takePicture()"> -->
+        <!-- <img ng-show="imgURI === undefined" ng-src="http://placehold.it/400x500" alt="This is not working" ng-click="takePicture()"> -->
+
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
+          BOTTOM NAV (resides in mainCtrl now)
+        <~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
         <!-- <nav id="camera-view__nav-bottom" class="nav-bottom">
             <button id="camera-view__chat-btn" class="icon-btn" ui-sref="chat"></button>
             <button id="camera-view__take-photo-btn" class="icon-btn"></button>

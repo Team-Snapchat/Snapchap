@@ -14,7 +14,11 @@
   justify-content: flex-start;
   align-items: center;
   position: relative;
+<<<<<<< HEAD
   top: 3vh;
+=======
+  top: 5vh;
+>>>>>>> master
 }
 
 #snap-confetti {
