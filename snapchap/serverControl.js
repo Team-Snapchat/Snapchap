@@ -7,7 +7,6 @@ var config = server.config;
 var db = app.get('db');
 
 createJWT = function(user){
-  console.log(user);
   var payload = {
     sub: user.id,
     iat: moment().unix(),
@@ -91,7 +90,7 @@ module.exports = {
       else {
         db.create_user([req.body.first_name, req.body.last_name, req.body.username, req.body.password, req.body.email], function(err, users){
           db.users.findOne({email: req.body.email}, function(err, user){
-            console.log(user);
+            console.log('sign-up is working');
             res.send({
               token: createJWT(user),
               user: getSafeUser(user)
@@ -101,7 +100,24 @@ module.exports = {
       }
     });
   },
-
+  
+  getCurrentUser: function(req, res){
+    if(!req.user){
+      return res.status(404)
+    }
+    else{
+      var user = req.user
+      console.log('var user = ', user)
+      res.json(user)
+    }
+  },
+  getCurrentUserInfo: function(req, res){
+    db.get_user_info([req.params.id], function(err, users){
+      console.log("user data = ", users)
+      if(err) console.log(err)
+      else res.status(200).send(users)
+    })
+  },
 
   getUserFriends: function(req, res) {
     db.get_user_friends([req.params.id], function(err, friends) {

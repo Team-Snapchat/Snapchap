@@ -1,4 +1,4 @@
-angular.module('snapchat').controller('logInCtrl', function ($scope, $stateParams, mainService, $auth, $state) {
+angular.module('snapchat').controller('logInCtrl', function ($scope, $rootScope, $stateParams, mainService, $auth, $state) {
 
   mainService.hideMenu();
 
@@ -16,6 +16,9 @@ angular.module('snapchat').controller('logInCtrl', function ($scope, $stateParam
         console.log("signUpCtrl:", response);
         if(response.status === 200){
           $auth.setToken(response)
+          mainService.getCurrentUser().then(function(userInfo){
+            $rootScope.userInfo = userInfo;
+          })
           $state.go('camera');
         }
       }).catch(function (response) {

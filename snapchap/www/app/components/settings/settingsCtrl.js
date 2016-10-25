@@ -1,4 +1,4 @@
-angular.module('snapchat').controller('settingsCtrl', function ($scope, $stateParams, mainService, $auth, $state) {
+angular.module('snapchat').controller('settingsCtrl', function ($scope, $rootScope, $stateParams, mainService, $auth, $state) {
 
   mainService.hideMenu();
 

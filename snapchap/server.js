@@ -29,15 +29,12 @@ app.use(cors());
 
 app.use(express.static(__dirname + '/www'));
 
-controller.ensureAuthenticated; //login required middleware
-controller.createJWT; //generate JSON web token
-controller.getSafeUser; //
-
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   ENDPOINTS
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
+app.get('/api/me', controller.ensureAuthenticated, controller.getCurrentUser)
+app.get('/api/me/:id', controller.ensureAuthenticated, controller.getCurrentUserInfo)
 app.get('/user/friends/:id', controller.getUserFriends);
 app.get('/api/getMessages/:id', controller.getMessages);
 app.put('/api/changeFriendship', controller.acceptFriendship);
