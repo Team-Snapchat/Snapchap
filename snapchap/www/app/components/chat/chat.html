@@ -1,5 +1,11 @@
 <ion-view title="Chat" id="chat-view">
     <ion-content>
+
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
+        TOP NAV
+          animateProfileNav directive alters bottom nav on view change
+          removeChattyNav is a fn in the animateProfileNav directive
+      <~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
       <nav id="chat-view__nav-top" class="nav-top">
           <button id="chat-view__flash-btn" class="icon-btn"></button>
           <!-- <button id="chat-view__profile-btn" class="icon-btn" ui-sref="profile"></button> -->
@@ -7,6 +13,9 @@
           <button id="chat-view__camera-btn" class="icon-btn" ui-sref="camera" animate-chatty-nav ng-click="removeChattyNav()"></button>
       </nav>
 
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
+        SEARCH BAR
+      <~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
       <form>
           <label>
               <input type="text" placeholder="Search">
@@ -14,6 +23,9 @@
       </form>
 
 
+      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
+        BOTTOM NAV
+      <~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
       <!-- <nav id="chat-view__nav-bottom" class="nav-bottom">
           <button id="chat-view__chat-btn" class="icon-btn"></button>
           <button id="chat-view__take-photo-btn" class="icon-btn" ui-sref="camera"></button>

@@ -25,8 +25,8 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
-    <!-- cordova script (this will be a 404 during development) -->
     <script src="./app/ng-cordova.min.js"></script>
+    <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
     <script src="app/app.js"></script>
@@ -42,6 +42,7 @@
     <script src="app/components/birthday/birthdayCtrl.js"></script>
     <script src="app/components/camera/cameraCtrl.js"></script>
     <script src="app/components/chat/chatCtrl.js"></script>
+    <script src="app/components/editMessage/editMessageCtrl.js"></script>
     <script src="app/components/email/emailCtrl.js"></script>
     <script src="app/components/logIn/logInCtrl.js"></script>
     <script src="app/components/logInSignUp/logInSignUpCtrl.js"></script>
@@ -60,8 +61,14 @@
   <!-- <body ng-controller="mainCtrl" animation="slide-left-right-ios7"> -->
   <body ng-controller="mainCtrl">
     <!-- <ion-nav-bar></ion-nav-bar> -->
-    <ion-nav-view></ion-nav-view>
+    <ion-nav-view hide-nav-bar="true"></ion-nav-view>
 
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
+      BOTTOM NAV (originally in cameraCtrl)
+        animateProfileNav directive alters bottom nav on view change
+        in views other than Camera, Camera button switches views and removes animateProfileNav changes
+        in Camera view, Camera button brings up camera
+    <~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <nav id="index-html__nav-bottom" class="nav-bottom">
       <button id="index-html__chat-btn" class="icon-btn" ui-sref="chat" animate-chatty-nav="" ng-click="addChattyNav()"></button>
       <button id="index-html__take-photo-btn" class="icon-btn" ui-sref="camera" ng-click="takePhoto(); removeChattyNav(); removeProfileNav()" animate-chatty-nav="" animate-profile-nav=""></button>

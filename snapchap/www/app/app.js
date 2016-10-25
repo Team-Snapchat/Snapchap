@@ -1,4 +1,4 @@
-angular.module('snapchat', ['ionic'])
+angular.module('snapchat', ['ionic', 'ngCordova'])
 
 .config(function($ionicConfigProvider, $stateProvider, $urlRouterProvider){
 
@@ -44,7 +44,7 @@ angular.module('snapchat', ['ionic'])
     })
 
     .state('editMessage', {
-      url: '/editMessage',
+      url: '/editmessage',
       templateUrl: 'app/components/editMessage/editMessage.html',
       controller: 'editMessageCtrl'
     })

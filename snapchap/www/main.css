@@ -9,6 +9,8 @@
 @import "./app/components/birthday/birthday.css";
 @import "./app/components/camera/camera.css";
 @import "./app/components/chat/chat.css";
+@import "./app/components/editMessage/editMessage.css";
+@import "./app/components/email/email.css";
 @import "./app/components/myFriends/myFriends.css";
 @import "./app/components/logInSignUp/logInSignUp.css";
 @import "./app/components/logIn/logIn.css";
@@ -19,13 +21,12 @@
 
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  UNIVERSAL STYLES
+  HEADINGS
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .heading {
   font-size: 0.8rem;
   margin-left: 9px;
 }
-
 .nav-top-heading {
   font-size: 1.4rem;
   color: white;
@@ -34,25 +35,35 @@
   bottom: 4px;
 }
 
-/*.nav-top {*/
-.nav-top, .nav-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  height: 60px;
-  width: 100vw;
-  position: absolute;
-  top: 0px;
-  padding: 22px 11px 11px 11px;
-  z-index: 3;
-}
 
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  INPUTS
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .input {
   border: 0;
   border-bottom: thin solid lightgray;
   font-size: 1.1rem;
 }
+.magnifying-glass {
+  height: 17px;
+  width: 17px;
+  background-image: url('./img/icon/search-gray.png');
+  background-repeat: no-repeat;
+  -webkit-background-size: 17px;
+          background-size: 17px;
+  position: absolute;
+  left: 15px;
+  top: 10px;
+}
 
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  TEXT
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.text-link {
+  font-size: 0.8rem;
+  color: RGBA(50, 125, 233, 1.00);
+}
 .btn {
   font-family: 'Lato', sans-serif;
   letter-spacing: 2px;
@@ -65,17 +76,11 @@
   padding: 9px 27px;
   border-radius: 22px;
 }
-.icon-btn {
-  display: inline-block;
-  width: 29px;
-  height: 29px;
-  border: 0px;
-  background-color: rgba(255, 255, 255, 0);
-  background-repeat: no-repeat;
-  -webkit-background-size: 29px;
-          background-size: 29px;
-}
 
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  BUTTONS
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .back-btn, .forward-btn {
   font-family: 'Quicksand', sans-serif;
   border: 0;
@@ -91,25 +96,33 @@
 .forward-btn {
   right: 15px;
 }
-
-.magnifying-glass {
-  height: 17px;
-  width: 17px;
-  background-image: url('./img/icon/search-gray.png');
+ /* Icon buttons (in navs) */
+.icon-btn {
+  display: inline-block;
+  border: 0px;
+  background-color: rgba(255, 255, 255, 0);
   background-repeat: no-repeat;
-  -webkit-background-size: 17px;
-          background-size: 17px;
-  position: absolute;
-  left: 15px;
-  top: 10px;
-}
-
-.text-link {
-  font-size: 0.8rem;
-  color: RGBA(50, 125, 233, 1.00);
+  width: 27px;
+  height: 27px;
+  -webkit-background-size: 27px;
+          background-size: 27px;
 }
 
 
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  NAVS
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.nav-top, .nav-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 60px;
+  width: 100vw;
+  position: relative;
+  top: 0px;
+  padding: 22px 11px 11px 11px;
+  z-index: 3;
+}
 #index-html__nav-bottom {
   display: flex;
   align-items: flex-end;
@@ -122,25 +135,29 @@
   z-index: 4;
   transition: justify-content 0.3s;
 }
-
 #index-html__nav-bottom .icon-btn {
   position: absolute;
   bottom: 4vh;
 }
-
-
+ /* Chat button */
 #index-html__chat-btn {
   background-image: url('./img/icon/chat-white.png');
   left: 7vw;
   opacity: 1;
-  transition: left 0.3s, opacity 0.3s;
   display: flex;
+  transition: -webkit-background-size 0.3s, background-size 0.3s, width 0.3s, height 0.3s, left 0.3s, opacity 0.3s;
 }
+ /* Chat button in Chat view */
 #index-html__chat-btn.chatty-nav {
   background-image: url('./img/icon/chat-gray.png');
   left: 24vw;
   display: flex;
+  width: 20px;
+  height: 20px;
+  -webkit-background-size: 20px;
+          background-size: 20px;
 }
+ /* Chat button underline in Chat view */
 #index-html__chat-btn.chatty-nav:after {
   content: '';
   height: 5px;
@@ -152,12 +169,13 @@
   background-color: rgba(200, 200, 200, 1);
   border-radius: 5px;
 }
+ /* Chat button in Profile view */
 #index-html__chat-btn.profile-nav {
   opacity: 0;
   display: none;
 }
 
-
+ /* Camera button */
 #index-html__take-photo-btn {
   background-image: url('./img/icon/circle-white-big.png');
   left: 50%;
@@ -169,6 +187,8 @@
           background-size: 85px;
   transition: -webkit-background-size 0.3s, background-size 0.3s, width 0.3s, height 0.3s, background-image 0.3s;
 }
+
+ /* Camera button in Chat view and Profile view*/
 #index-html__take-photo-btn.chatty-nav,
 #index-html__take-photo-btn.profile-nav {
   background-image: url('./img/icon/circle-gray-big.png');
@@ -177,34 +197,31 @@
   -webkit-background-size: 58px;
           background-size: 58px;
 }
+ /* Camera button in Profile view */
 #index-html__take-photo-btn.profile-nav {
   background-image: url('./img/icon/circle-white-big.png');
 }
 
-
+ /* Dots button */
 #index-html__dots-btn {
   background-image: url('./img/icon/dots-white.png');
   right: 7vw;
   opacity: 1;
-  transition: right 0.3s, opacity 0.3s;
   display: flex;
+  transition: -webkit-background-size 0.3s, background-size 0.3s, width 0.3s, height 0.3s, right 0.3s, opacity 0.3s;
 }
+ /* Dots button in Chat view */
 #index-html__dots-btn.chatty-nav {
   background-image: url('./img/icon/dots-gray.png');
   right: 24vw;
   display: flex;
+  width: 20px;
+  height: 20px;
+  -webkit-background-size: 20px;
+          background-size: 20px;
 }
+ /* Dots button in Profile view */
 #index-html__dots-btn.profile-nav {
   opacity: 0;
   display: none;
 }
-
-
-/*.unicorn {
-  z-index: 100;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%);
-  color: white;
-}*/
