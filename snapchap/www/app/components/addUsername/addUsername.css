@@ -49,3 +49,9 @@
   color: rgba(170, 170, 170, 1);;
   text-align: center;
 }
+
+.userName p{
+  margin-left: 10px;
+  margin-top: 5px;
+  font-size: 1.5em;
+}
