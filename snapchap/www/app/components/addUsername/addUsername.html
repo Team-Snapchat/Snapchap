@@ -7,14 +7,18 @@
       Add Username
     </nav>
 
-    <form id="add-username-view__form">
+    <form id="add-username-view__form" >
         <span class="magnifying-glass"></span>
-        <input type="text" placeholder="Search">
+        <input type="text" placeholder="Search" ng-model="searchText" ng-keyup="getSearchResults(searchText)">
     </form>
 
+    <section class="userName" ng-repeat="user in users">
+      <p>{{user.username}}</p>
+    </section>
+
     <div class="add-username-view__text">
-      <p>username</p>
-      <p>is your username</p>
+      <p>{{userInfo.username}}</p>
+      <p>{{userInfo.first_name}} {{userInfo.last_name}} is your username</p>
     </div>
 
     <div class="add-username-view__text">

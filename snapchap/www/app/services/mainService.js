@@ -63,9 +63,14 @@ angular.module('snapchat')
         return confirmation;
       })
   }
+  this.getUsername = function(inputText){
+    return $http.post('/api/searchUsers', {data: inputText}).then(function(results){
+        return results;
+    })
+  }
 
-  this.sendFriendRequest = function(){
-      return $http.post('/api/sendRequest').then(function(confirmation){
+  this.sendFriendRequest = function(data){
+      return $http.post('/api/sendRequest', data).then(function(confirmation){
         return 'confirmation';
       })
   }
