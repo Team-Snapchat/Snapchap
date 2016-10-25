@@ -1,7 +1,31 @@
 var server = require('./server.js');
-var app = server.app 
-var io = server.io
+var moment = require('moment');
+var jwt = require('jwt-simple');
+var app = server.app;
+var io = server.io;
+var config = server.config;
 var db = app.get('db');
+
+createJWT = function(user){
+  console.log(user);
+  var payload = {
+    sub: user.id,
+    iat: moment().unix(),
+    exp: moment().add(1, 'days').unix()
+  };
+  return jwt.encode(payload, config.TOKEN_SECRET);
+}
+
+getSafeUser = function(user){
+  return {
+    id: user.id,
+    email: user.email,
+    username: user.username,
+    first_name: user.first_name,
+    last_name: user.last_name
+  }
+}
+
 
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
@@ -15,6 +39,70 @@ module.exports = {
       Get this user
       Update user
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+  ensureAuthenticated: function(req, res, next){
+    if (!req.header('Authorization')) {
+      return res.status(401).send({ message: 'Please make sure your request has an Authorization header' });
+    }
+    var token = req.header('Authorization').split(' ')[1];
+
+    var payload = null;
+    try {
+      payload = jwt.decode(token, config.TOKEN_SECRET);
+    }
+    catch (err) {
+      return res.status(401).send({ message: err.message });
+    }
+
+    if (payload.exp <= moment().unix()) {
+      return res.status(401).send({ message: 'Token has expired' });
+    }
+    req.user = payload.sub;
+    next();
+  },
+
+
+  logIn: function(req, res) {
+    db.users.findOne({email: req.body.email}, function(err, user) {
+      if (err) return res.status(500)
+      if (!user) {
+        return res.status(401).send({
+          message: 'Invalid email and/or password'
+        })
+      }
+    db.compare_password([req.body.password, user.id], function(err, correct){
+      if(err) console.log(err);
+      if(correct[0]['?column?']){
+        res.send({
+          token: createJWT(user),
+          user: getSafeUser(user)
+        })
+      }
+      else res.status(401).send("Invalid email and/or password")
+    })
+
+    });
+  },
+
+  signUp: function(req, res) {
+    db.users.findOne({ email: req.body.email }, function(err, existingUser) {
+      if (existingUser) {
+        return res.status(409).send({ message: 'Email is already taken' });
+      }
+      else {
+        db.create_user([req.body.first_name, req.body.last_name, req.body.username, req.body.password, req.body.email], function(err, users){
+          db.users.findOne({email: req.body.email}, function(err, user){
+            console.log(user);
+            res.send({
+              token: createJWT(user),
+              user: getSafeUser(user)
+            });
+          })
+        })
+      }
+    });
+  },
+
+
   getUserFriends: function(req, res) {
     db.get_user_friends([req.params.id], function(err, friends) {
       if(err) console.log(err);
@@ -56,10 +144,10 @@ module.exports = {
  getMessages: function(req, res){
    db.get_messages([req.params.id], function(err, pending_messages){
       if(err) console.log(err);
-      
+
 
       else {
-        
+
         res.status(200).send(pending_messages)
       }
     })

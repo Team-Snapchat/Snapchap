@@ -11,9 +11,9 @@ var config = require('./config.js');
 // };
 var app = express();
 var http = require('http').Server(app);
-var io = require('socket.io')(http); 
+var io = require('socket.io')(http);
 
-module.exports = {app: app, io: io};
+module.exports = {app: app, io: io, config: config};
 
 
 var db = massive.connectSync({
@@ -29,6 +29,11 @@ app.use(cors());
 
 app.use(express.static(__dirname + '/www'));
 
+controller.ensureAuthenticated; //login required middleware
+controller.createJWT; //generate JSON web token
+controller.getSafeUser; //
+
+
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   ENDPOINTS
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -42,11 +47,13 @@ app.put('/api/updateName', controller.updateName);
 app.put('/api/updatePassword', controller.updatePassword);
 app.post('/api/uploadMessage', controller.uploadMessage);
 app.post('/api/sendRequest', controller.sendRequest);
+app.post('/auth/login', controller.logIn);
+app.post('/auth/signup', controller.signUp);
 app.delete('/api/deleteFriendship', controller.deleteFriendship);
 app.post('/api/TEST', function(req, res){
-  var username = req.body; 
+  var username = req.body;
 })
-  
+
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   PORT
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -65,5 +72,5 @@ io.on('connection', function(socket){
   // socket.emit('getPendingMessages',{});
 
   // socket.emit('getPendingFriendRequests',{});
-  
+
 })
