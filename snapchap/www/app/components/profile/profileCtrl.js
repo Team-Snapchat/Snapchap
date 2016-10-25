@@ -1,8 +1,8 @@
 angular.module('snapchat').controller('profileCtrl', function ($scope, $stateParams, mainService) {
 
-  // $scope.hideMenu = function() {
-  //   document.getElementById('index-html__nav-bottom').style.display = 'none';
-  // };
+  $scope.hideMenu = function() {
+    document.getElementById('index-html__nav-bottom').style.display = 'none';
+  };
 
 
   mainService.showMenu();

@@ -1,0 +1,22 @@
+<ion-view title="Sign Up" id="sign-up-view">
+    <ion-content>
+
+      <nav>
+        <button ui-sref="logInSignUp" id="sign-up-view-back-btn" class="back-btn"><</button>
+      </nav>
+
+      <div id="sign-up-view__form">
+        <h3>What's your username?</h3>
+        <div>
+          <p class="heading">USERNAME</p>
+          <input class="input"  ng-model="username"/>
+        </div>
+
+
+        <button id="sign-up-view__sign-up-btn" class="btn pill-btn" animate-profile-nav ng-click="createUsername(username)">Continue</button>
+      </div>
+
+      <div id="sign-up-view__keyboard"></div>
+
+    </ion-content>
+</ion-view>
