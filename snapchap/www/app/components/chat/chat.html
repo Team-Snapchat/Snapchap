@@ -24,8 +24,15 @@
                 <input id="chat-view__input" type="text" placeholder="Search">
             </label>
         </form>
+        <section class="content">
+            <input type="text" ng-model="TEST">
+            <button ng-click="test()">SEND MESSAGE</button>
+            <div ng-repeat="item in arr track by $index">
+                <div>{{item}}</div>
+            </div>
+        </section>
+        
       </div>
-
 
       <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
         BOTTOM NAV
@@ -35,7 +42,4 @@
           <button id="chat-view__take-photo-btn" class="icon-btn" ui-sref="camera"></button>
           <button id="chat-view__dots-btn" class="icon-btn"></button>
       </nav> -->
-
-
-    </ion-content>
 </ion-view>
