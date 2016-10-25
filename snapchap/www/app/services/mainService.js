@@ -19,6 +19,22 @@ angular.module('snapchat')
   };
 
 
+  this.getCurrentUser = function(){
+    return $http.get('/api/me').then(function(response){
+      console.log('getCurrentUser data = ', response.data)
+
+        return getCurrentUserInfo(response.data)
+    })
+  }
+  var getCurrentUserInfo = function(userId){
+    return $http.get('/api/me/'+ userId).then(function(response){
+      console.log('response', response)
+      currentUser = '';
+      return response.data[0];
+    })
+  }
+
+
   this.updateFriends = function(){
       return $http.get('/user/friends/:id').then(function(friends){
         return 'friends';
