@@ -1,3 +1,69 @@
 #edit-message-view {
-  
+  /*height: 100%;*/
+}
+#edit-message-view ion-content {
+  background-color: black;
+}
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  TOP NAV
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#edit-message-view__x-btn {
+  background-image: url('../../../img/icon/x.png');
+}
+#edit-message-view__text-btn {
+  /*background-image: url('../../../img/icon/text.png');*/
+}
+#edit-message-view__pencil-btn {
+  background-image: url('../../../img/icon/pencil.png');
+}
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  IMAGE TO EDIT (MAIN CONTENT)
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#edit-message-view__image-container {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ /* image */
+#edit-message-view__image {
+  max-width: 100vw;
+  max-height: 100vh;
+}
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  BOTTOM NAV
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#edit-message-view__nav-bottom {
+  top: calc(100vh - 60px);
+}
+#edit-message-view__nav-bottom .icon-btn {
+  position: relative;
+  bottom: 7px;
+}
+ /* left buttons */
+#edit-message-view__left-btns button {
+  margin: 5px 9px;
+}
+#edit-message-view__timer-btn {
+  background-image: url('../../../img/icon/timer.png');
+}
+#edit-message-view__save-btn {
+  background-image: url('../../../img/icon/save.png');
+}
+ /* arrow button */
+#edit-message-view__arrow-btn {
+  background-image: url('../../../img/icon/arrow.png');
+  transform: translateY(10px);
+  width: 55px;
+  height: 55px;
+  -webkit-background-size: 55px;
+          background-size: 55px;
 }
