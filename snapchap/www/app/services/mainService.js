@@ -18,19 +18,10 @@ angular.module('snapchat')
     document.getElementById('index-html__nav-bottom').style.display = 'none';
   };
 
-<<<<<<< HEAD
-=======
-  // this.showMenu = function() {
-  //   document.getElementById('index-html__nav-bottom').style.visibility = 'visible';
-  // };
-  // this.hideMenu = function() {
-  //   document.getElementById('index-html__nav-bottom').style.visibility = 'hidden';
-  // };
-
 
   this.updateFriends = function(){
       return $http.get('/user/friends/:id').then(function(friends){
-        return 'friends';     
+        return 'friends';
       })
   }
 
@@ -41,34 +32,33 @@ angular.module('snapchat')
   }
   this.updatePendingFriendRequests = function(){
       return $http.put('').then(function(PedingFriendRequests){
-        return 'PedingFriendRequests'; 
+        return 'PedingFriendRequests';
       })
   }
 
   this.replyToFriendRequest = function(){
       return $http.put('/api/changeFriendship').then(function(confirmation){
-        return 'confirmation';   
+        return 'confirmation';
       })
   }
 
   this.sendMessage = function(){
       return $http.post('/api/uploadMessage').then(function(confirmation){
-        return confirmation;   
+        return confirmation;
       })
   }
 
   this.sendFriendRequest = function(){
       return $http.post('/api/sendRequest').then(function(confirmation){
-        return 'confirmation';  
-      })
-  }
-  
-  this.detetFriend = function(){
-      return $http.delete('/api/deleteFriendship').then(function(confirmation){
-        return 'confirmation';   
+        return 'confirmation';
       })
   }
 
->>>>>>> master
+  this.detetFriend = function(){
+      return $http.delete('/api/deleteFriendship').then(function(confirmation){
+        return 'confirmation';
+      })
+  }
+
 
 });
