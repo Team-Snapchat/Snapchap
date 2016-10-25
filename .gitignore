@@ -1,3 +1,16 @@
+<<<<<<< HEAD
+
+=======
 node_modules/
 sockets/
 config.js
+
+platforms/
+plugins/
+lib/
+
+*/.DS_Store
+../.DS_Store
+.DS_Store
+
+>>>>>>> master
