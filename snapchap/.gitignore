@@ -6,8 +6,16 @@ platforms/
 plugins/
 www/lib/
 
+*/.DS_Store
+../.DS_Store
 .DS_Store
+<<<<<<< HEAD
 ../node_modules/                                                                                                                       
 ../sockets/   
 config.js/                                                                                                                         
                       
+=======
+../node_modules/
+../sockets/
+
+>>>>>>> master

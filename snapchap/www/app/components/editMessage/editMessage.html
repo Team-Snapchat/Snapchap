@@ -1,7 +1,35 @@
 <ion-view title="Edit Message" id="edit-message-view">
-    <ion-content>
+  <ion-content id="edit-message-view__content">
 
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
+      TOP NAV
+    <~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <nav id="edit-message-view__nav-top" class="nav-top">
+        <button id="edit-message-view__x-btn" class="icon-btn" ui-sref="camera" ng-click="showMenu()"></button>
 
+        <div id="edit-message-view__edit-btns">
+          <button id="edit-message-view__text-btn" class="icon-btn"></button>
+          <button id="edit-message-view__pencil-btn" class="icon-btn"></button>
+        </div>
+    </nav>
 
-    </ion-content>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
+      IMAGE
+    <~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <div id="edit-message-view__image-container">
+      <img id="edit-message-view__image" ng-src="{{imgURI}}"></img>
+    </div>
+
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
+      BOTTOM NAV
+    <~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <nav id="edit-message-view__nav-bottom" class="nav-bottom">
+        <div id="edit-message-view__left-btns">
+          <button id="edit-message-view__timer-btn" class="icon-btn"></button>
+          <button id="edit-message-view__save-btn" class="icon-btn"></button>
+        </div>
+        <button id="edit-message-view__arrow-btn" class="icon-btn"></button>
+    </nav>
+
+  </ion-content>
 </ion-view>

@@ -1,25 +1,48 @@
-#chat-view {
-  height: 100%;
-}
-
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  TOP NAV
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 #chat-view__nav-top {
   background-color: RGBA(60, 178, 226, 1.00);
 }
-#chat-view__nav-bottom {
+
+ /* Flash button */
+#chat-view__flash-btn {
+  background-image: url('../../../img/icon/chat-white.png');
+}
+ /* Profile button */
+#chat-view__profile-btn {
+  background-image: url('../../../img/icon/snapchat-white.png');
+}
+ /* Camera view button */
+#chat-view__camera-btn {
+  background-image: url('../../../img/icon/camera-white.png');
+}
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  MAIN CONTENT
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#chat-view__main-content {
+  height: calc(100vh - 60px);
+  position: relative;
+  top: 60px;
+}
+#chat-view__input {
+  width: 100%;
+}
+
+
+
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  BOTTOM NAV (now resides in mainCtrl and main.css)
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*#chat-view__nav-bottom {
   top: calc(100vh - 60px);
   display: flex;
   justify-content: center;
   align-items: flex-end;
-}
-
-#chat-view__flash-btn {
-  background-image: url('../../../img/icon/chat-white.png');
-}
-#chat-view__profile-btn {
-  background-image: url('../../../img/icon/snapchat-white.png');
-}
-#chat-view__camera-btn {
-  background-image: url('../../../img/icon/camera-white.png');
 }
 
 #chat-view__chat-btn {
@@ -38,4 +61,4 @@
 #chat-view__dots-btn {
   background-image: url('../../../img/icon/dots-gray.png');
   position: relative;
-}
+}*/
