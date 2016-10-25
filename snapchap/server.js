@@ -4,24 +4,27 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var massive = require('massive');
-// var cors = require('cors');
+var cors = require('cors');
 var config = require('./config.js');
 // var corsOptions = {
 //   origin: 'http://localhost:7000'
 // };
+var app = express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http); 
 
-var app = module.exports = express();
+module.exports = {app: app, io: io};
+
 
 var db = massive.connectSync({
   connectionString: 'postgres://postgres@localhost:5432/snap'
 });
 
-var app = module.exports = express();
 app.set('db', db);
 
 var controller = require('./serverControl.js');
 app.use(bodyParser.json());
-// app.use(cors());
+app.use(cors());
 // app.use(cors(corsOptions));
 
 app.use(express.static(__dirname + '/www'));
@@ -37,14 +40,27 @@ app.put('/api/changeFriendship', controller.acceptFriendship);
 app.post('/api/uploadMessage', controller.uploadMessage);
 app.post('/api/sendRequest', controller.sendRequest);
 app.delete('/api/deleteFriendship', controller.deleteFriendship);
-
-
-
-
+app.post('/api/TEST', function(req, res){
+  var username = req.body; 
+})
+  
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   PORT
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 var port = config.port;
-app.listen(port, function() {
+http.listen(port, function() {
   console.log('Listening now on port ' + port);
 });
+
+
+io.on('connection', function(socket){
+
+  // io.emit('getAccountInfo',{});
+
+  // socket.emit('getFriends',{});
+
+  // socket.emit('getPendingMessages',{});
+
+  // socket.emit('getPendingFriendRequests',{});
+  
+})

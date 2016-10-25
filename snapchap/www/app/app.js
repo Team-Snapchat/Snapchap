@@ -1,10 +1,10 @@
-angular.module('snapchat', ['ionic'])
+angular.module('snapchat', ['ionic', 'ngCordova'])
 
 .config(function($ionicConfigProvider, $stateProvider, $urlRouterProvider){
 
     $ionicConfigProvider.backButton.text('').previousTitleText(false);
 
-    $urlRouterProvider.otherwise('/loginsignup')
+    $urlRouterProvider.otherwise('/loginsignup');
 
     $stateProvider
     .state('addedMe', {
@@ -44,7 +44,7 @@ angular.module('snapchat', ['ionic'])
     })
 
     .state('editMessage', {
-      url: '/editMessage',
+      url: '/editmessage',
       templateUrl: 'app/components/editMessage/editMessage.html',
       controller: 'editMessageCtrl'
     })
