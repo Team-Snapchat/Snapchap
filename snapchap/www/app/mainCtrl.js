@@ -35,7 +35,7 @@ angular.module('snapchat').controller('mainCtrl', function ($scope, $stateParams
 
   };
 
-  $cordovaStatusbar.hide();
+  // $cordovaStatusbar.hide();
   // $cordovaStatusbar.styleColor('black');
   // console.log('status bar:', $cordovaStatusbar);
 
