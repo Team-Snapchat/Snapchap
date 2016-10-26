@@ -118,7 +118,11 @@ module.exports = {
       else res.status(200).send(users)
     })
   },
-
+  searchUsers: function(req, res){
+    db.search_users([req.body.data], function(err, results){
+    res.send(results);
+    })
+  },
   getUserFriends: function(req, res) {
     db.get_user_friends([req.params.id], function(err, friends) {
       if(err) console.log(err);
