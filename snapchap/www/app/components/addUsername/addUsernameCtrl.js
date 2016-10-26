@@ -1,5 +1,5 @@
 angular.module('snapchat').controller('addUsernameCtrl', function ($scope, $rootScope, $stateParams, mainService) {
-
+  $scope.flag = false;
   mainService.hideMenu();
   $scope.users = [];
   $scope.getSearchResults = function(searchText){
@@ -13,4 +13,10 @@ angular.module('snapchat').controller('addUsernameCtrl', function ($scope, $root
     else $scope.users = []
     
   } 
+  $scope.sendFriendRequest = function(acceptor){
+    
+    mainService.sendFriendRequest({initiatorId :$rootScope.userInfo.id, acceptorId: acceptor}).then(function(flag){
+      $scope.flag = flag;
+    })
+  }
 });

@@ -7,16 +7,11 @@
         Added Me
       </nav>
 
-      <ul>
+      <ul ng-repeat="item in pendingFriendRequests">
         <li>
-          <p class="added-me-view__display-name">Forrest Dean</p>
-          <p class="added-me-view__username">like_nothings_changed</p>
-          <button class="pill-btn added-me-view__add-btn"><span class="added-me-view__add-btn__plus">Add</span></button>
-        </li>
-        <li>
-          <p class="added-me-view__display-name">H. B. P.</p>
-          <p class="added-me-view__username">ur_father_wuz_a_swyn</p>
-          <button class="pill-btn added-me-view__add-btn"><span class="added-me-view__add-btn__plus">Add</span></button>
+          <p class="added-me-view__display-name">{{item.first_name}} {{item.last_name}}</p>
+          <p class="added-me-view__username">{{item.username}}</p>
+          <button class="pill-btn added-me-view__add-btn" ng-click="respondToFriendRequest(item.id)"><span class="added-me-view__add-btn__plus">Add</span></button>
         </li>
       </ul>
       <!-- <ul ng-repeat="requester in requesters">
