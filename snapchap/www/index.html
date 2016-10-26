@@ -25,9 +25,9 @@
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
-    <script src="./app/ng-cordova.min.js"></script>
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
+    <script src="./app/ng-cordova.min.js"></script>
 
     <script src="app/app.js"></script>
     <script src="app/mainCtrl.js"></script>
@@ -61,9 +61,16 @@
 
   </head>
   <!-- <body ng-controller="mainCtrl" animation="slide-left-right-ios7"> -->
-  <body ng-controller="mainCtrl">
+  <body ng-controller="mainCtrl" class="fullscreen">
     <!-- <ion-nav-bar></ion-nav-bar> -->
     <ion-nav-view hide-nav-bar="true"></ion-nav-view>
+    <!-- <ion-pane>
+      <ion-header-bar class="bar-stable">
+        <h1 class="title">Ionic Blank Starter</h1>
+      </ion-header-bar>
+      <ion-content></ion-content>
+    </ion-pane> -->
+
 
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
       BOTTOM NAV (originally in cameraCtrl)
@@ -77,11 +84,6 @@
       <button id="index-html__dots-btn" class="icon-btn"></button>
     </nav>
 
-    <!-- <ion-pane>
-      <ion-header-bar class="bar-stable">
-        <h1 class="title">Ionic Blank Starter</h1>
-      </ion-header-bar>
-      <ion-content></ion-content>
-    </ion-pane> -->
+
   </body>
 </html>

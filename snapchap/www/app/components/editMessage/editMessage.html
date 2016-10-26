@@ -17,7 +17,12 @@
       IMAGE
     <~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <div id="edit-message-view__image-container">
-      <img id="edit-message-view__image" ng-src="{{imgURI}}"></img>
+      <form id="edit-message-view__form" ng-submit="createOverlay(); toggleTextBar()">
+        <input id="edit-message-view__input" type="text" autocomplete="off"/>
+      </form>
+      <img id="edit-message-view__image" ng-src="{{image}}" ng-click="toggleTextBar()"></img>
+      <!-- <img id="edit-message-view__image" ng-src="{{rr}}" ng-click="toggleTextBar()"></img> -->
+      <!-- <img id="edit-message-view__image" ng-src="{{imgURI}}" ng-click="toggleTextBar()"></img> -->
     </div>
 
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
@@ -26,10 +31,12 @@
     <nav id="edit-message-view__nav-bottom" class="nav-bottom">
         <div id="edit-message-view__left-btns">
           <button id="edit-message-view__timer-btn" class="icon-btn"></button>
-          <button id="edit-message-view__save-btn" class="icon-btn"></button>
+          <button id="edit-message-view__save-btn" class="icon-btn" ng-click="saveImage2Device()"></button>
         </div>
         <button id="edit-message-view__arrow-btn" class="icon-btn"></button>
     </nav>
 
   </ion-content>
+  <canvas id="msgCanvas"></canvas>
+
 </ion-view>

@@ -19,6 +19,17 @@
 @import "./app/components/settings/settings.css";
 @import "./app/components/signUp/signUp.css";
 
+.bar-nav {
+  display: none;
+  background-color: transparent;
+  z-index: -1000;
+}
+
+.nav-bar {
+  display: none;
+  background-color: transparent;
+  z-index: -1000;
+}
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   HEADINGS
@@ -143,7 +154,7 @@
   height: 60px;
   width: 100vw;
   /*padding: 22px 11px 11px 11px;*/
-  z-index: 4;
+  z-index: 10;
   transition: justify-content 0.3s;
 }
 #index-html__nav-bottom .icon-btn {
