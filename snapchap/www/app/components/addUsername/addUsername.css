@@ -1,3 +1,6 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  TOP NAV
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 #add-username-view nav {
   color: rgba(154, 52, 151, 1);
   font-size: 1.4rem;
@@ -22,16 +25,17 @@
   top: 8px;
 }
 
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  FORM
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 #add-username-view__form {
   border-bottom: thin solid lightgray;
   position: relative;
   padding: 5px 0;
 }
-
 #add-username-view__form .magnifying-glass {
   top: 15px;
 }
-
 #add-username-view input {
   width: 100vw;
   position: relative;
@@ -40,18 +44,74 @@
   padding: 22px 0;
 }
 
-.add-username-view__text {
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  USERNAME EXPLANATION TEXT
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.add-username-view__explanation {
   margin: 24px 0;
   line-height: 1em;
 }
-
-.add-username-view__text p {
+.add-username-view__explanation p {
   color: rgba(170, 170, 170, 1);;
   text-align: center;
 }
 
-.userName p{
-  margin-left: 10px;
-  margin-top: 5px;
-  font-size: 1.5em;
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  MY FRIENDS
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#add-username-view li {
+  padding: 13px 11px;
+  border-bottom: thin solid lightgray;
+  position: relative;
+  line-height: 1em;
+}
+.add-username-view__display-name,
+.add-username-view__username {
+  padding: 13px 0 0 9px;
+  font-size: 0.9rem;
+  position: relative;
+  left: 50px;
+}
+.add-username-view__display-name:before {
+  content: '';
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  left: -50px;
+  top: 5px;
+  color: black;
+  background-image: url('../../../img/icon/snapchat-gray.png');
+  -webkit-background-size: 50px;
+          background-size: 50px;
+}
+.add-username-view__username {
+  padding: 0 0 0 9px;
+  color: gray;
+  font-size: 0.7rem;
+}
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  ADD BUTTON
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#add-username-view .add-username-view__add-btn {
+  position: absolute;
+  padding: 4px 14px 7px 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+  color: rgba(154, 52, 151, 1);
+  border: thin solid rgba(154, 52, 151, 0.5);
+  font-size: 0.9rem;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0);
+}
+.add-username-view__add-btn__plus:before {
+  content: '+';
+  position: absolute;
+  font-size: 1.1rem;
+  left: 10px;
+  bottom: 6px;
 }

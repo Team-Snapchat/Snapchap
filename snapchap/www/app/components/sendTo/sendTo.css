@@ -1,0 +1,100 @@
+#send-to-view nav {
+  color: RGBA(60, 178, 226, 1.00);
+  font-size: 1rem;
+  text-align: center;
+  padding: 18px;
+  margin-top: 10px;
+  background-color: #fff;
+}
+#send-to-view .heading {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  width: 100vw;
+  height: 40px;
+  color: RGBA(60, 178, 226, 1.00);
+  margin-bottom: -15px;
+}
+
+#send-to-view input[type='text'] {
+  position: relative;
+  width: 100vw;
+  left: 39px;
+  font-size: 1.2em;
+  padding: 22px 0;
+}
+
+.send-to-text {
+  color: rgba(150, 150, 150, 1);
+  margin: 10px 0px;
+  font-size: 0.7rem;
+  line-height: 0.9rem;
+  background-color: white;
+  width: 100%;
+  padding-left: 18px;
+}
+
+#send-to-view ul {
+  font-size: 1rem;
+}
+#send-to-view li {
+  color: black;
+  padding: 17px 0;
+  border-bottom: thin solid rgba(150, 150, 150, 0.5);
+  position: relative;
+  display: flex;
+  justify-content: space-between;;
+  align-items: center;
+}
+#send-to-view ul>li>label {
+  position: relative;
+  left: 70px;
+}
+#send-to-view ul>li>label:nth-child(1):before {
+  content: '';
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  left: -55px;
+  top: -12px;
+  background-image: url('../../../img/icon/snapchat-bw.png');
+  -webkit-background-size: 40px;
+          background-size: 40px;
+}
+input[type=checkbox] {
+  width: 25px;
+  height: 25px;
+  margin-right: 14px;
+  position: relative;
+}
+input[type=checkbox]:checked:after {
+  content: '✓';
+  color: white;
+  font-size: 1.4rem;
+  text-align: center;
+  width: 25px;
+  height: 25px;
+  background-color: RGBA(60, 178, 226, 1.00);
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  border-radius: 4px;
+}
+
+
+#send-to-view_back-btn {
+  font-size: 1.7rem;
+  color: RGBA(60, 178, 226, 1.00);
+  left: 15px;
+  top: 8px;
+}
+
+
+#send-to-view__form {
+  position: relative;
+  border-top: thin solid rgba(150, 150, 150, 0.5);
+  border-bottom: thin solid rgba(150, 150, 150, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

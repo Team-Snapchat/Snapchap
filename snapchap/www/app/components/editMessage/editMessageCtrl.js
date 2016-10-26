@@ -1,4 +1,4 @@
-angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stateParams, mainService, $rootScope, $cordovaKeyboard, $timeout) {
+angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stateParams, mainService, $rootScope, $cordovaKeyboard, $timeout, $state) {
 
 
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
@@ -45,14 +45,14 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
     TEXT OVERLAY
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   // variables for starting image and canvas
-  var startImage = $rootScope.imgURI;
-  // var startImage = './img/rr.jpg';
+  // var startImage = $rootScope.imgURI;
+  var startImage = './img/rr.jpg';
   $scope.image = startImage;
   var canvas = document.getElementById('msgCanvas');
   var context = canvas.getContext('2d');
 
   // Overlay fn
-  $scope.createOverlay= function(){
+  $scope.createOverlay= function() {
     // Always restart at base image, otherwise error (unsafe image)
     $scope.image = startImage;
     var textMsg = $('#edit-message-view__input').val();
@@ -94,8 +94,11 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
     // context.strokeText($scope.textOverlay, canvas.width / 2, canvas.height * 0.8);
     var textAndImgURI = canvas.toDataURL();
 
-    $timeout( function(){
+
+    $timeout( function() {
         $scope.image = textAndImgURI;
+        $rootScope.imgURI = textAndImgURI;
+        $state.go('sendTo');
     }, 200);
   }
 

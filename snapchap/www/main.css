@@ -16,6 +16,7 @@
 @import "./app/components/logIn/logIn.css";
 /*@import "./app/components/nav/nav.css";*/
 @import "./app/components/profile/profile.css";
+@import "./app/components/sendTo/sendTo.css";
 @import "./app/components/settings/settings.css";
 @import "./app/components/signUp/signUp.css";
 
@@ -146,7 +147,7 @@
   z-index: 3;
 }
 #index-html__nav-bottom {
-  display: flex;
+  display: none;
   align-items: flex-end;
   justify-content: center;
   position: absolute;

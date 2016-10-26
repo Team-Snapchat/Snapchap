@@ -1,9 +1,36 @@
-<ion-view title="Send To…" id="page10">
-    <ion-content padding="true" class="has-header">
-        <div id="sendTo-button-bar5" class="button-bar">
-            <button id="sendTo-button30" class="button button-light  button-block"></button>
-            <button id="sendTo-button31" class="button button-light  button-block"></button>
-            <button id="sendTo-button32" class="button button-light  button-block"></button>
-        </div>
-    </ion-content>
+<ion-view title="Send To…" id="send-to-view">
+
+  <ion-content>
+
+      <nav>
+        <button ui-sref="profile" id="send-to-view_back-btn" class="back-btn" ng-click="showMenu()"><</button>
+        Send To…
+      </nav>
+
+      <form id="send-to-view__form">
+          <span class="magnifying-glass"></span>
+          <input type="text" placeholder="Search" ng-model="friendsList">
+      </form>
+
+      <p class="heading" ng-repeat="friend in friends | filter: friendsList">BEST FRIENDS</p>
+      <ul>
+        <li>
+          <label for="checkbox">Molly</label><input id="checkbox" type="checkbox"/>
+        </li>
+        <li>
+          <label for="checkbox">Lucy</label><input id="checkbox" type="checkbox"/>
+        </li>
+      </ul>
+
+      <p class="heading">FRIENDS</p>
+      <p class="send-to-text">Send a Snap directly to friends.</p>
+
+      <ul ng-repeat="friend in friends | filter: {username: friendsList}">
+        <li>
+          <span>{{friend.username}}</span><span><input type="checkbox"/></span>
+        </li>
+      </ul>
+
+  </ion-content>
+
 </ion-view>
