@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 
-=======
 node_modules/
 sockets/
 config.js
@@ -12,5 +10,3 @@ lib/
 */.DS_Store
 ../.DS_Store
 .DS_Store
-
->>>>>>> master
