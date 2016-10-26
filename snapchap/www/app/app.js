@@ -1,76 +1,129 @@
-angular.module('snapchat', ['ionic', 'ngCordova'])
+angular.module('snapchat', ['ionic', 'ngCordova', 'satellizer'])
 
-.config(function($ionicConfigProvider, $stateProvider, $urlRouterProvider){
+.config(function($ionicConfigProvider, $stateProvider, $urlRouterProvider, $authProvider){
 
     $ionicConfigProvider.backButton.text('').previousTitleText(false);
 
     $urlRouterProvider.otherwise('/camera');
 
+  var skipIfLoggedIn = ['$q', '$location', '$auth', function($q, $location, $auth) {
+    var deferred = $q.defer();
+    if ($auth.isAuthenticated()) {
+      $location.path('/camera')
+    } else {
+      deferred.resolve();
+    }
+    return deferred.promise;
+  }];
+
+  var loginRequired = ['$q', '$location', '$auth', function($q, $location, $auth) {
+    var deferred = $q.defer();
+    if ($auth.isAuthenticated()) {
+      deferred.resolve();
+    } else {
+      $location.path('/loginsignup');
+    }
+      return deferred.promise;
+  }];
+
     $stateProvider
     .state('addedMe', {
       url: '/addedme',
       templateUrl: 'app/components/addedMe/addedMe.html',
-      controller: 'addedMeCtrl'
+      controller: 'addedMeCtrl',
+      resolve: {
+          loginRequired: loginRequired
+        }
     })
 
     .state('addFriends', {
       url: '/addfriends',
       templateUrl: 'app/components/addFriends/addFriends.html',
-      controller: 'addFriendsCtrl'
+      controller: 'addFriendsCtrl',
+      resolve: {
+          loginRequired: loginRequired
+        }
     })
 
     .state('addUsername', {
       url: '/addusername',
       templateUrl: 'app/components/addUsername/addUsername.html',
-      controller: 'addUsernameCtrl'
+      controller: 'addUsernameCtrl',
+      resolve: {
+          loginRequired: loginRequired
+        }
     })
 
     .state('birthday', {
       url: '/birthday',
       templateUrl: 'app/components/birthday/birthday.html',
-      controller: 'birthdayCtrl'
+      controller: 'birthdayCtrl',
+      resolve: {
+          loginRequired: loginRequired
+        }
     })
 
     .state('camera', {
       url: '/camera',
       templateUrl: 'app/components/camera/camera.html',
-      controller: 'cameraCtrl'
+      controller: 'cameraCtrl',
+      resolve: {
+          loginRequired: loginRequired
+        }
     })
 
     .state('chat', {
       url: '/chat',
       templateUrl: 'app/components/chat/chat.html',
-      controller: 'chatCtrl'
+      controller: 'chatCtrl',
+      resolve: {
+          loginRequired: loginRequired
+        }
     })
 
     .state('editMessage', {
       url: '/editmessage',
       templateUrl: 'app/components/editMessage/editMessage.html',
-      controller: 'editMessageCtrl'
+      controller: 'editMessageCtrl',
+      resolve: {
+          loginRequired: loginRequired
+        }
     })
 
     .state('email', {
       url: '/email',
       templateUrl: 'app/components/email/email.html',
-      controller: 'emailCtrl'
+      controller: 'emailCtrl',
+      resolve: {
+          loginRequired: loginRequired
+        }
     })
 
     .state('logIn', {
       url: '/login',
       templateUrl: 'app/components/logIn/logIn.html',
-      controller: 'logInCtrl'
+      controller: 'logInCtrl',
+      resolve: {
+          skipIfLoggedIn: skipIfLoggedIn
+        }
     })
 
     .state('logInSignUp', {
       url: '/loginsignup',
       templateUrl: 'app/components/logInSignUp/logInSignUp.html',
-      controller: 'logInSignUpCtrl'
+      controller: 'logInSignUpCtrl',
+      resolve: {
+          skipIfLoggedIn: skipIfLoggedIn
+        }
     })
 
     .state('myFriends', {
       url: '/myfriends',
       templateUrl: 'app/components/myFriends/myFriends.html',
-      controller: 'myFriendsCtrl'
+      controller: 'myFriendsCtrl',
+      resolve: {
+          loginRequired: loginRequired
+        }
     })
 
     // .state('nav', {
@@ -82,47 +135,92 @@ angular.module('snapchat', ['ionic', 'ngCordova'])
     .state('password', {
       url: '/password',
       templateUrl: 'app/components/password/password.html',
-      controller: 'passwordCtrl'
+      controller: 'passwordCtrl',
+      resolve: {
+          loginRequired: loginRequired
+        }
     })
 
     .state('profile', {
       url: '/profile',
       templateUrl: 'app/components/profile/profile.html',
-      controller: 'profileCtrl'
+      controller: 'profileCtrl',
+      resolve: {
+          loginRequired: loginRequired
+        }
     })
 
     .state('sendTo', {
       url: '/sendto',
       templateUrl: 'app/components/sendTo/sendTo.html',
-      controller: 'sendToCtrl'
+      controller: 'sendToCtrl',
+      resolve: {
+          loginRequired: loginRequired
+        }
     })
 
     .state('settings', {
       url: '/settings',
       templateUrl: 'app/components/settings/settings.html',
-      controller: 'settingsCtrl'
+      controller: 'settingsCtrl',
+      resolve: {
+          loginRequired: loginRequired
+        }
     })
 
     .state('signUp', {
-      url: '/signup',
+      url: '/signUp',
       templateUrl: 'app/components/signUp/signUp.html',
-      controller: 'signUpCtrl'
+      controller: 'signUpCtrl',
+      resolve: {
+          skipIfLoggedIn: skipIfLoggedIn
+        }
+    })
+
+    .state('signUp-email', {
+      url: '/signUp-email',
+      templateUrl: 'app/components/signUp/signUp-email/signUp-email.html',
+      controller: 'signUp-emailCtrl',
+      resolve: {
+          skipIfLoggedIn: skipIfLoggedIn
+        }
+    })
+
+    .state('signUp-password', {
+      url: '/signUp-password',
+      templateUrl: 'app/components/signUp/signUp-password/signUp-password.html',
+      controller: 'signUp-passwordCtrl',
+      resolve: {
+          skipIfLoggedIn: skipIfLoggedIn
+        }
+    })
+
+    .state('signUp-username', {
+      url: '/signup-username',
+      templateUrl: 'app/components/signUp/signUp-username/signUp-username.html',
+      controller: 'signUp-usernameCtrl',
+      resolve: {
+          skipIfLoggedIn: skipIfLoggedIn
+        }
     })
 
     .state('watchMessages', {
       url: '/watchmessages',
       templateUrl: 'app/components/watchMessages/watchMessages.html',
-      controller: 'watchMessagesCtrl'
+      controller: 'watchMessagesCtrl',
+      resolve: {
+          loginRequired: loginRequired
+        }
     })
 
+
+    $authProvider.loginUrl = '/auth/login';
+    $authProvider.signupUrl = '/auth/signup';
 
 })
 
 
 .run(function($ionicPlatform, $cordovaStatusbar) {
-
-
-
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the form inputs)
 

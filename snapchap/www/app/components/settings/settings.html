@@ -7,11 +7,11 @@
 
       <span class="heading">MY ACCOUNT</span>
       <ul>
-        <li ui-sref="name">Name<button class="forward-btn">></button></li>
-        <li ui-sref="username">Username<button class="forward-btn">></button></li>
+        <li ui-sref="name">Name {{userInfo.first_name}} {{userInfo.last_name}}<button class="forward-btn">></button></li>
+        <li ui-sref="username">Username {{userInfo.username}}<button class="forward-btn">></button></li>
         <li ui-sref="birthday">Birthday<button class="forward-btn">></button></li>
         <li style="color:gray">Mobile Number</li>
-        <li ui-sref="email">Email<button class="forward-btn">></button></li>
+        <li ui-sref="email">Email {{userInfo.email}} <button class="forward-btn">></button></li>
         <li style="color:gray">Bitmoji</li>
         <li ui-sref="password">Password<button class="forward-btn">></button></li>
         <li style="color:gray">Login Verification</li>
@@ -46,7 +46,7 @@
         <li style="color:gray">Clear Conversations</li>
         <li style="color:gray">Restore Purchases</li>
         <li style="color:gray">Blocked</li>
-        <li ui-sref="logInSignUp">Log Out<button class="forward-btn">></button></li>
+        <li ng-click="logout()">Log Out<button class="forward-btn">></button></li>
       </ul>
     </ion-content>
 </ion-view>

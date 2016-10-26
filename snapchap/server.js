@@ -11,9 +11,9 @@ var config = require('./config.js');
 // };
 var app = express();
 var http = require('http').Server(app);
-var io = require('socket.io')(http); 
+var io = require('socket.io')(http);
 
-module.exports = {app: app, io: io};
+module.exports = {app: app, io: io, config: config};
 
 
 var db = massive.connectSync({
@@ -29,10 +29,12 @@ app.use(cors());
 
 app.use(express.static(__dirname + '/www'));
 
+
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   ENDPOINTS
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-
+app.get('/api/me', controller.ensureAuthenticated, controller.getCurrentUser)
+app.get('/api/me/:id', controller.ensureAuthenticated, controller.getCurrentUserInfo)
 app.get('/user/friends/:id', controller.getUserFriends);
 app.get('/api/getMessages/:id', controller.getMessages);
 app.put('/api/changeFriendship', controller.acceptFriendship);
@@ -40,13 +42,16 @@ app.put('/api/updateRequests', controller.updateRequests);
 app.put('/api/updateEmail', controller.updateEmail);
 app.put('/api/updateName', controller.updateName);
 app.put('/api/updatePassword', controller.updatePassword);
+app.post('/api/searchUsers', controller.searchUsers)
 app.post('/api/uploadMessage', controller.uploadMessage);
 app.post('/api/sendRequest', controller.sendRequest);
+app.post('/auth/login', controller.logIn);
+app.post('/auth/signup', controller.signUp);
 app.delete('/api/deleteFriendship', controller.deleteFriendship);
 app.post('/api/TEST', function(req, res){
-  var username = req.body; 
+  var username = req.body;
 })
-  
+
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   PORT
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -65,5 +70,5 @@ io.on('connection', function(socket){
   // socket.emit('getPendingMessages',{});
 
   // socket.emit('getPendingFriendRequests',{});
-  
+
 })

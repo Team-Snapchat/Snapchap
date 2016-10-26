@@ -1,0 +1,21 @@
+<ion-view title="Sign Up" id="sign-up-view">
+    <ion-content>
+
+      <nav>
+        <button ui-sref="logInSignUp" id="sign-up-view-back-btn" class="back-btn"><</button>
+      </nav>
+
+      <div id="sign-up-view__form">
+        <h3>What's your email?</h3>
+        <div>
+          <p class="heading">EMAIL</p>
+          <input class="input"  ng-model="email"/>
+        </div>
+
+        <button id="sign-up-view__sign-up-btn" class="btn pill-btn" animate-profile-nav ng-click="createEmail(email)">Continue</button>
+      </div>
+
+      <div id="sign-up-view__keyboard"></div>
+
+    </ion-content>
+</ion-view>

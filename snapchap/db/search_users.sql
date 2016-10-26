@@ -1,0 +1,1 @@
+SELECT username, id FROM users WHERE username LIKE $1
