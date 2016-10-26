@@ -46,15 +46,16 @@ angular.module('snapchat')
           return 'pendindMessages';
       })
   }
-  this.updatePendingFriendRequests = function(){
-      return $http.put('').then(function(PedingFriendRequests){
-        return 'PedingFriendRequests';
+  this.getPendingFriendRequests = function(id){
+      return $http.get('/api/getPendingFriendRequests/'+ id).then(function(PendingFriendRequests){
+        console.log("mainSERVICE",PendingFriendRequests)
+        return PendingFriendRequests;
       })
   }
 
-  this.replyToFriendRequest = function(){
-      return $http.put('/api/changeFriendship').then(function(confirmation){
-        return 'confirmation';
+  this.replyToFriendRequest = function(data){
+      return $http.put('/api/changeFriendship', {data: data}).then(function(confirmation){
+        return confirmation;
       })
   }
 
@@ -70,8 +71,8 @@ angular.module('snapchat')
   }
 
   this.sendFriendRequest = function(data){
-      return $http.post('/api/sendRequest', data).then(function(confirmation){
-        return 'confirmation';
+      return $http.post('/api/sendRequest', {data: data}).then(function(flag){
+        return flag;
       })
   }
 
