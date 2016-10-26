@@ -1,0 +1,15 @@
+<ion-view id="name-view">
+    <ion-content>
+      <nav>
+        <button ui-sref="settings" id="name-view__back-btn" class="back-btn"><</button>
+        <div class="nav-top-heading">Name</div>
+      </nav>
+
+      <div id="name-warning">
+        This is how you appear on Snapchat, so pick a name your friends know you by.
+      </div>
+      <input id="name-input" type="text" name="name" value="" placeholder="First Name" ng-model="firstName" />
+      <input id="name-input" type="text" name="name" value="" placeholder="Last Name" ng-model="lastName" />
+      <button type="button" name="button">Remove name</button>
+    </ion-content>
+</ion-view>

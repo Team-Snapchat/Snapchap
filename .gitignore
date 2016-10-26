@@ -1,5 +1,6 @@
-node_modules/                                                                                                                          
-sockets/ 
+
+node_modules/
+sockets/
 config.js
 
 platforms/
@@ -9,4 +10,3 @@ lib/
 */.DS_Store
 ../.DS_Store
 .DS_Store
-

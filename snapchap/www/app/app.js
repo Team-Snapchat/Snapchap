@@ -117,6 +117,24 @@ angular.module('snapchat', ['ionic', 'ngCordova', 'satellizer'])
         }
     })
 
+    .state('name', {
+      url: '/name',
+      templateUrl: 'app/components/name/name.html',
+      controller: 'nameCtrl',
+      resolve: {
+          loginRequired: loginRequired
+        }
+    })
+
+    .state('newPassword', {
+      url: '/newPassword',
+      templateUrl: 'app/components/newPassword/newPassword.html',
+      controller: 'newPasswordCtrl',
+      resolve: {
+          loginRequired: loginRequired
+        }
+    })
+
     .state('myFriends', {
       url: '/myfriends',
       templateUrl: 'app/components/myFriends/myFriends.html',
