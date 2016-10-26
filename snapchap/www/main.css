@@ -146,7 +146,7 @@
   z-index: 3;
 }
 #index-html__nav-bottom {
-  display: flex;
+  display: none;
   align-items: flex-end;
   justify-content: center;
   position: absolute;
