@@ -82,7 +82,7 @@ module.exports = {
       if (err) return res.status(500)
       if (!user) {
         return res.status(401).send({
-          message: 'Invalid email and/or password'
+          message: "We can't find an account with that username."
         })
       }
     db.compare_password([req.body.password, user.id], function(err, correct){
@@ -93,7 +93,9 @@ module.exports = {
           user: getSafeUser(user)
         })
       }
-      else res.status(401).send("Invalid email and/or password")
+      else res.status(401).send({
+        message: "That's not the right password. Sorry!"
+      })
     })
 
     });
@@ -117,7 +119,7 @@ module.exports = {
       }
     });
   },
-  
+
   getCurrentUser: function(req, res){
     if(!req.user){
       return res.status(404)
@@ -145,11 +147,23 @@ module.exports = {
     });
   },
 
-  updateEmail: function(req, res) {
-    db.update_email([req.body.id, req.body.email], function(err, users) {
+  comparePassword: function(req, res) {
+    db.compare_password([req.body.password, req.body.id], function(err, correct){
       if(err) console.log(err);
-      else res.status(200);
+      if(correct[0]['?column?']){
+        res.status(200).send(true)
+      }
+      else res.status(401).send({
+        message: "That's not the right password. Sorry!"
+      })
     });
+  },
+
+  updateEmail: function(req, res) {
+        db.update_email([req.body.id, req.body.email], function(err, users) {
+          if(err) console.log(err);
+          else res.status(200).send(users);
+        });
   },
 
   updateName: function(req, res) {

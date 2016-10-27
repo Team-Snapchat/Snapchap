@@ -8,7 +8,9 @@
       <div id="email-warning">
         Your email address is user to log in to <br>Snapchap<br> and for password recovery.
       </div>
-      <input id="email-input" type="text" name="name" value="" placeholder="Email Address" ng-model="email" />
+      <input id="email-input" type="text" name="email" placeholder="{{currentEmail}}" ng-model="email" ng-keyup="stuff(email)"/>
+
+      <button id="continue-button" type="button" name="button" ng-show="continueButton" ng-click="addEmail(email)">Continue</button>
 
     </ion-content>
 </ion-view>

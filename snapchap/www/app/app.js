@@ -87,6 +87,15 @@ angular.module('snapchat', ['ionic', 'ngCordova', 'satellizer'])
         }
     })
 
+    .state('confirmPassword', {
+      url: '/confirmPassword',
+      templateUrl: 'app/components/confirmPassword/confirmPassword.html',
+      controller: 'confirmPasswordCtrl',
+      resolve: {
+        loginRequired: loginRequired
+      }
+    })
+
     .state('editMessage', {
       url: '/editmessage',
       templateUrl: 'app/components/editMessage/editMessage.html',

@@ -20,10 +20,12 @@ angular.module('snapchat').controller('logInCtrl', function ($scope, $rootScope,
           mainService.getCurrentUser().then(function(userInfo){
             $rootScope.userInfo = userInfo;
           })
+
           $state.go('camera');
         }
       }).catch(function (response) {
         console.log("signUpCtrl Error:", response);
+        $scope.response = response.data.message;
       });
     };
 

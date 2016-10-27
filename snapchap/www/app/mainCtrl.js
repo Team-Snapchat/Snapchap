@@ -1,4 +1,4 @@
-angular.module('snapchat').controller('mainCtrl', function ($scope, $stateParams, $state, $cordovaCamera, $rootScope, mainService, $timeout) {
+angular.module('snapchat').controller('mainCtrl', function ($scope, $stateParams, $state, $cordovaCamera, $rootScope, $auth, mainService) {
 
 
 
@@ -58,6 +58,13 @@ angular.module('snapchat').controller('mainCtrl', function ($scope, $stateParams
   $rootScope.friends = []
   $rootScope.pendingMessages = []
   $rootScope.pendingFriendRequests = []
+  if($rootScope.userInfo === undefined){
+    $auth.logout()
+        .then(function() {
+          console.log('You have been logged out');
+          $state.go('logIn')
+    });
+  }
 
   var socket;
   $rootScope.connect = function(){
