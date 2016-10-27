@@ -6,6 +6,23 @@ var io = server.io;
 var config = server.config;
 var db = app.get('db');
 
+var whosLoggedIn
+
+io.on('connection', function(socket){
+  console.log(socket.id, ' connected')
+  // io.emit('getAccountInfo',{});
+
+  // socket.emit('getFriends',{});
+
+  // socket.emit('getPendingMessages',{});
+
+  // socket.emit('getPendingFriendRequests',{});
+  socket.on('disconnect', function(data){
+        console.log(socket.id, ' disconnected')
+    })
+
+})
+
 createJWT = function(user){
   var payload = {
     sub: user.id,
@@ -109,13 +126,11 @@ module.exports = {
     }
     else{
       var user = req.user
-      console.log('var user = ', user)
       res.json(user)
     }
   },
   getCurrentUserInfo: function(req, res){
     db.get_user_info([req.params.id], function(err, users){
-      console.log("user data = ", users)
       if(err) console.log(err)
       else res.status(200).send(users)
     })
@@ -188,14 +203,12 @@ module.exports = {
   },
   getPendingFriendRequests: function(req, res){
     db.get_pending_friend_requests([req.params.id], function(err, PendingFriendRequests){
-      console.log(PendingFriendRequests)
       if (err) console.log(err);
       else res.status(200).send(PendingFriendRequests)
     })
   },
 
   sendRequest: function(req, res) {
-    console.log(req.body.data)
     db.send_request([req.body.data.initiatorId, req.body.data.acceptorId], function(err, friendships){
       if(err) console.log(err);
       else res.status(200).send(true);

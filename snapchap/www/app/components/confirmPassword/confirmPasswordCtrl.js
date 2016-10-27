@@ -14,10 +14,12 @@ angular.module('snapchat').controller('confirmPasswordCtrl', function($scope, $r
       if(response.data){
         mainService.updateEmail($rootScope.updateEmail)
         .then(function(response){
-          $state.go('settings')
+          mainService.getCurrentUser().then(function(userInfo){
+            $rootScope.userInfo = userInfo;
+            $state.go('settings')
+          })
         })
       }
     })
-
   }
 })
