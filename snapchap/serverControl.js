@@ -132,11 +132,23 @@ module.exports = {
     });
   },
 
-  updateEmail: function(req, res) {
-    db.update_email([req.body.id, req.body.email], function(err, users) {
+  comparePassword: function(req, res) {
+    db.compare_password([req.body.password, req.body.id], function(err, correct){
       if(err) console.log(err);
-      else res.status(200);
+      if(correct[0]['?column?']){
+        res.status(200).send(true)
+      }
+      else res.status(401).send({
+        message: "That's not the right password. Sorry!"
+      })
     });
+  },
+
+  updateEmail: function(req, res) {
+        db.update_email([req.body.id, req.body.email], function(err, users) {
+          if(err) console.log(err);
+          else res.status(200).send(users);
+        });
   },
 
   updateName: function(req, res) {
