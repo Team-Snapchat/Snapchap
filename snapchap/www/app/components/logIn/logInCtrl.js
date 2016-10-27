@@ -8,6 +8,7 @@ angular.module('snapchat').controller('logInCtrl', function ($scope, $rootScope,
 
   //login w/jsonwebtokens
     $scope.login = function(email, password) {
+      $rootScope.connect();
       console.log(email, password);
       $auth.login({
         email: email,

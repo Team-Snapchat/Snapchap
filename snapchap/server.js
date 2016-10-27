@@ -62,14 +62,3 @@ http.listen(port, function() {
 });
 
 
-io.on('connection', function(socket){
-
-  // io.emit('getAccountInfo',{});
-
-  // socket.emit('getFriends',{});
-
-  // socket.emit('getPendingMessages',{});
-
-  // socket.emit('getPendingFriendRequests',{});
-
-})

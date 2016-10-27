@@ -21,14 +21,11 @@ angular.module('snapchat')
 
   this.getCurrentUser = function(){
     return $http.get('/api/me').then(function(response){
-      console.log('getCurrentUser data = ', response.data)
-
         return getCurrentUserInfo(response.data)
     })
   }
   var getCurrentUserInfo = function(userId){
     return $http.get('/api/me/'+ userId).then(function(response){
-      console.log('response', response)
       currentUser = '';
       return response.data[0];
     })
@@ -81,6 +78,14 @@ angular.module('snapchat')
         return 'confirmation';
       })
   }
+
+
+
+
+
+
+
+
 
 
 });
