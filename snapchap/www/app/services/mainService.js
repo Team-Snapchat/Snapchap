@@ -82,5 +82,18 @@ angular.module('snapchat')
       })
   }
 
+  this.updateEmail = function(data){
+    return $http.put('/api/updateEmail', {id: data.id, email: data.email}).then(function(confirmation){
+      return confirmation;
+    })
+  }
+
+  this.comparePassword = function(password, id){
+    console.log(password, id);
+    return $http.put('/api/comparePassword', {password: password, id: id}).then(function(confirmation){
+      return confirmation;
+    })
+  }
+
 
 });
