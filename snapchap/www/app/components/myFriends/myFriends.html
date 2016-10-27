@@ -9,10 +9,10 @@
 
         <form id="my-friends-view__form">
             <span class="magnifying-glass"></span>
-            <input type="text" placeholder="Search">
+            <input type="text" placeholder="Search" ng-model="friendsList">
         </form>
 
-        <p class="heading">BEST FRIENDS</p>
+        <!-- <p class="heading">BEST FRIENDS</p>
         <ul>
           <li>
             <span>Molly</span>
@@ -23,11 +23,11 @@
           <li>
             <span>Lucy</span>
           </li>
-        </ul>
+        </ul> -->
 
         <p class="heading">MY FRIENDS</p>
 
-        <ul ng-repeat="friend in friends">
+        <ul ng-repeat="friend in friends | filter: {username: friendsList}">
           <li>
             <span>{{friend.username}}</span>
           </li>

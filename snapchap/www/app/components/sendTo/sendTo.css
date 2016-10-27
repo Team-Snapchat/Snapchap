@@ -1,0 +1,215 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  Weird phantom div created in DOM between ion-content and div#send-to-view__top-nav
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#send-to-view .scroll {
+  overflow: scroll;
+  height: 100vh;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  TOP NAV
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#send-to-view__top-nav {
+  color: RGBA(60, 178, 226, 1.00);
+  font-size: 1rem;
+  text-align: center;
+  padding: 28px 18px;
+  /*margin-top: 10px;*/
+  background-color: #fff;
+}
+  /*Back button*/
+  #send-to-view_back-btn {
+    font-size: 1.7rem;
+    color: RGBA(60, 178, 226, 1.00);
+    left: 15px;
+    top: 18px;
+  }
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  SEARCH BAR FILTER
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#send-to-view__form {
+  position: relative;
+  border-top: thin solid rgba(150, 150, 150, 0.5);
+  border-bottom: thin solid rgba(150, 150, 150, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#send-to-view input[type='text'] {
+  position: relative;
+  width: 100vw;
+  left: 39px;
+  font-size: 1.2em;
+  padding: 22px 0;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  FRIENDS
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#send-to-view .heading {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  width: 100vw;
+  height: 40px;
+  color: RGBA(60, 178, 226, 1.00);
+  margin-bottom: -10px;
+}
+/*List*/
+#send-to-view ul {
+  font-size: 1rem;
+}
+  /*List items*/
+  #send-to-view li {
+    color: black;
+    padding: 11px 0;
+    border-bottom: thin solid rgba(150, 150, 150, 0.5);
+    position: relative;
+
+  }
+    /*All list item content*/
+    #send-to-view ul>li>* {
+      margin: 0px 15px;
+    }
+    /*Labels*/
+    label {
+      display: flex;
+      justify-content: space-between;;
+      align-items: center;
+    }
+    /*Blue checkboxes*/
+    input[type=checkbox].blue-checkbox {
+      width: 20px;
+      height: 20px;
+      position: relative;
+    }
+      /*White square when unchecked*/
+      input[type=checkbox].blue-checkbox:after {
+        content: '';
+        width: 25px;
+        height: 25px;
+        background-color: white;
+        border: thin solid lightgray;
+        position: absolute;
+        top: -4px;
+        left: -4px;
+        border-radius: 4px;
+      }
+      /*Blue checkmark background*/
+      input[type=checkbox].blue-checkbox:checked:after {
+        content: '';
+        width: 25px;
+        height: 25px;
+        background-color: RGBA(60, 178, 226, 1.00);
+        border: none;
+        position: absolute;
+        top: -4px;
+        left: -4px;
+        border-radius: 4px;
+      }
+      /*White checkmark*/
+      input[type=checkbox].blue-checkbox:checked:before {
+        content: '¬';
+        transform: rotate(127deg);
+        color: white;
+        font-size: 2.3rem;
+        text-align: center;
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        left: 9px;
+        top: 4px;
+        z-index: 2;
+      }
+
+/*Text about sending a Snap to a friend*/
+.send-to-text {
+  color: rgba(150, 150, 150, 1);
+  margin: 10px 0px;
+  font-size: 0.7rem;
+  line-height: 0.9rem;
+  background-color: white;
+  width: 100%;
+  padding-left: 18px;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  SEND BAR (POP-UP)
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+/*Send bar is initally off bottom of the screen*/
+#send-to-view__send-bar {
+  background-color: RGBA(60, 178, 226, 1);
+  width: 100vw;
+  height: 55px;
+  position: fixed;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /*white-space:nowrap;
+  overflow:hidden;*/
+  visibility: hidden;
+  bottom: -55px;
+  transition: bottom 0.5s, visibility 0.5s;
+
+}
+/*Ticking checkmarks makes send bar appear*/
+#send-to-view__send-bar.bar-is-visible {
+  bottom: 0px;
+  visibility: visible;
+}
+
+  /*Blue gradient div covering trailing friend names*/
+  #send-to-view__send-bar:after {
+    content: '';
+    position: absolute;
+    margin: 0;
+    right: 0px;
+    top: 0px;
+    /*background-color: red;*/
+    background-image: linear-gradient(to right, transparent 0%, RGBA(60, 178, 226, 1.00) 40%);
+    background-image: -webkit-linear-gradient(left, transparent 0%, RGBA(60, 178, 226, 1.00) 40%);
+    background-image: -moz-linear-gradient(right, transparent 0%, RGBA(60, 178, 226, 1.00) 40%);
+    background-image: -o-linear-gradient(right, transparent 0%, RGBA(60, 178, 226, 1.00) 40%);
+    width: 150px;
+    height: 55px;
+    z-index: 2;
+  }
+
+  /*Comma and padding between recipient names*/
+  .recipient:after {
+    content: ',';
+    color: white;
+    font-size: 1rem;
+    position: relative;
+    padding-right: 7px;
+    left: 1px;
+    bottom: 0px;
+  }
+  /*No comma after last name*/
+  .recipient:last-child:after {
+    content: '';
+  }
+
+  /*All Send Bar content*/
+  #send-to-view__send-bar>* {
+    margin: 0px 15px;
+  }
+
+  /*Send Button*/
+  #send-to-view__arrow-btn {
+    background-image: url('../../../img/icon/arrow.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: absolute;
+    margin: 0;
+    right: 0px;
+    bottom: 0px;
+    width: 55px;
+    height: 55px;
+    -webkit-background-size: 55px;
+            background-size: 55px;
+    z-index: 3;
+  }

@@ -32,7 +32,8 @@ angular.module('snapchat', ['ionic', 'ngCordova', 'satellizer'])
       templateUrl: 'app/components/addedMe/addedMe.html',
       controller: 'addedMeCtrl',
       resolve: {
-          loginRequired: loginRequired
+          // loginRequired: loginRequired
+          skipIfLoggedIn: skipIfLoggedIn
         }
     })
 
@@ -41,7 +42,8 @@ angular.module('snapchat', ['ionic', 'ngCordova', 'satellizer'])
       templateUrl: 'app/components/addFriends/addFriends.html',
       controller: 'addFriendsCtrl',
       resolve: {
-          loginRequired: loginRequired
+          // loginRequired: loginRequired
+          skipIfLoggedIn: skipIfLoggedIn
         }
     })
 
@@ -50,7 +52,8 @@ angular.module('snapchat', ['ionic', 'ngCordova', 'satellizer'])
       templateUrl: 'app/components/addUsername/addUsername.html',
       controller: 'addUsernameCtrl',
       resolve: {
-          loginRequired: loginRequired
+          // loginRequired: loginRequired
+          skipIfLoggedIn: skipIfLoggedIn
         }
     })
 
@@ -59,7 +62,8 @@ angular.module('snapchat', ['ionic', 'ngCordova', 'satellizer'])
       templateUrl: 'app/components/birthday/birthday.html',
       controller: 'birthdayCtrl',
       resolve: {
-          loginRequired: loginRequired
+          // loginRequired: loginRequired
+          skipIfLoggedIn: skipIfLoggedIn
         }
     })
 
@@ -68,7 +72,8 @@ angular.module('snapchat', ['ionic', 'ngCordova', 'satellizer'])
       templateUrl: 'app/components/camera/camera.html',
       controller: 'cameraCtrl',
       resolve: {
-          loginRequired: loginRequired
+          // loginRequired: loginRequired
+          skipIfLoggedIn: skipIfLoggedIn
         }
     })
 
@@ -77,7 +82,8 @@ angular.module('snapchat', ['ionic', 'ngCordova', 'satellizer'])
       templateUrl: 'app/components/chat/chat.html',
       controller: 'chatCtrl',
       resolve: {
-          loginRequired: loginRequired
+          // loginRequired: loginRequired
+          skipIfLoggedIn: skipIfLoggedIn
         }
     })
 
@@ -86,7 +92,8 @@ angular.module('snapchat', ['ionic', 'ngCordova', 'satellizer'])
       templateUrl: 'app/components/editMessage/editMessage.html',
       controller: 'editMessageCtrl',
       resolve: {
-          loginRequired: loginRequired
+          // loginRequired: loginRequired
+          skipIfLoggedIn: skipIfLoggedIn
         }
     })
 
@@ -95,7 +102,8 @@ angular.module('snapchat', ['ionic', 'ngCordova', 'satellizer'])
       templateUrl: 'app/components/email/email.html',
       controller: 'emailCtrl',
       resolve: {
-          loginRequired: loginRequired
+          // loginRequired: loginRequired
+          skipIfLoggedIn: skipIfLoggedIn
         }
     })
 
@@ -122,7 +130,8 @@ angular.module('snapchat', ['ionic', 'ngCordova', 'satellizer'])
       templateUrl: 'app/components/name/name.html',
       controller: 'nameCtrl',
       resolve: {
-          loginRequired: loginRequired
+          // loginRequired: loginRequired
+          skipIfLoggedIn: skipIfLoggedIn
         }
     })
 
@@ -131,7 +140,8 @@ angular.module('snapchat', ['ionic', 'ngCordova', 'satellizer'])
       templateUrl: 'app/components/newPassword/newPassword.html',
       controller: 'newPasswordCtrl',
       resolve: {
-          loginRequired: loginRequired
+          // loginRequired: loginRequired
+          skipIfLoggedIn: skipIfLoggedIn
         }
     })
 
@@ -140,7 +150,8 @@ angular.module('snapchat', ['ionic', 'ngCordova', 'satellizer'])
       templateUrl: 'app/components/myFriends/myFriends.html',
       controller: 'myFriendsCtrl',
       resolve: {
-          loginRequired: loginRequired
+          // loginRequired: loginRequired
+          skipIfLoggedIn: skipIfLoggedIn
         }
     })
 
@@ -155,7 +166,8 @@ angular.module('snapchat', ['ionic', 'ngCordova', 'satellizer'])
       templateUrl: 'app/components/password/password.html',
       controller: 'passwordCtrl',
       resolve: {
-          loginRequired: loginRequired
+          // loginRequired: loginRequired
+          skipIfLoggedIn: skipIfLoggedIn
         }
     })
 
@@ -164,7 +176,8 @@ angular.module('snapchat', ['ionic', 'ngCordova', 'satellizer'])
       templateUrl: 'app/components/profile/profile.html',
       controller: 'profileCtrl',
       resolve: {
-          loginRequired: loginRequired
+          // loginRequired: loginRequired
+          skipIfLoggedIn: skipIfLoggedIn
         }
     })
 
@@ -173,7 +186,8 @@ angular.module('snapchat', ['ionic', 'ngCordova', 'satellizer'])
       templateUrl: 'app/components/sendTo/sendTo.html',
       controller: 'sendToCtrl',
       resolve: {
-          loginRequired: loginRequired
+          // loginRequired: loginRequired
+          skipIfLoggedIn: skipIfLoggedIn
         }
     })
 
@@ -182,7 +196,8 @@ angular.module('snapchat', ['ionic', 'ngCordova', 'satellizer'])
       templateUrl: 'app/components/settings/settings.html',
       controller: 'settingsCtrl',
       resolve: {
-          loginRequired: loginRequired
+          // loginRequired: loginRequired
+          skipIfLoggedIn: skipIfLoggedIn
         }
     })
 
@@ -227,7 +242,8 @@ angular.module('snapchat', ['ionic', 'ngCordova', 'satellizer'])
       templateUrl: 'app/components/watchMessages/watchMessages.html',
       controller: 'watchMessagesCtrl',
       resolve: {
-          loginRequired: loginRequired
+          // loginRequired: loginRequired
+          skipIfLoggedIn: skipIfLoggedIn
         }
     })
 

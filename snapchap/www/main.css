@@ -19,6 +19,7 @@
 @import "./app/components/logIn/logIn.css";
 /*@import "./app/components/nav/nav.css";*/
 @import "./app/components/profile/profile.css";
+@import "./app/components/sendTo/sendTo.css";
 @import "./app/components/settings/settings.css";
 @import "./app/components/signUp/signUp.css";
 
@@ -116,7 +117,7 @@
 .back-btn {
   font-size: 1.55rem;
   left: 15px;
-  top: 9px;
+  top: 19px;
 }
 .forward-btn {
   right: 15px;

@@ -1,4 +1,4 @@
-angular.module('snapchat').controller('myFriendsCtrl', function ($scope, $stateParams, mainService) {
+angular.module('snapchat').controller('myFriendsCtrl', function ($scope, $stateParams, mainService, $rootScope) {
 
 
   mainService.hideMenu();
@@ -14,6 +14,6 @@ angular.module('snapchat').controller('myFriendsCtrl', function ($scope, $stateP
       $scope.userId = userId;
     })
   }
-  $scope.getUserFriends(1);
+  $scope.getUserFriends($rootScope.userInfo.id);
 
 });
