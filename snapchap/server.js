@@ -37,6 +37,7 @@ app.get('/api/me', controller.ensureAuthenticated, controller.getCurrentUser)
 app.get('/api/me/:id', controller.ensureAuthenticated, controller.getCurrentUserInfo)
 app.get('/user/friends/:id', controller.getUserFriends);
 app.get('/api/getMessages/:id', controller.getMessages);
+app.get('/api/getPendingFriendRequests/:id', controller.getPendingFriendRequests);
 app.put('/api/changeFriendship', controller.acceptFriendship);
 app.put('/api/updateRequests', controller.updateRequests);
 app.put('/api/updateEmail', controller.updateEmail);

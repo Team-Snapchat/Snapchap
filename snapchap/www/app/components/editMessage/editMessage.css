@@ -81,6 +81,8 @@
 }
  /* arrow button */
 #edit-message-view__arrow-btn {
+  background-color: RGBA(60, 178, 226, 1.00);
+  border-radius: 50%;
   background-image: url('../../../img/icon/arrow.png');
   transform: translateY(10px);
   width: 55px;

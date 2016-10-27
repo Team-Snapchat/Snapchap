@@ -172,11 +172,19 @@ module.exports = {
       }
     })
   },
+  getPendingFriendRequests: function(req, res){
+    db.get_pending_friend_requests([req.params.id], function(err, PendingFriendRequests){
+      console.log(PendingFriendRequests)
+      if (err) console.log(err);
+      else res.status(200).send(PendingFriendRequests)
+    })
+  },
 
   sendRequest: function(req, res) {
-    db.send_request([req.params.initiatorId, req.params.acceptorId], function(err, friendships){
+    console.log(req.body.data)
+    db.send_request([req.body.data.initiatorId, req.body.data.acceptorId], function(err, friendships){
       if(err) console.log(err);
-      else res.status(200);
+      else res.status(200).send(true);
     })
   },
 
@@ -188,9 +196,10 @@ module.exports = {
   },
 
   acceptFriendship: function(req, res){
-    db.accept_friendship([req.params.friendshipId], function(err, friendships){
+    db.accept_friendship([req.body.data.initiatorId, req.body.data.acceptorId], function(err, response){
+
       if(err) console.log(err);
-      else res.status(200);
+      else res.status(200).send(true);
     })
   },
 

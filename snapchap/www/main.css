@@ -11,6 +11,9 @@
 @import "./app/components/chat/chat.css";
 @import "./app/components/editMessage/editMessage.css";
 @import "./app/components/email/email.css";
+@import "./app/components/name/name.css";
+@import "./app/components/password/password.css";
+@import "./app/components/newPassword/newPassword.css";
 @import "./app/components/myFriends/myFriends.css";
 @import "./app/components/logInSignUp/logInSignUp.css";
 @import "./app/components/logIn/logIn.css";
@@ -114,7 +117,7 @@
 .back-btn {
   font-size: 1.55rem;
   left: 15px;
-  top: 9px;
+  top: 19px;
 }
 .forward-btn {
   right: 15px;

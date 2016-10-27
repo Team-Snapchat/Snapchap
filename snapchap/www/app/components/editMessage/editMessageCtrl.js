@@ -41,12 +41,16 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
   // });
 
 
+
+
+  // $rootScope.imgURI = './img/rr.jpg';
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
     TEXT OVERLAY
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   // variables for starting image and canvas
   // var startImage = $rootScope.imgURI;
-  var startImage = './img/rr.jpg';
+  // var startImage = './img/rr.jpg';
+  var startImage = $rootScope.imgURI;
   $scope.image = startImage;
   var canvas = document.getElementById('msgCanvas');
   var context = canvas.getContext('2d');
@@ -98,9 +102,9 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
     $timeout( function() {
         $scope.image = textAndImgURI;
         $rootScope.imgURI = textAndImgURI;
-        $state.go('sendTo');
     }, 200);
   }
+
 
 
 

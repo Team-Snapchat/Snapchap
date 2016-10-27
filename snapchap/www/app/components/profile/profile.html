@@ -11,7 +11,7 @@
           <p id="profile-view__display-name" class="profile-view__display-name">{{userInfo.first_name}} {{userInfo.last_name}}</p>
           <p id="profile-view__username" class="profile-view__username">username: {{userInfo.username}}</p>
 
-          <div ui-sref="addedMe" id="profile-view__added-me-btn" class="profile-view__main-content-btn">Added Me</div>
+          <div ui-sref="addedMe" id="profile-view__added-me-btn" class="profile-view__main-content-btn" ng-click="getAddedme()">Added Me</div>
           <div ui-sref="addFriends" id="profile-view__add-friends-btn" class="profile-view__main-content-btn" >Add Friends</div>
           <div ui-sref="myFriends" id="profile-view__my-friends-btn" class="profile-view__main-content-btn" >My Friends</div>
           <!-- <div ui-sref="camera" id="profile-view__camera-btn" class="profile-view__main-content-btn"></div> -->
