@@ -23,6 +23,7 @@ angular.module('snapchat').controller('logInCtrl', function ($scope, $rootScope,
         }
       }).catch(function (response) {
         console.log("signUpCtrl Error:", response);
+        $scope.response = response.data.message;
       });
     };
 

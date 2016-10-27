@@ -36,6 +36,10 @@
   width: 90vw;
 }
 
+#incorrect-information-message {
+  color: red;
+}
+
 #forgot-your-password {
   margin-top: 2vh;
   padding: 0 5vw;
