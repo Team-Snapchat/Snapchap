@@ -14,21 +14,23 @@
 
     <ul class="userName" ng-repeat="user in users">
       <li>
-        <p class="add-username-view__display-name">DISPLAY NAME {{user.first_name}} {{user.last_name}}</p>
+        <p class="add-username-view__display-name">{{user.first_name}} {{user.last_name}}</p>
         <p class="add-username-view__username">{{user.username}}</p>
         <button class="pill-btn add-username-view__add-btn" ng-click="sendFriendRequest(user.id)" ><span class="add-username-view__add-btn__plus">Add</span></button>
       </li>
     </ul>
+    <section ng-hide="hideExplanation">
+      <div class="add-username-view__explanation">
+        <p>{{userInfo.username}}</p>
+        <p>is your username</p>
+      </div>
 
-    <div class="add-username-view__explanation">
-      <p>{{userInfo.username}}</p>
-      <p>is your username</p>
-    </div>
-
-    <div class="add-username-view__explanation">
-      <p>{{userInfo.first_name}} {{userInfo.last_name}}</p>
-      <p>is how you appear on Snapchat</p>
-    </div>
+      <div class="add-username-view__explanation">
+        <p>{{userInfo.first_name}} {{userInfo.last_name}}</p>
+        <p>is how you appear on Snapchat</p>
+      </div>
+    </section>
+    
 
   </ion-content>
 

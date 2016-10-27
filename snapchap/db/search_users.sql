@@ -1,1 +1,1 @@
-SELECT username, id FROM users WHERE username LIKE $1
+SELECT username, id, first_name, last_name FROM users WHERE username LIKE $1
