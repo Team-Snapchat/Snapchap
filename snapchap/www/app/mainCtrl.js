@@ -70,7 +70,8 @@ angular.module('snapchat').controller('mainCtrl', function ($scope, $stateParams
   $rootScope.connect = function(){
     
       socket = io.connect();
-      
+      socket.emit('isLoggedin', {username: $rootScope.userInfo.username, id: $rootScope.userInfo.id})
+
       socket.on('getAccountInfo', function(accountInfo){
       $rootScope.accountInfo.push(accountInfo);
       $scope.$digest();
@@ -96,8 +97,12 @@ angular.module('snapchat').controller('mainCtrl', function ($scope, $stateParams
   };
 
   $rootScope.disconnect = function(){
-
-      if(socket) socket.disconnect()
+      // console.log('$rootScope.disconnect FIRED')
+      // socket.emit('startDisconnect', {username: $rootScope.userInfo.username, id: $rootScope.userInfo.id})
+      // socket.on('confirmDisconnect', function(message){
+      //   console.log(message.disconnected)
+        if(socket) socket.disconnect()
+      // }) 
   }
 
 
