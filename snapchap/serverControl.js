@@ -166,17 +166,24 @@ module.exports = {
         });
   },
 
-  updateName: function(req, res) {
-    db.update_name([req.body.id, req.body.firstname, req.body.lastname], function(err, users) {
+  updateFirstName: function(req, res) {
+    db.update_first_name([req.body.id, req.body.firstName], function(err, users) {
       if(err) console.log(err);
-      else res.status(200);
+      else res.status(200).send(true);
+    });
+  },
+
+  updateLastName: function(req, res) {
+    db.update_last_name([req.body.id, req.body.lastName], function(err, users) {
+      if(err) console.log(err);
+      else res.status(200).send(true);
     });
   },
 
   updatePassword: function(req, res) {
     db.update_password([req.body.id, req.body.password], function(err, users) {
       if(err) console.log(err);
-      else res.status(200);
+      else res.status(200).send(true);
     });
   },
 

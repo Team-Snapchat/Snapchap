@@ -86,12 +86,28 @@ angular.module('snapchat')
   }
 
   this.comparePassword = function(password, id){
-    console.log(password, id);
     return $http.put('/api/comparePassword', {password: password, id: id}).then(function(confirmation){
       return confirmation;
     })
   }
 
+  this.updateFirstName = function(id, firstName){
+    return $http.put('/api/updateFirstName', {id: id, firstName: firstName}).then(function(confirmation){
+      return confirmation;
+    })
+  }
+
+  this.updateLastName = function(id, lastName){
+    return $http.put('/api/updateLastName', {id: id, lastName: lastName}).then(function(confirmation){
+      return confirmation;
+    })
+  }
+
+  this.updatePassword = function(id, password){
+    return $http.put('/api/updatePassword', {id: id, password: password}).then(function(confirmation){
+      return confirmation
+    })
+  }
 
 
 
