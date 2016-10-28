@@ -6,20 +6,30 @@ var io = server.io;
 var config = server.config;
 var db = app.get('db');
 
-var whosLoggedIn
+var whosLoggedIn = {}
 
 io.on('connection', function(socket){
-  console.log(socket.id, ' connected')
-  // io.emit('getAccountInfo',{});
+  socket.on('isLoggedin', function(data){
+    whosLoggedIn[data.id] = socket.id;
+    console.log(whosLoggedIn)
+    console.log(data.username + ' connected on ' + socket.id)
+  })
+// socket.on('startDisconnect', function(data){
+//     delete whosLoggedIn[data.id]
+//     console.log(whosLoggedIn)
+//     console.log(data.username + ' disconnect from ' + socket.id)
+//     socket.emit('confirmDisconnect', {disconnected: data.username + 'disconnected from socket'})
+// })
 
-  // socket.emit('getFriends',{});
-
-  // socket.emit('getPendingMessages',{});
-
-  // socket.emit('getPendingFriendRequests',{});
   socket.on('disconnect', function(data){
-        console.log(socket.id, ' disconnected')
-    })
+    for (var key in whosLoggedIn) {
+      if(whosLoggedIn[key] === socket.id){
+        console.log(whosLoggedIn[key], "removed")
+        delete whosLoggedIn[key];
+        console.log(whosLoggedIn)
+      }
+    }    
+})
 
 })
 

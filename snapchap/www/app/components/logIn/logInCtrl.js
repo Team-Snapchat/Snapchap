@@ -8,7 +8,6 @@ angular.module('snapchat').controller('logInCtrl', function ($scope, $rootScope,
 
   //login w/jsonwebtokens
     $scope.login = function(email, password) {
-      $rootScope.connect();
       console.log(email, password);
       $auth.login({
         email: email,
@@ -19,8 +18,9 @@ angular.module('snapchat').controller('logInCtrl', function ($scope, $rootScope,
           $auth.setToken(response)
           mainService.getCurrentUser().then(function(userInfo){
             $rootScope.userInfo = userInfo;
+            $rootScope.connect(); //dont move this
           })
-
+          
           $state.go('camera');
         }
       }).catch(function (response) {
