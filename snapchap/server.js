@@ -41,9 +41,10 @@ app.get('/api/getPendingFriendRequests/:id', controller.getPendingFriendRequests
 app.put('/api/changeFriendship', controller.acceptFriendship);
 app.put('/api/updateRequests', controller.updateRequests);
 app.put('/api/updateEmail', controller.updateEmail);
-app.put('/api/updateName', controller.updateName);
 app.put('/api/updatePassword', controller.updatePassword);
 app.put('/api/comparePassword', controller.comparePassword);
+app.put('/api/updateFirstName', controller.updateFirstName);
+app.put('/api/updateLastName', controller.updateLastName);
 app.post('/api/searchUsers', controller.searchUsers);
 app.post('/api/uploadMessage', controller.uploadMessage);
 app.post('/api/sendRequest', controller.sendRequest);
@@ -61,5 +62,3 @@ var port = config.port;
 http.listen(port, function() {
   console.log('Listening now on port ' + port);
 });
-
-
