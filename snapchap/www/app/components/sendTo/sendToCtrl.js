@@ -17,7 +17,6 @@ angular.module('snapchat').controller('sendToCtrl', function ($scope, $statePara
         $(this).closest('label').css('font-weight', fontWeight);
         $(this).closest('li').css('background-color', bgColor);
       });
-
       // var fontWeight = $(this).is(':checked') ? 'bold' : 'normal';
       // $(this).closest('label').css('font-weight', fontWeight);
       // $(this).closest('li').css('background-color', 'lightgray');
@@ -38,6 +37,13 @@ angular.module('snapchat').controller('sendToCtrl', function ($scope, $statePara
         recipients.push($(this).closest('li').find('.friend-name').html());
       }
     });
+    setTimeout(function() {
+      console.log($(window).width() - $('#recipient-list').width());
+      if ($(window).width() - $('#recipient-list').width() < 65) {
+        $('#recipient-list').css('right', '65px');
+      } else $('#recipient-list').css('right', 'auto');
+    }, 10);
+
     $scope.recipients = recipients;
   }
 

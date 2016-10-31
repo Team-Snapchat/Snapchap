@@ -12,31 +12,41 @@
           <input type="text" placeholder="Search" ng-model="friendsList">
       </form>
 
-      <!-- We may do the Best Friends section as a feature. For now, it is hard-coded (which is nice for tests). -->
-      <p class="heading">BEST FRIENDS</p>
-      <ul ng-repeat="bestie in besties | filter: friendsList">
-        <li>
-          <label><span class="friend-name">{{bestie}}</span><input class="blue-checkbox" type="checkbox" ng-click="selectRecipients(); showSendBar()" /></label>
-        </li>
-      </ul>
+      <div class="send-to-view__lists-container">
 
-      <p class="heading">FRIENDS</p>
-      <p class="send-to-text">Send a Snap directly to friends.</p>
-      <ul ng-repeat="friend in friends | filter: {username: friendsList}">
-        <li>
-          <label><span class="friend-name">{{friend.username}}</span><input class="blue-checkbox" type="checkbox" ng-click="selectRecipients()"/></label>
-        </li>
-      </ul>
-
-      <!-- Send Bar -->
-      <section id="send-to-view__send-bar">
-        <div class="recipient-list">
-          <span class="recipient" ng-repeat="recipient in recipients track by $index">{{recipient}}</span>
+        <div class="send-to-view__list">
+          <!-- We may do the Best Friends section as a feature. For now, it is hard-coded (which is nice for tests). -->
+          <p class="heading">BEST FRIENDS</p>
+          <ul>
+            <li ng-repeat="bestie in besties | filter: friendsList">
+              <label><span class="friend-name">{{bestie}}</span><input class="blue-checkbox" type="checkbox" ng-click="selectRecipients(friend.id); showSendBar()" /></label>
+            </li>
+          </ul>
         </div>
-        <!-- <span>{{$rootScope.userInfo.username}}</span> -->
-        <div id="send-to-view__arrow-btn" ng-click="send()"></div>
-      </section>
+
+        <div class="send-to-view__list">
+          <p class="heading">FRIENDS</p>
+          <p class="send-to-text">Send a Snap directly to friends.</p>
+          <ul>
+            <li ng-repeat="friend in friends | filter: {username: friendsList}">
+              <label><span class="friend-name">{{friend.username}}</span><input class="blue-checkbox" type="checkbox" ng-click="selectRecipients(friend.id); showSendBar()"/></label>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+
 
   </ion-content>
 
+  <!-- Send Bar -->
+  <section id="send-to-view__send-bar">
+    <div id="recipient-list">
+      <span class="recipient" ng-repeat="recipient in recipients track by $index">{{recipient}}</span>
+    </div>
+    <!-- <span>{{$rootScope.userInfo.username}}</span> -->
+    <div id="send-to-view__arrow-btn" ng-click="send()"></div>
+
+  </section>
 </ion-view>

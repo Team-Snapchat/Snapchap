@@ -1,61 +1,50 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   COMPONENT STYLES
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-@import url('https://fonts.googleapis.com/css?family=Quicksand');
-@import url('https://fonts.googleapis.com/css?family=Lato:700');
-/*@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');*/
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,600');
-@import "./app/components/addedMe/addedMe.css";
-@import "./app/components/addFriends/addFriends.css";
-@import "./app/components/addUsername/addUsername.css";
-@import "./app/components/birthday/birthday.css";
-@import "./app/components/camera/camera.css";
-@import "./app/components/chat/chat.css";
-@import "./app/components/editMessage/editMessage.css";
-@import "./app/components/email/email.css";
-@import "./app/components/confirmPassword/confirmPassword.css"
-@import "./app/components/name/name.css";
-@import "./app/components/password/password.css";
-@import "./app/components/newPassword/newPassword.css";
-@import "./app/components/myFriends/myFriends.css";
-@import "./app/components/logInSignUp/logInSignUp.css";
-@import "./app/components/logIn/logIn.css";
+@import url("https://fonts.googleapis.com/css?family=Quicksand");
+@import url("https://fonts.googleapis.com/css?family=Lato:700");
+@import url(./app/components/addedMe/addedMe.css);
+@import url(./app/components/addFriends/addFriends.css);
+@import url(./app/components/addUsername/addUsername.css);
+@import url(./app/components/birthday/birthday.css);
+@import url(./app/components/camera/camera.css);
+@import url(./app/components/chat/chat.css);
+@import url(./app/components/editMessage/editMessage.css);
+@import url(./app/components/email/email.css);
+@import url(./app/components/name/name.css);
+@import url(./app/components/password/password.css);
+@import url(./app/components/newPassword/newPassword.css);
+@import url(./app/components/myFriends/myFriends.css);
+@import url(./app/components/logInSignUp/logInSignUp.css);
+@import url(./app/components/logIn/logIn.css);
 /*@import "./app/components/nav/nav.css";*/
-@import "./app/components/profile/profile.css";
-@import "./app/components/sendTo/sendTo.css";
-@import "./app/components/settings/settings.css";
-@import "./app/components/signUp/signUp.css";
-
-/*.bar-nav {
+@import url(./app/components/profile/profile.css);
+@import url(./app/components/sendTo/sendTo.css);
+@import url(./app/components/settings/settings.css);
+@import url(./app/components/signUp/signUp.css);
+.bar-nav {
   display: none;
   background-color: transparent;
-  z-index: -1000;
-}
+  z-index: -1000; }
 
 .nav-bar {
   display: none;
   background-color: transparent;
-  z-index: -1000;
-}*/
-
-ion-content {
-  font-family: 'Quicksand', sans-serif;
-}
+  z-index: -1000; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   HEADINGS
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .heading {
   font-size: 0.8rem;
-  margin-left: 9px;
-}
+  margin-left: 9px; }
+
 .nav-top-heading {
   font-size: 1.4rem;
   color: white;
   font-family: 'Lato', sans-serif;
   position: relative;
-  bottom: 4px;
-}
+  bottom: 4px; }
 
 .nav-top, .nav-bottom {
   display: flex;
@@ -66,8 +55,7 @@ ion-content {
   position: relative;
   top: 0px;
   /*padding: 22px 11px 11px 11px;*/
-  z-index: 3;
-}
+  z-index: 3; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   INPUTS
@@ -75,41 +63,37 @@ ion-content {
 .input {
   border: 0;
   border-bottom: thin solid lightgray;
-  font-size: 1.1rem;
-}
+  font-size: 1.1rem; }
+
 .magnifying-glass {
   height: 17px;
   width: 17px;
-  background-image: url('./img/icon/search-gray.png');
+  background-image: url("./img/icon/search-gray.png");
   background-repeat: no-repeat;
   -webkit-background-size: 17px;
-          background-size: 17px;
+  background-size: 17px;
   position: absolute;
   left: 15px;
-  top: 10px;
-}
-
+  top: 10px; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   TEXT
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .text-link {
   font-size: 0.8rem;
-  color: RGBA(50, 125, 233, 1.00);
-}
+  color: RGBA(50, 125, 233, 1); }
+
 .btn {
-  /*font-family: 'Lato', sans-serif;*/
+  font-family: 'Lato', sans-serif;
   letter-spacing: 2px;
   border: 0;
   color: white;
   font-weight: bolder;
-  display: block;
-}
+  display: block; }
+
 .pill-btn {
   padding: 9px 27px;
-  border-radius: 22px;
-}
-
+  border-radius: 22px; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   BUTTONS
@@ -119,17 +103,17 @@ ion-content {
   border: 0;
   background-color: rgba(255, 255, 255, 0);
   position: absolute;
-  color: gray;
-}
+  color: gray; }
+
 .back-btn {
   font-size: 1.55rem;
   left: 15px;
-  top: 19px;
-}
+  top: 19px; }
+
 .forward-btn {
-  right: 15px;
-}
- /* Icon buttons (in navs) */
+  right: 15px; }
+
+/* Icon buttons (in navs) */
 .icon-btn {
   display: inline-block;
   border: 0px;
@@ -138,9 +122,7 @@ ion-content {
   width: 27px;
   height: 27px;
   -webkit-background-size: 27px;
-          background-size: 27px;
-}
-
+  background-size: 27px; }
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   NAVS
@@ -154,8 +136,8 @@ ion-content {
   position: absolute;
   top: 0px;
   padding: 22px 11px 11px 11px;
-  z-index: 3;
-}
+  z-index: 3; }
+
 #index-html__nav-bottom {
   display: none;
   align-items: flex-end;
@@ -166,31 +148,31 @@ ion-content {
   width: 100vw;
   /*padding: 22px 11px 11px 11px;*/
   z-index: 10;
-  transition: justify-content 0.3s;
-}
+  transition: justify-content 0.3s; }
+
 #index-html__nav-bottom .icon-btn {
   position: absolute;
-  bottom: 4vh;
-}
- /* Chat button */
+  bottom: 4vh; }
+
+/* Chat button */
 #index-html__chat-btn {
-  background-image: url('./img/icon/chat-white.png');
+  background-image: url("./img/icon/chat-white.png");
   left: 7vw;
   opacity: 1;
   display: flex;
-  transition: -webkit-background-size 0.3s, background-size 0.3s, width 0.3s, height 0.3s, left 0.3s, opacity 0.3s;
-}
- /* Chat button in Chat view */
+  transition: -webkit-background-size 0.3s, background-size 0.3s, width 0.3s, height 0.3s, left 0.3s, opacity 0.3s; }
+
+/* Chat button in Chat view */
 #index-html__chat-btn.chatty-nav {
-  background-image: url('./img/icon/chat-gray.png');
+  background-image: url("./img/icon/chat-gray.png");
   left: 24vw;
   display: flex;
   width: 20px;
   height: 20px;
   -webkit-background-size: 20px;
-          background-size: 20px;
-}
- /* Chat button underline in Chat view */
+  background-size: 20px; }
+
+/* Chat button underline in Chat view */
 #index-html__chat-btn.chatty-nav:after {
   content: '';
   height: 5px;
@@ -199,62 +181,58 @@ ion-content {
   left: 50%;
   transform: translateX(-50%);
   bottom: -10px;
-  background-color: rgba(200, 200, 200, 1);
-  border-radius: 5px;
-}
- /* Chat button in Profile view */
+  background-color: #c8c8c8;
+  border-radius: 5px; }
+
+/* Chat button in Profile view */
 #index-html__chat-btn.profile-nav {
   opacity: 0;
-  display: none;
-}
+  display: none; }
 
- /* Camera button */
+/* Camera button */
 #index-html__take-photo-btn {
-  background-image: url('./img/icon/circle-white-big.png');
+  background-image: url("./img/icon/circle-white-big.png");
   left: 50%;
   bottom: 3vh;
   transform: translateX(-50%);
   width: 85px;
   height: 85px;
   -webkit-background-size: 85px;
-          background-size: 85px;
-  transition: -webkit-background-size 0.3s, background-size 0.3s, width 0.3s, height 0.3s, background-image 0.3s;
-}
+  background-size: 85px;
+  transition: -webkit-background-size 0.3s, background-size 0.3s, width 0.3s, height 0.3s, background-image 0.3s; }
 
- /* Camera button in Chat view and Profile view*/
+/* Camera button in Chat view and Profile view*/
 #index-html__take-photo-btn.chatty-nav,
 #index-html__take-photo-btn.profile-nav {
-  background-image: url('./img/icon/circle-gray-big.png');
+  background-image: url("./img/icon/circle-gray-big.png");
   width: 58px;
   height: 58px;
   -webkit-background-size: 58px;
-          background-size: 58px;
-}
- /* Camera button in Profile view */
-#index-html__take-photo-btn.profile-nav {
-  background-image: url('./img/icon/circle-white-big.png');
-}
+  background-size: 58px; }
 
- /* Dots button */
+/* Camera button in Profile view */
+#index-html__take-photo-btn.profile-nav {
+  background-image: url("./img/icon/circle-white-big.png"); }
+
+/* Dots button */
 #index-html__dots-btn {
-  background-image: url('./img/icon/dots-white.png');
+  background-image: url("./img/icon/dots-white.png");
   right: 7vw;
   opacity: 1;
   display: flex;
-  transition: -webkit-background-size 0.3s, background-size 0.3s, width 0.3s, height 0.3s, right 0.3s, opacity 0.3s;
-}
- /* Dots button in Chat view */
+  transition: -webkit-background-size 0.3s, background-size 0.3s, width 0.3s, height 0.3s, right 0.3s, opacity 0.3s; }
+
+/* Dots button in Chat view */
 #index-html__dots-btn.chatty-nav {
-  background-image: url('./img/icon/dots-gray.png');
+  background-image: url("./img/icon/dots-gray.png");
   right: 24vw;
   display: flex;
   width: 20px;
   height: 20px;
   -webkit-background-size: 20px;
-          background-size: 20px;
-}
- /* Dots button in Profile view */
+  background-size: 20px; }
+
+/* Dots button in Profile view */
 #index-html__dots-btn.profile-nav {
   opacity: 0;
-  display: none;
-}
+  display: none; }
