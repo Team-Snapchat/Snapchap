@@ -21,14 +21,11 @@ angular.module('snapchat')
 
   this.getCurrentUser = function(){
     return $http.get('/api/me').then(function(response){
-      console.log('getCurrentUser data = ', response.data)
-
         return getCurrentUserInfo(response.data)
     })
   }
   var getCurrentUserInfo = function(userId){
     return $http.get('/api/me/'+ userId).then(function(response){
-      console.log('response', response)
       currentUser = '';
       return response.data[0];
     })
@@ -81,6 +78,43 @@ angular.module('snapchat')
         return 'confirmation';
       })
   }
+
+  this.updateEmail = function(data){
+    return $http.put('/api/updateEmail', {id: data.id, email: data.email}).then(function(confirmation){
+      return confirmation;
+    })
+  }
+
+  this.comparePassword = function(password, id){
+    return $http.put('/api/comparePassword', {password: password, id: id}).then(function(confirmation){
+      return confirmation;
+    })
+  }
+
+  this.updateFirstName = function(id, firstName){
+    return $http.put('/api/updateFirstName', {id: id, firstName: firstName}).then(function(confirmation){
+      return confirmation;
+    })
+  }
+
+  this.updateLastName = function(id, lastName){
+    return $http.put('/api/updateLastName', {id: id, lastName: lastName}).then(function(confirmation){
+      return confirmation;
+    })
+  }
+
+  this.updatePassword = function(id, password){
+    return $http.put('/api/updatePassword', {id: id, password: password}).then(function(confirmation){
+      return confirmation
+    })
+  }
+
+
+
+
+
+
+
 
 
 });

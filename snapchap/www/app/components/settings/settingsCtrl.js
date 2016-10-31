@@ -7,7 +7,8 @@ angular.module('snapchat').controller('settingsCtrl', function ($scope, $rootSco
   };
 
   $scope.logout = function(){
-  $auth.logout()
+    $rootScope.disconnect()
+    $auth.logout()
       .then(function() {
         console.log('You have been logged out');
         $state.go('logInSignUp');

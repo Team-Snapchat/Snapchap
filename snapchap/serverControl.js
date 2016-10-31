@@ -6,6 +6,33 @@ var io = server.io;
 var config = server.config;
 var db = app.get('db');
 
+var whosLoggedIn = {}
+
+io.on('connection', function(socket){
+  socket.on('isLoggedin', function(data){
+    whosLoggedIn[data.id] = socket.id;
+    console.log(whosLoggedIn)
+    console.log(data.username + ' connected on ' + socket.id)
+  })
+// socket.on('startDisconnect', function(data){
+//     delete whosLoggedIn[data.id]
+//     console.log(whosLoggedIn)
+//     console.log(data.username + ' disconnect from ' + socket.id)
+//     socket.emit('confirmDisconnect', {disconnected: data.username + 'disconnected from socket'})
+// })
+
+  socket.on('disconnect', function(data){
+    for (var key in whosLoggedIn) {
+      if(whosLoggedIn[key] === socket.id){
+        console.log(whosLoggedIn[key], "removed")
+        delete whosLoggedIn[key];
+        console.log(whosLoggedIn)
+      }
+    }    
+})
+
+})
+
 createJWT = function(user){
   var payload = {
     sub: user.id,
@@ -65,7 +92,7 @@ module.exports = {
       if (err) return res.status(500)
       if (!user) {
         return res.status(401).send({
-          message: 'Invalid email and/or password'
+          message: "We can't find an account with that username."
         })
       }
     db.compare_password([req.body.password, user.id], function(err, correct){
@@ -76,7 +103,9 @@ module.exports = {
           user: getSafeUser(user)
         })
       }
-      else res.status(401).send("Invalid email and/or password")
+      else res.status(401).send({
+        message: "That's not the right password. Sorry!"
+      })
     })
 
     });
@@ -100,20 +129,18 @@ module.exports = {
       }
     });
   },
-  
+
   getCurrentUser: function(req, res){
     if(!req.user){
       return res.status(404)
     }
     else{
       var user = req.user
-      console.log('var user = ', user)
       res.json(user)
     }
   },
   getCurrentUserInfo: function(req, res){
     db.get_user_info([req.params.id], function(err, users){
-      console.log("user data = ", users)
       if(err) console.log(err)
       else res.status(200).send(users)
     })
@@ -130,24 +157,43 @@ module.exports = {
     });
   },
 
-  updateEmail: function(req, res) {
-    db.update_email([req.body.id, req.body.email], function(err, users) {
+  comparePassword: function(req, res) {
+    db.compare_password([req.body.password, req.body.id], function(err, correct){
       if(err) console.log(err);
-      else res.status(200);
+      if(correct[0]['?column?']){
+        res.status(200).send(true)
+      }
+      else res.status(401).send({
+        message: "That's not the right password. Sorry!"
+      })
     });
   },
 
-  updateName: function(req, res) {
-    db.update_name([req.body.id, req.body.firstname, req.body.lastname], function(err, users) {
+  updateEmail: function(req, res) {
+        db.update_email([req.body.id, req.body.email], function(err, users) {
+          if(err) console.log(err);
+          else res.status(200).send(users);
+        });
+  },
+
+  updateFirstName: function(req, res) {
+    db.update_first_name([req.body.id, req.body.firstName], function(err, users) {
       if(err) console.log(err);
-      else res.status(200);
+      else res.status(200).send(true);
+    });
+  },
+
+  updateLastName: function(req, res) {
+    db.update_last_name([req.body.id, req.body.lastName], function(err, users) {
+      if(err) console.log(err);
+      else res.status(200).send(true);
     });
   },
 
   updatePassword: function(req, res) {
     db.update_password([req.body.id, req.body.password], function(err, users) {
       if(err) console.log(err);
-      else res.status(200);
+      else res.status(200).send(true);
     });
   },
 
@@ -174,14 +220,12 @@ module.exports = {
   },
   getPendingFriendRequests: function(req, res){
     db.get_pending_friend_requests([req.params.id], function(err, PendingFriendRequests){
-      console.log(PendingFriendRequests)
       if (err) console.log(err);
       else res.status(200).send(PendingFriendRequests)
     })
   },
 
   sendRequest: function(req, res) {
-    console.log(req.body.data)
     db.send_request([req.body.data.initiatorId, req.body.data.acceptorId], function(err, friendships){
       if(err) console.log(err);
       else res.status(200).send(true);

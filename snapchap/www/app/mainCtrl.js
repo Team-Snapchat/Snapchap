@@ -1,4 +1,4 @@
-angular.module('snapchat').controller('mainCtrl', function ($scope, $stateParams, $state, $cordovaCamera, $rootScope, mainService) {
+angular.module('snapchat').controller('mainCtrl', function ($scope, $stateParams, $state, $cordovaCamera, $rootScope, $auth, mainService) {
 
 
 
@@ -58,29 +58,53 @@ angular.module('snapchat').controller('mainCtrl', function ($scope, $stateParams
   $rootScope.friends = []
   $rootScope.pendingMessages = []
   $rootScope.pendingFriendRequests = []
+  if($rootScope.userInfo === undefined){
+    $auth.logout()
+        .then(function() {
+          console.log('You have been logged out');
+          $state.go('logIn')
+    });
+  }
 
-  var socket = io.connect();
+  var socket;
+  $rootScope.connect = function(){
+    
+      socket = io.connect();
+      socket.emit('isLoggedin', {username: $rootScope.userInfo.username, id: $rootScope.userInfo.id})
 
-    socket.on('getAccountInfo', function(accountInfo){
+      socket.on('getAccountInfo', function(accountInfo){
       $rootScope.accountInfo.push(accountInfo);
       $scope.$digest();
     })
 
-    socket.on('getFriends', function(friends){
+      socket.on('getFriends', function(friends){
       $rootScope.friends.push(friends);
       $scope.$digest();
     })
 
-    socket.on('getPendingMessages', function(pendingMessages){
+      socket.on('getPendingMessages', function(pendingMessages){
       console.log(pendingMessages)
       $rootScope.pendingMessages.push(pendingMessages)
       $scope.$digest();
     })
 
-    socket.on('getPendingFriendRequests', function(pendingFriendRequests){
+      socket.on('getPendingFriendRequests', function(pendingFriendRequests){
       $rootScope.pendingFriendRequests.push(pendingFriendRequests)
       $scope.$digest();
     })
+    
+
+  };
+
+  $rootScope.disconnect = function(){
+      // console.log('$rootScope.disconnect FIRED')
+      // socket.emit('startDisconnect', {username: $rootScope.userInfo.username, id: $rootScope.userInfo.id})
+      // socket.on('confirmDisconnect', function(message){
+      //   console.log(message.disconnected)
+        if(socket) socket.disconnect()
+      // }) 
+  }
+
 
 
 });
