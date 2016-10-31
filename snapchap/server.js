@@ -56,7 +56,7 @@ module.exports = {app: app, io: io, config: config};
 
 
 var controller = require('./serverControl.js');
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '100mb'}));
 app.use(cors());
 // app.use(cors(corsOptions));
 
@@ -69,7 +69,8 @@ app.use(express.static(__dirname + '/www'));
 app.get('/api/me', controller.ensureAuthenticated, controller.getCurrentUser)
 app.get('/api/me/:id', controller.ensureAuthenticated, controller.getCurrentUserInfo)
 app.get('/user/friends/:id', controller.getUserFriends);
-app.get('/api/getMessages/:id', controller.getMessages);
+app.get('/api/getMessage/:id', controller.getMessage);
+app.get('/api/getPendingMessageIds/:id', controller.getPendingMessageIds);
 app.get('/api/getPendingFriendRequests/:id', controller.getPendingFriendRequests);
 app.put('/api/changeFriendship', controller.acceptFriendship);
 app.put('/api/updateRequests', controller.updateRequests);
@@ -84,6 +85,7 @@ app.post('/api/sendRequest', controller.sendRequest);
 app.post('/auth/login', controller.logIn);
 app.post('/auth/signup', controller.signUp);
 app.delete('/api/deleteFriendship', controller.deleteFriendship);
+app.delete('/api/deleteMessage/:id', controller.deleteMessage);
 app.post('/api/TEST', function(req, res){
   var username = req.body;
 })

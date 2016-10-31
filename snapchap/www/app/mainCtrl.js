@@ -92,7 +92,9 @@ angular.module('snapchat').controller('mainCtrl', function ($scope, $stateParams
       $rootScope.pendingFriendRequests.push(pendingFriendRequests)
       $scope.$digest();
     })
-    
+    socket.on('newMessage', function(data){
+      console.log(data)
+    })
 
   };
 

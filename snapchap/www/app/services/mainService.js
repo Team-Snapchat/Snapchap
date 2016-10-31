@@ -38,10 +38,20 @@ angular.module('snapchat')
       })
   }
 
-  this.updatePendingMessages = function(){
-      return $http.get('/api/getMessages/:id').then(function(pendindMessages){
-          return 'pendindMessages';
-      })
+  this.getPendingMessageIds = function(id){
+    return $http.get('/api/getPendingMessageIds/' + id).then(function(pendingMessageIds){
+        return pendingMessageIds;
+    })
+  }
+  this.getMessage = function(id){
+    return $http.get('/api/getMessage/' + id).then(function(messages){
+        return messages;
+    })
+  }
+  this.deleteMessage = function(id) {
+    return $http.delete('/api/deleteMessage/' + id).then(function(confirmation) {
+      return confirmation;
+    });
   }
   this.getPendingFriendRequests = function(id){
       return $http.get('/api/getPendingFriendRequests/'+ id).then(function(PendingFriendRequests){
@@ -56,10 +66,14 @@ angular.module('snapchat')
       })
   }
 
-  this.sendMessage = function(){
-      return $http.post('/api/uploadMessage').then(function(confirmation){
-        return confirmation;
-      })
+  this.sendMessage = function(sender, receiver, msg) {
+      if (Array.isArray(receiver)) {
+        receiver.forEach(function(item) {
+          return $http.post('/api/uploadMessage',{senderId:sender, recipientId:item, msg: msg}).then(function(confirmation) {
+            return confirmation;
+          })
+        });
+      }
   }
   this.getUsername = function(inputText){
     return $http.post('/api/searchUsers', {data: inputText}).then(function(results){
@@ -73,7 +87,7 @@ angular.module('snapchat')
       })
   }
 
-  this.detetFriend = function(){
+  this.deleteFriend = function(){
       return $http.delete('/api/deleteFriendship').then(function(confirmation){
         return 'confirmation';
       })

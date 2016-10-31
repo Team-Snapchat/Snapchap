@@ -13,7 +13,7 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
   }
 
   // Brings in the photo saved onto $rootScope by camera
-  // $rootScope.imgURI = './img/rr.jpg';
+  $rootScope.imgURI = './img/rr2.jpg';
   $scope.snap = $rootScope.imgURI;
 
 
@@ -214,6 +214,16 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
     context.scale(scaleUp, scaleUp); // Scale context back up on exiting fn (so drawing covers image again)
  }
 
+
+
+ /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+   SAVE IMAGE
+ /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    $scope.saveImage = function() {
+      $rootScope.imgURI = canvas.toDataURL();
+      // console.log('$rootScope.imgURI', $rootScope.imgURI);
+      $state.go('sendTo');
+    };
 
 
 });

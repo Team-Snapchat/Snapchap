@@ -24,15 +24,15 @@
                 <input id="chat-view__input" type="text" placeholder="Search">
             </label>
         </form>
-        <section class="content">
-            <input type="text" ng-model="TEST">
-            <button ng-click="test()">SEND MESSAGE</button>
-            <div ng-repeat="item in arr track by $index">
-                <div>{{item}}</div>
-            </div>
-        </section>
-        <button ng-click="connect()">Connect</button>
-        <button ng-click="disconnect()">Diconnect</button>
+
+        <ul>
+          <li ng-repeat="pendingMessage in pendingMessages" ng-click="getMessage(pendingMessage.id)">
+            {{pendingMessage.first_name}} {{pendingMessage.last_name}}
+          </li>
+        </ul>
+
+        <canvas id="message-canvas" width="50" height="66"></canvas>
+
       </div>
 
       <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
