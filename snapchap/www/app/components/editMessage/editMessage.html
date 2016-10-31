@@ -1,5 +1,5 @@
-<ion-view title="Edit Message" id="edit-message-view">
-  <ion-content id="edit-message-view__content">
+<ion-view title="Edit Message" id="edit-message-view" has-bouncing="false">
+  <ion-content id="edit-message-view__content" has-bouncing="false" ng-init="load()">
 
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
       TOP NAV
@@ -8,22 +8,58 @@
         <button id="edit-message-view__x-btn" class="icon-btn" ui-sref="camera" ng-click="showMenu()"></button>
 
         <div id="edit-message-view__edit-btns">
-          <button id="edit-message-view__text-btn" class="icon-btn"></button>
-          <button id="edit-message-view__pencil-btn" class="icon-btn"></button>
+          <button id="edit-message-view__rewind-btn" class="icon-btn" ng-click="clearCanvas()"></button>
+          <button id="edit-message-view__undo-btn" class="icon-btn" ng-click="clearDrawing()"></button>
+          <div id="edit-message-view__save-drawing" class="icon-btn" ng-click="saveDrawing()"></div>
+          <div id="edit-message-view__pen-size-btn" class="icon-btn" ng-click="togglePenSize()"></div>
+          <button id="edit-message-view__pen-btn" class="icon-btn" ng-click="toggleColorPicker()"></button>
         </div>
     </nav>
 
+
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
-      IMAGE
+      DRAWING CANVAS
     <~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-    <div id="edit-message-view__image-container">
-      <form id="edit-message-view__form" ng-submit="createOverlay(); toggleTextBar()">
-        <input id="edit-message-view__input" type="text" autocomplete="off"/>
-      </form>
-      <img id="edit-message-view__image" ng-src="{{image}}" ng-click="toggleTextBar()"></img>
-      <!-- <img id="edit-message-view__image" ng-src="{{rr}}" ng-click="toggleTextBar()"></img> -->
-      <!-- <img id="edit-message-view__image" ng-src="{{imgURI}}" ng-click="toggleTextBar()"></img> -->
+    <div class="canvas-container">
+      <!-- canvas -->
+      <canvas id="canvas" ng-click="toggleTextBar()"></canvas>
+      <!-- color picker -->
+      <div id="color-picker">
+        <div class="color black"></div>
+        <div class="color gray"></div>
+        <div class="color lightgray"></div>
+        <div class="color white"></div>
+        <div class="color violet"></div>
+        <div class="color purple"></div>
+        <div class="color midnightblue"></div>
+        <div class="color blue"></div>
+        <div class="color lightskyblue"></div>
+        <div class="color green"></div>
+        <div class="color lightgreen"></div>
+        <div class="color lightgoldenrodyellow"></div>
+        <div class="color yellow"></div>
+        <div class="color orange"></div>
+        <div class="color red"></div>
+        <div class="color saddlebrown"></div>
+      </div>
+      <!-- <div class="color alpha"></div> -->
     </div>
+
+
+
+    <!-- $scope.snap is normally hidden; display only for testing purposes-->
+    <!-- <div class="scope-snap-container">
+      <img id="scope-snap" ng-src="{{snap}}">
+    </div> -->
+
+    <!-- test buttons -->
+    <div class="buttons">
+      <!-- <button type="button" ng-click="saveCanvas()">Send</button> -->
+      <!-- <button type="button" ng-click="clearDrawing()">Clear Drawing</button> -->
+      <!-- <button type="button" ng-click="clearCanvas()">Clear Canvas</button> -->
+      <!-- <button type="button" ng-click="overlayText();">Overlay Text</button> -->
+    </div>
+
 
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
       BOTTOM NAV
@@ -33,10 +69,13 @@
           <button id="edit-message-view__timer-btn" class="icon-btn"></button>
           <button id="edit-message-view__save-btn" class="icon-btn" ng-click="saveImage2Device()"></button>
         </div>
-        <button id="edit-message-view__arrow-btn" class="icon-btn" ui-sref="sendTo""></button>
+        <button id="edit-message-view__arrow-btn" class="icon-btn" ui-sref="sendTo"></button>
     </nav>
 
   </ion-content>
-  <canvas id="msgCanvas"></canvas>
+
+  <form id="edit-message-view__form" ng-submit="overlayText(); toggleTextBar()">
+    <input id="edit-message-view__input" type="text" autocomplete="off"/>
+  </form>
 
 </ion-view>

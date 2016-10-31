@@ -1,39 +1,122 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  EDIT MESSAGE VIEW
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 #edit-message-view {
   /*height: 100%;*/
-  height: 100vh;
-}
-#edit-message-view ion-content {
+  /*height: 100vh;*/
   background-color: black;
 }
 
+ion-content {
+  position: relative;
+}
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   TOP NAV
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#edit-message-view__nav-top .icon-btn {
+  width: 22px;
+  height: 22px;
+  -webkit-background-size: 22px;
+          background-size: 22px;
+}
+
+#edit-message-view__edit-btns>.icon-btn {
+  margin-left: 10px;
+}
+
 #edit-message-view__x-btn {
   background-image: url('../../../img/icon/x.png');
 }
-#edit-message-view__text-btn {
-  /*background-image: url('../../../img/icon/text.png');*/
+
+#edit-message-view__rewind-btn {
+  background-image: url('../../../img/icon/rewind.png');
 }
-#edit-message-view__pencil-btn {
-  background-image: url('../../../img/icon/pencil.png');
+
+#edit-message-view__undo-btn {
+  background-image: url('../../../img/icon/undo.png');
+  display: none;
+}
+#edit-message-view__undo-btn.active {
+  display: inline-block;
+}
+
+#edit-message-view__pen-size-btn.icon-btn {
+  background-image: url('../../../img/icon/pen.png');
+  background-position: center center;
+  background-color: ;
+  border: 3px solid transparent;
+  color: white;
+  display: none;
+  position: relative;
+}
+#edit-message-view__pen-size-btn.active {
+  display: inline-block;
+}
+#edit-message-view__pen-size-btn.active:after {
+  content: '+';
+  position: absolute;
+  font-size: 1.4rem;
+  right: 7px;
+  top: -10px;
+  width: 20px;
+  height: 20px;
+}
+#edit-message-view__pen-size-btn.active.big-pen:after {
+  content: '–';
+}
+
+#edit-message-view__pen-btn.icon-btn {
+  background-image: url('../../../img/icon/pen.png');
+  background-position: center center;
+  border: 3px solid transparent;
+  width: 32px;
+  height: 32px;
+  -webkit-background-size: 25px;
+          background-size: 25px;
+}
+#edit-message-view__pen-btn.active {
+  border-radius: 6px;
+  border: 3px solid white;
 }
 
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-  IMAGE TO EDIT (MAIN CONTENT)
+  CANVAS AREA
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-#edit-message-view__image-container {
-  position: absolute;
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: black;
+canvas {
+  width: 100%;
+  height: 100%;
 }
+
+#scope-snap {
+  width: 100%;
+  height: 100%;
+}
+
+.canvas-container, .scope-snap-container {
+  display: block;
+  float: left;
+  /*width: 320px;*/
+  width: 100vw;
+  position: relative;
+  top: 50vh;
+  transform: translate(0%, -50%);
+}
+
+.buttons {
+  position: fixed;
+  top: 50vw;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  background-color: white;
+}
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  TEXT INPUT
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 /* form */
 #edit-message-view__form {
   width: 100%;
@@ -43,19 +126,104 @@
   width: 100%;
   font-size: 1.3rem;
   background-color: rgba(0, 0, 0, 0.7);
-  color: white;
+  color: rgba(0, 0, 0, 0);
   text-align: center;
-  position: absolute;
+  position: fixed;
   bottom: 0%;
   left: 50%;
-  transform: translate(-50%, 50%);
-  transition: bottom 0.5s, display 0.5s;
+  transform: translate(-50%, 100%);
+  transition: bottom 0.5s, color 0.3s;
   border-radius: 0px;
 }
- /* image */
-#edit-message-view__image {
-  max-width: 100vw;
-  max-height: 100vh;
+#edit-message-view__input.active {
+  color: white;
+  bottom: 50%;
+  transform: translate(-50%, 50%);
+}
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  COLOR PICKER
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#color-picker {
+  border-radius: 23px;
+  border: 3px solid white;
+  height: 230px;
+  width: 25px;
+  background-color: darkgray;
+  position: fixed;
+  right: 0px;
+  top: 10px;
+  overflow: hidden;
+  display: none;
+}
+#color-picker.active {
+  display: block;
+}
+
+.color {
+  height: calc(100% / 16);
+  display: block;
+}
+
+.black {
+  background-color: black;
+}
+.gray {
+  background-color: gray;
+}
+.lightgray {
+  background-color: lightgray;
+}
+.white {
+  background-color: white;
+}
+.violet {
+  background-color: violet;
+}
+.purple {
+  background-color: purple;
+}
+.midnightblue {
+  background-color: midnightblue;
+}
+.blue {
+  background-color: blue;
+}
+.lightskyblue {
+  background-color: lightskyblue;
+}
+.green {
+  background-color: green;
+}
+.lightgreen {
+  background-color: lightgreen;
+}
+.lightgoldenrodyellow {
+  background-color: lightgoldenrodyellow;
+}
+.yellow {
+  background-color: yellow;
+}
+.orange {
+  background-color: orange;
+}
+.red {
+  background-color: red;
+}
+.saddlebrown {
+  background-color: saddlebrown;
+}
+
+.alpha {
+  background-color: RGBA(220, 220, 220, 0.07);
+  position: fixed;
+  top: 245px;
+  right: 0px;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  border: 3px solid white;
 }
 
 
@@ -64,6 +232,7 @@
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 #edit-message-view__nav-bottom {
   top: calc(100vh - 60px);
+  background-color: black;
 }
 #edit-message-view__nav-bottom .icon-btn {
   position: relative;
@@ -90,8 +259,3 @@
   -webkit-background-size: 55px;
           background-size: 55px;
 }
-
-/*canvas {
-  max-width: 100vw;
-  max-height: 100vh;
-}*/

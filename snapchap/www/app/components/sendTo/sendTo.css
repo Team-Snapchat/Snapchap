@@ -1,17 +1,24 @@
+#send-to-view ion-content {
+  z-index: 1;
+  padding-bottom: 55px;
+}
+
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   Weird phantom div created in DOM between ion-content and div#send-to-view__top-nav
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 #send-to-view .scroll {
   overflow: scroll;
-  height: 100vh;
+  /*height: 100vh;*/
+  transform: none;
 }
+
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   TOP NAV
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 #send-to-view__top-nav {
   color: RGBA(60, 178, 226, 1.00);
-  font-size: 1rem;
+  font-size: 1.4rem;
   text-align: center;
   padding: 28px 18px;
   /*margin-top: 10px;*/
@@ -56,12 +63,20 @@
   color: RGBA(60, 178, 226, 1.00);
   margin-bottom: -10px;
 }
+
+#send-to-view__lists-container {
+  /*overflow: scroll;*/
+  /*padding-bottom: 55px;*/
+  /*margin-bottom: 55px;*/
+  /*max-height: 100%;*/
+}
 /*List*/
-#send-to-view ul {
+.send-to-view__list {
+  min-height: 115px;
   font-size: 1rem;
 }
   /*List items*/
-  #send-to-view li {
+  .send-to-view__list li {
     color: black;
     padding: 11px 0;
     border-bottom: thin solid rgba(150, 150, 150, 0.5);
@@ -69,8 +84,8 @@
 
   }
     /*All list item content*/
-    #send-to-view ul>li>* {
-      margin: 0px 15px;
+    .send-to-view__list li>* {
+      margin: 0px 20px;
     }
     /*Labels*/
     label {
@@ -153,6 +168,7 @@
   visibility: hidden;
   bottom: -55px;
   transition: bottom 0.5s, visibility 0.5s;
+  z-index: 3
 
 }
 /*Ticking checkmarks makes send bar appear*/
@@ -161,42 +177,33 @@
   visibility: visible;
 }
 
-  /*Blue gradient div covering trailing friend names*/
-  #send-to-view__send-bar:after {
-    content: '';
-    position: absolute;
-    margin: 0;
-    right: 0px;
-    top: 0px;
-    /*background-color: red;*/
-    background-image: linear-gradient(to right, transparent 0%, RGBA(60, 178, 226, 1.00) 40%);
-    background-image: -webkit-linear-gradient(left, transparent 0%, RGBA(60, 178, 226, 1.00) 40%);
-    background-image: -moz-linear-gradient(right, transparent 0%, RGBA(60, 178, 226, 1.00) 40%);
-    background-image: -o-linear-gradient(right, transparent 0%, RGBA(60, 178, 226, 1.00) 40%);
-    width: 150px;
-    height: 55px;
-    z-index: 2;
-  }
-
-  /*Comma and padding between recipient names*/
-  .recipient:after {
-    content: ',';
-    color: white;
-    font-size: 1rem;
-    position: relative;
-    padding-right: 7px;
-    left: 1px;
-    bottom: 0px;
-  }
-  /*No comma after last name*/
-  .recipient:last-child:after {
-    content: '';
-  }
 
   /*All Send Bar content*/
   #send-to-view__send-bar>* {
     margin: 0px 15px;
   }
+
+  #recipient-list {
+    position: absolute;
+    right: 65px;
+    /*right: auto;*/
+  }
+
+    /*Comma and padding between recipient names*/
+    .recipient:after {
+      content: ',';
+      color: white;
+      font-size: 1rem;
+      position: relative;
+      padding-right: 7px;
+      left: 1px;
+      bottom: 0px;
+    }
+    /*No comma after last name*/
+    .recipient:last-child:after {
+      content: '';
+      padding-right: 0px;
+    }
 
   /*Send Button*/
   #send-to-view__arrow-btn {
@@ -207,9 +214,27 @@
     margin: 0;
     right: 0px;
     bottom: 0px;
-    width: 55px;
+    width: 75px;
     height: 55px;
     -webkit-background-size: 55px;
             background-size: 55px;
     z-index: 3;
+  }
+
+  /*Blue gradient div covering trailing friend names*/
+  #send-to-view__send-bar:after {
+    content: '';
+    position: absolute;
+    margin: 0;
+    right: 0px;
+    top: 0px;
+    background-color: RGBA(60, 178, 226, 0.8);
+    /*background-image: linear-gradient(to right, transparent 0%, RGBA(60, 178, 226, 1.00) 40%);
+    background-image: -webkit-linear-gradient(left, transparent 0%, RGBA(60, 178, 226, 1.00) 40%);
+    background-image: -moz-linear-gradient(right, transparent 0%, RGBA(60, 178, 226, 1.00) 40%);
+    background-image: -o-linear-gradient(right, transparent 0%, RGBA(60, 178, 226, 1.00) 40%);*/
+    width: 75px;
+    height: 55px;
+    z-index: 2;
+    display: none
   }
