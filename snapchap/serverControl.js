@@ -27,7 +27,7 @@ io.on('connection', function(socket){
         delete whosLoggedIn[key];
 
       }
-    }    
+    }
 })
 
 })
@@ -200,23 +200,36 @@ module.exports = {
    db.upload_message([req.body.senderId, req.body.recipientId, req.body.msg], function(err, id){
      if(err) console.log(err);
      else {
-        whosLoggedIn[req.body.recipientId].emit('newMessage',{msg: id[0].id, senderId:req.body.senderId});
-        res.status(200).send('message sent!')
+       if (whosLoggedIn[req.body.recipientId]) whoseLoggedIn[req.body.recipientId].emit('newMessage',{msg: id[0].id, senderId:req.body.senderId});
+       res.status(200).send('message sent!')
       }
     })
  },
 
- getMessages: function(req, res){
-   db.get_messages([req.params.id], function(err, pending_messages){
+ getMessage: function(req, res){
+   db.get_message([req.params.id], function(err, pending_messages){
       if(err) console.log(err);
 
-
       else {
-
         res.status(200).send(pending_messages)
       }
     })
   },
+  deleteMessage: function(req, res) {
+    db.delete_message([req.params.id], function(err, pending_messages) {
+      if(err) console.log(err);
+      else res.status(200).send('deleted! :-)')
+    })
+  },
+  getPendingMessageIds: function(req, res){
+    db.get_message_ids([req.params.id], function(err, pending_messages){
+       if(err) console.log(err);
+
+       else {
+         res.status(200).send(pending_messages)
+       }
+     })
+   },
   getPendingFriendRequests: function(req, res){
     db.get_pending_friend_requests([req.params.id], function(err, PendingFriendRequests){
       if (err) console.log(err);

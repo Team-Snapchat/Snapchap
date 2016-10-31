@@ -1,6 +1,16 @@
 angular.module('snapchat').controller('sendToCtrl', function ($scope, $stateParams, $state, mainService, $rootScope) {
 
 
+  $scope.getUserFriends = function(userId) {
+    mainService.getUserFriends(userId).then(function(response) {
+      // console.log('response', response);
+      $scope.friends = response;
+    })
+  }
+  $scope.getUserFriends($rootScope.userInfo.id);
+
+
+
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
     Ticking a checkmark makes the Send Bar appear
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -30,23 +40,28 @@ angular.module('snapchat').controller('sendToCtrl', function ($scope, $statePara
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
     Clicking a friend puts selected friends into an array (and displays in Send Bar)
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-  $scope.selectRecipients = function() {
-    var recipients = [];
-    $('.blue-checkbox').each(function() {
-      if ($(this).is(':checked')) {
-        recipients.push($(this).closest('li').find('.friend-name').html());
-      }
-    });
+  var recipients = [];
+
+  $scope.selectRecipients = function(recipientId) {
+      if (recipients.indexOf(recipientId) === -1) {
+        recipients.push(recipientId);
+      } else recipients.splice(recipients.indexOf(recipientId), 1);
+
     setTimeout(function() {
-      console.log($(window).width() - $('#recipient-list').width());
+        // console.log($(window).width() - $('#recipient-list').width());
       if ($(window).width() - $('#recipient-list').width() < 65) {
         $('#recipient-list').css('right', '65px');
       } else $('#recipient-list').css('right', 'auto');
     }, 10);
 
     $scope.recipients = recipients;
+    console.log(recipients);
+
   }
 
+  // $('.blue-checkbox').each(function() {
+  // recipients.push($(this).closest('li').find('.friend-name').html());
+  // });
 
 
 
@@ -55,8 +70,9 @@ angular.module('snapchat').controller('sendToCtrl', function ($scope, $statePara
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   $scope.send = function() {
     console.log('sendTo view: recipients:', $scope.recipients);
-    console.log('sendTo view: $rootScope.URI:', $rootScope.imgURI);
-    // mainService.sendPictureMsg($scope.recipients, $rootScope.imgURI);
+    // console.log('sendTo view: $rootScope.URI:', $rootScope.imgURI);
+    console.log('sendTo view: $rootScope.URI:', $rootScope.userInfo.id);
+    mainService.sendMessage($rootScope.userInfo.id, $scope.recipients, $rootScope.imgURI);
   }
 
   // MAINSERVICE FUNCTION
