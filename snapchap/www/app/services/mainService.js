@@ -56,8 +56,8 @@ angular.module('snapchat')
       })
   }
 
-  this.sendMessage = function(){
-      return $http.post('/api/uploadMessage').then(function(confirmation){
+  this.sendMessage = function(msg, sender, receiver){
+      return $http.post('/api/uploadMessage',{msg: msg, senderId:sender, recipientId:receiver}).then(function(confirmation){
         return confirmation;
       })
   }
@@ -73,7 +73,7 @@ angular.module('snapchat')
       })
   }
 
-  this.detetFriend = function(){
+  this.deleteFriend = function(){
       return $http.delete('/api/deleteFriendship').then(function(confirmation){
         return 'confirmation';
       })

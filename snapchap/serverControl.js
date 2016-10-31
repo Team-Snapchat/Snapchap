@@ -10,8 +10,7 @@ var whosLoggedIn = {}
 
 io.on('connection', function(socket){
   socket.on('isLoggedin', function(data){
-    whosLoggedIn[data.id] = socket.id;
-    console.log(whosLoggedIn)
+    whosLoggedIn[data.id] = socket;
     console.log(data.username + ' connected on ' + socket.id)
   })
 // socket.on('startDisconnect', function(data){
@@ -26,7 +25,7 @@ io.on('connection', function(socket){
       if(whosLoggedIn[key] === socket.id){
         console.log(whosLoggedIn[key], "removed")
         delete whosLoggedIn[key];
-        console.log(whosLoggedIn)
+
       }
     }    
 })
@@ -198,11 +197,11 @@ module.exports = {
   },
 
  uploadMessage: function(req, res){
-   db.upload_message([req.body.senderId, req.body.recipientId, req.body.message], function(err, pending_messages){
-      if(err) console.log(err);
-      else {
-        io.emit('getPendingMessages',{test: '.io working!!!'});
-        res.status(200).send('return through .then')
+   db.upload_message([req.body.senderId, req.body.recipientId, req.body.msg], function(err, id){
+     if(err) console.log(err);
+     else {
+        whosLoggedIn[req.body.recipientId].emit('newMessage',{msg: id[0].id, senderId:req.body.senderId});
+        res.status(200).send('message sent!')
       }
     })
  },
