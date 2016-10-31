@@ -3,6 +3,7 @@
   "version": "1.1.1",
   "description": "snapchat: An Ionic project",
   "dependencies": {
+    "aws-sdk": "^2.6.12",
     "body-parser": "^1.15.2",
     "bower": "^1.7.9",
     "cordova": "^6.3.1",
@@ -16,6 +17,7 @@
     "jwt-simple": "^0.5.0",
     "massive": "^2.5.0",
     "moment": "^2.15.2",
+    "s3fs": "git+https://github.com/RiptideElements/s3fs.git",
     "socket.io": "^1.5.1"
   },
   "devDependencies": {

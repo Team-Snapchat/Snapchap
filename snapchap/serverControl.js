@@ -6,6 +6,8 @@ var io = server.io;
 var config = server.config;
 var db = app.get('db');
 
+
+
 var whosLoggedIn = {}
 
 io.on('connection', function(socket){
