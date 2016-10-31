@@ -23,7 +23,8 @@ AWS.config.secretAccessKey = config.aws_secret_access_key;
 /////////////////////////////////////////////////////////
 
 var db = massive.connectSync({
-  connectionString: 'postgres://postgres@localhost:5432/snap'
+  connectionString: config.connectionString
+  // connectionString: 'postgres://postgres@localhost:5432/snap'
 });
 
 app.set('db', db);
