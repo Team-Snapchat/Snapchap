@@ -3,7 +3,11 @@
   "version": "1.1.1",
   "description": "snapchat: An Ionic project",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "heroku-prebuild": "npm i"
+  },
+  "engine": {
+    "node": "6.8.0"
   },
   "dependencies": {
     "aws-sdk": "^2.6.12",
