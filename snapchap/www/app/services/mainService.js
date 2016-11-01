@@ -1,6 +1,8 @@
 angular.module('snapchat')
 .service('mainService', function($http) {
 
+// THIS IS A TEST
+
 
   this.getUserFriends = function(id) {
     return $http({
