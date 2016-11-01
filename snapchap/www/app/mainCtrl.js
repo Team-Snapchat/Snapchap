@@ -12,6 +12,8 @@ angular.module('snapchat').controller('mainCtrl', function ($scope, $stateParams
       sourceType: Camera.PictureSourceType.CAMERA,
       allowEdit: false,
       encodingType: Camera.EncodingType.JPEG,
+      targetWidth: 50,
+      targetHeight: 66,
       // targetWidth: 400,
       // targetHeight: 500,
       // targetWidth: 640,
@@ -68,7 +70,7 @@ angular.module('snapchat').controller('mainCtrl', function ($scope, $stateParams
 
   var socket;
   $rootScope.connect = function(){
-    
+
       socket = io.connect();
       socket.emit('isLoggedin', {username: $rootScope.userInfo.username, id: $rootScope.userInfo.id})
 
@@ -104,7 +106,7 @@ angular.module('snapchat').controller('mainCtrl', function ($scope, $stateParams
       // socket.on('confirmDisconnect', function(message){
       //   console.log(message.disconnected)
         if(socket) socket.disconnect()
-      // }) 
+      // })
   }
 
 
