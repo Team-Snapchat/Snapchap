@@ -4,7 +4,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var massive = require('massive');
-var cors = require('cors');
+// var cors = require('cors');
 var config = require('./config.js');
 // var corsOptions = {
 //   origin: 'http://localhost:7000'
@@ -78,7 +78,7 @@ app.use(bodyParser.json({limit: '100mb'}));
 app.use(cors());
 // app.use(cors(corsOptions));
 
-app.use(express.static(__dirname + '/www'));
+// app.use(express.static('../www'));
 
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
