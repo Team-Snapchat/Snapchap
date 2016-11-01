@@ -13,6 +13,20 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
+var pg = require('pg');
+
+// pg.defaults.ssl = true;
+pg.connect(process.env.DATABASE_URL, function(err, client) {
+  if(err) throw err;
+  console.log('Connected to Postgres! Getting schemas…');
+
+  client
+  .query('SELECT table_schema, table_name FROM information_schema.tables;')
+  .on('row', function(row) {
+    console.log(JSON.stringify(row));
+  });
+})
+
 // AMAZON S3 ADDED
 
 var AWS = require("aws-sdk");
@@ -23,7 +37,10 @@ AWS.config.secretAccessKey = config.aws_secret_access_key;
 /////////////////////////////////////////////////////////
 
 var db = massive.connectSync({
-  connectionString: config.connectionString
+  // connectionString: 'postgres://lfplrggqqyouri:q3Gm_eM4QynflveLkI0mVNQ8Yu@ec2-54-235-180-14.compute-1.amazonaws.com:5432/dc0m2p77oia9at'
+  // DATABASE_URL=$(heroku config:get DATABASE_URL -a snapchap) your_process
+  connectionString: process.env.DATABASE_URL
+  // connectionString: config.connectionString
   // connectionString: 'postgres://postgres@localhost:5432/snap'
 });
 
@@ -94,7 +111,7 @@ app.post('/api/TEST', function(req, res){
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   PORT
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-var port = config.server.port;
+var port = process.env.PORT || config.server.port;
 http.listen(port, function() {
   console.log('Listening now on port ' + port);
 });
