@@ -78,7 +78,7 @@ app.use(bodyParser.json({limit: '100mb'}));
 app.use(cors());
 // app.use(cors(corsOptions));
 
-app.use(express.static('../www'));
+app.use(express.static('./www'));
 
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
