@@ -13,14 +13,48 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
-module.exports = {app: app, io: io, config: config};
+// AMAZON S3 ADDED
 
+var AWS = require("aws-sdk");
+AWS.config = new AWS.Config();
+AWS.config.accessKeyId = config.aws_access_key_id;
+AWS.config.secretAccessKey = config.aws_secret_access_key;
+
+/////////////////////////////////////////////////////////
 
 var db = massive.connectSync({
-  connectionString: 'postgres://postgres@localhost:5432/snap'
+  connectionString: config.connectionString
+  // connectionString: 'postgres://postgres@localhost:5432/snap'
 });
 
 app.set('db', db);
+
+module.exports = {app: app, io: io, config: config};
+
+// AMAZON S3 ADDED
+
+
+  var s3 = new AWS.S3();
+
+ s3.createBucket({Bucket: 'snapchap-dev'}, function() {
+
+  var params = {Bucket: 'snapchap-dev', Key: config.aws_access_key_id, Body: 'Hello!'};
+
+  s3.putObject(params, function(err, data) {
+
+      if (err)
+
+          console.log(err);
+
+      else       console.log("Successfully uploaded data to myBucket/myKey");
+
+   });
+
+});
+
+////////////////////////////////////////////////////////
+
+
 
 var controller = require('./serverControl.js');
 app.use(bodyParser.json({limit: '100mb'}));
@@ -60,7 +94,7 @@ app.post('/api/TEST', function(req, res){
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   PORT
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-var port = config.port;
+var port = config.server.port;
 http.listen(port, function() {
   console.log('Listening now on port ' + port);
 });
