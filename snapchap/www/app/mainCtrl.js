@@ -67,48 +67,50 @@ angular.module('snapchat').controller('mainCtrl', function ($scope, $stateParams
           $state.go('logIn')
     });
   }
+  var heroku = "https://snapchap2.herokuapp.com"
+  var local = "http://localhost:8100"
+  var baseUrl = heroku;
 
-
-  // var socket;
-  // $rootScope.connect = function(){
-  //
-  //     socket = io.connect();
-  //     socket.emit('isLoggedin', {username: $rootScope.userInfo.username, id: $rootScope.userInfo.id})
-  //
-  //     socket.on('getAccountInfo', function(accountInfo){
-  //     $rootScope.accountInfo.push(accountInfo);
-  //     $scope.$digest();
-  //   })
-  //
-  //     socket.on('getFriends', function(friends){
-  //     $rootScope.friends.push(friends);
-  //     $scope.$digest();
-  //   })
-  //
-  //     socket.on('getPendingMessages', function(pendingMessages){
-  //     console.log(pendingMessages)
-  //     $rootScope.pendingMessages.push(pendingMessages)
-  //     $scope.$digest();
-  //   })
-  //
-  //     socket.on('getPendingFriendRequests', function(pendingFriendRequests){
-  //     $rootScope.pendingFriendRequests.push(pendingFriendRequests)
-  //     $scope.$digest();
-  //   })
-  //   socket.on('newMessage', function(data){
-  //     console.log(data)
-  //   })
-  //
-  // };
-  //
-  // $rootScope.disconnect = function(){
-  //     // console.log('$rootScope.disconnect FIRED')
-  //     // socket.emit('startDisconnect', {username: $rootScope.userInfo.username, id: $rootScope.userInfo.id})
-  //     // socket.on('confirmDisconnect', function(message){
-  //     //   console.log(message.disconnected)
-  //       if(socket) socket.disconnect()
-  //     // })
-  // }
+  var socket;
+  $rootScope.connect = function(){
+  
+      socket = io.connect(heroku);
+      socket.emit('isLoggedin', {username: $rootScope.userInfo.username, id: $rootScope.userInfo.id})
+  
+      socket.on('getAccountInfo', function(accountInfo){
+      $rootScope.accountInfo.push(accountInfo);
+      $scope.$digest();
+    })
+  
+      socket.on('getFriends', function(friends){
+      $rootScope.friends.push(friends);
+      $scope.$digest();
+    })
+  
+      socket.on('getPendingMessages', function(pendingMessages){
+      console.log(pendingMessages)
+      $rootScope.pendingMessages.push(pendingMessages)
+      $scope.$digest();
+    })
+  
+      socket.on('getPendingFriendRequests', function(pendingFriendRequests){
+      $rootScope.pendingFriendRequests.push(pendingFriendRequests)
+      $scope.$digest();
+    })
+    socket.on('newMessage', function(data){
+      console.log(data)
+    })
+  
+  };
+  
+  $rootScope.disconnect = function(){
+      // console.log('$rootScope.disconnect FIRED')
+      // socket.emit('startDisconnect', {username: $rootScope.userInfo.username, id: $rootScope.userInfo.id})
+      // socket.on('confirmDisconnect', function(message){
+      //   console.log(message.disconnected)
+        if(socket) socket.disconnect()
+      // })
+  }
 
 
 
