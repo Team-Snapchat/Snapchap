@@ -12,6 +12,7 @@ var config = require('./config.js');
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+var pg = require('pg');
 
 // var pg = require('pg');
 
@@ -35,6 +36,7 @@ AWS.config.accessKeyId = config.aws_access_key_id;
 AWS.config.secretAccessKey = config.aws_secret_access_key;
 
 /////////////////////////////////////////////////////////
+
 
 var db = massive.connectSync({
   // connectionString: 'postgres://lfplrggqqyouri:q3Gm_eM4QynflveLkI0mVNQ8Yu@ec2-54-235-180-14.compute-1.amazonaws.com:5432/dc0m2p77oia9at'
@@ -111,7 +113,12 @@ app.post('/api/TEST', function(req, res){
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   PORT
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+<<<<<<< HEAD
 var port = process.env.PORT || config.server.port;
 http.listen(port, function() {
+=======
+var port = config.server.port;
+http.listen(process.env.port || port, function() {
+>>>>>>> c8b44c149e012cf575c481cd6ab3940e1a250f85
   console.log('Listening now on port ' + port);
 });
