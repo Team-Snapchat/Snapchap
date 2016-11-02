@@ -4,7 +4,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var massive = require('massive');
-var cors = require('cors');
+// var cors = require('cors');
 var config = require('./config.js');
 // var corsOptions = {
 //   origin: 'http://localhost:7000'
@@ -13,6 +13,20 @@ var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var pg = require('pg');
+
+// var pg = require('pg');
+
+// pg.defaults.ssl = true;
+// pg.connect(process.env.DATABASE_URL, function(err, client) {
+//   if(err) throw err;
+//   console.log('Connected to Postgres! Getting schemas…');
+//
+//   client
+//   .query('SELECT table_schema, table_name FROM information_schema.tables;')
+//   .on('row', function(row) {
+//     console.log(JSON.stringify(row));
+//   });
+// })
 
 // AMAZON S3 ADDED
 
@@ -25,8 +39,11 @@ AWS.config.secretAccessKey = config.aws_secret_access_key;
 
 
 var db = massive.connectSync({
-  connectionString: config.connectionString
-  // connectionString: process.env.DATABASE_URL
+  // connectionString: 'postgres://lfplrggqqyouri:q3Gm_eM4QynflveLkI0mVNQ8Yu@ec2-54-235-180-14.compute-1.amazonaws.com:5432/dc0m2p77oia9at'
+  // DATABASE_URL=$(heroku config:get DATABASE_URL -a snapchap) your_process
+  connectionString: process.env.DATABASE_URL
+  // connectionString: config.connectionString
+  // connectionString: 'postgres://postgres@localhost:5432/snap'
 });
 
 app.set('db', db);
@@ -63,7 +80,7 @@ app.use(bodyParser.json({limit: '100mb'}));
 app.use(cors());
 // app.use(cors(corsOptions));
 
-app.use(express.static(__dirname + '/www'));
+app.use(express.static('./www'));
 
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
@@ -96,7 +113,12 @@ app.post('/api/TEST', function(req, res){
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   PORT
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+<<<<<<< HEAD
+var port = process.env.PORT || config.server.port;
+http.listen(port, function() {
+=======
 var port = config.server.port;
 http.listen(process.env.port || port, function() {
+>>>>>>> c8b44c149e012cf575c481cd6ab3940e1a250f85
   console.log('Listening now on port ' + port);
 });

@@ -1,4 +1,4 @@
-angular.module('snapchat').controller('chatCtrl', function ($scope, $stateParams, mainService, $rootScope) {
+angular.module('snapchat').controller('chatCtrl', function ($scope, $stateParams, mainService, $rootScope, $state) {
 
   mainService.showMenu();
 
@@ -8,7 +8,6 @@ angular.module('snapchat').controller('chatCtrl', function ($scope, $stateParams
   mainService.getPendingMessageIds($rootScope.userInfo.id).then(function(response) {
     $rootScope.pendingMessages = response.data;
   });
-
 
 
   var canvas = document.getElementById('message-canvas');
@@ -34,6 +33,9 @@ angular.module('snapchat').controller('chatCtrl', function ($scope, $stateParams
   }
 
 
+  $scope.goToView = function(view) {
+    $state.go(view);
+  }
 
 
 });

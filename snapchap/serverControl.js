@@ -96,7 +96,9 @@ module.exports = {
           message: "We can't find an account with that username."
         })
       }
+
     db.compare_password([req.body.password, user.id], function(err, correct){
+
       if(err) console.log(err);
       if(correct[0]['?column?']){
         res.send({
