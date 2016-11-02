@@ -13,6 +13,10 @@ angular.module('snapchat').controller('settingsCtrl', function ($scope, $rootSco
         console.log('You have been logged out');
         $state.go('logInSignUp');
   });
+
+  $scope.goToView = function(view) {
+    $state.go(view);
+  };
 }
 
 });

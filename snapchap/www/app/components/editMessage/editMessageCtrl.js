@@ -13,7 +13,7 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
   }
 
   // Brings in the photo saved onto $rootScope by camera
-  // $rootScope.imgURI = './img/rr2.jpg';
+  $rootScope.imgURI = './img/rr320.jpg';
   $scope.snap = $rootScope.imgURI;
 
 
@@ -216,14 +216,67 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
 
 
 
- /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-   SAVE IMAGE
- /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+    SAVE IMAGE
+  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     $scope.saveImage = function() {
       $rootScope.imgURI = canvas.toDataURL();
       // console.log('$rootScope.imgURI', $rootScope.imgURI);
       $state.go('sendTo');
     };
+
+
+  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+    GEOFILTERS
+  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+  var geofilter = $('#geofilter');
+
+  $scope.geofilterMovesTo = function(position) {
+    if (position === 'left') {
+      if (geofilter.hasClass('right')) geofilter.removeClass('right');
+      else if (geofilter.hasClass('left')) {
+        geofilter.css('visibility', 'hidden');
+        geofilter.removeClass('left')
+        geofilter.addClass('right');
+        setTimeout(function() {
+          geofilter.css('visibility', 'visible');
+          geofilter.removeClass('right');
+        }, 400);
+      }
+      else geofilter.addClass('left');
+
+    }
+    if (position === 'right') {
+      if (geofilter.hasClass('left')) geofilter.removeClass('left');
+      else if (geofilter.hasClass('right')) {
+        geofilter.css('visibility', 'hidden');
+        geofilter.removeClass('right')
+        geofilter.addClass('left');
+        setTimeout(function() {
+          geofilter.css('visibility', 'visible');
+          geofilter.removeClass('left');
+        }, 400);
+      }
+      else geofilter.addClass('right');
+    }
+    // $scope.geofilter
+    // console.log(geofilter.hasClass('right'));
+
+  };
+
+  function putGeofilterOnCanvas() {
+    var geoImg = new Image();
+    geoImg.src = $scope.snap;
+    geoImg.onload = function() {
+      canvas.width = geoImg.width;
+      canvas.height = geoImg.height;
+      var canvasContainerWidth = $('.canvas-container').width();
+      scaleUp = geoImg.width / canvasContainerWidth; // This is the scale of the full-size image to the viewed image
+      scaleDown = canvasContainerWidth / geoImg.width; // This is the scale of the viewed image to the full-size image
+      context.drawImage(geoImg, 0, 0); // Puts the base image in the context
+      context.scale(scaleUp, scaleUp); // Scales drawing area up to cover the full-sized image
+    }
+  }
 
 
 });
