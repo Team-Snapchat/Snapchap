@@ -12,6 +12,7 @@ var config = require('./config.js');
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+var pg = require('pg');
 
 // AMAZON S3 ADDED
 
@@ -22,9 +23,10 @@ AWS.config.secretAccessKey = config.aws_secret_access_key;
 
 /////////////////////////////////////////////////////////
 
+
 var db = massive.connectSync({
   connectionString: config.connectionString
-  // connectionString: 'postgres://postgres@localhost:5432/snap'
+  // connectionString: process.env.DATABASE_URL
 });
 
 app.set('db', db);
@@ -95,6 +97,6 @@ app.post('/api/TEST', function(req, res){
   PORT
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 var port = config.server.port;
-http.listen(port, function() {
+http.listen(process.env.port || port, function() {
   console.log('Listening now on port ' + port);
 });
