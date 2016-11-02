@@ -18,9 +18,9 @@ angular.module('snapchat').controller('logInCtrl', function ($scope, $rootScope,
           $auth.setToken(response)
           mainService.getCurrentUser().then(function(userInfo){
             $rootScope.userInfo = userInfo;
-            $rootScope.connect(); //dont move this
+            // $rootScope.connect(); //dont move this
           })
-          
+
           $state.go('camera');
         }
       }).catch(function (response) {

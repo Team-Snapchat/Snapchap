@@ -17,6 +17,7 @@
     "jwt-simple": "^0.5.0",
     "massive": "^2.5.0",
     "moment": "^2.15.2",
+    "pg": "6.1.0",
     "s3fs": "git+https://github.com/RiptideElements/s3fs.git",
     "socket.io": "^1.5.1"
   },

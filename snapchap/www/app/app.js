@@ -4,7 +4,7 @@ angular.module('snapchat', ['ionic', 'ngCordova', 'satellizer'])
 
     $ionicConfigProvider.backButton.text('').previousTitleText(false);
 
-    $urlRouterProvider.otherwise('/login');
+    $urlRouterProvider.otherwise('/loginsignup');
 
   var skipIfLoggedIn = ['$q', '$location', '$auth', function($q, $location, $auth) {
     var deferred = $q.defer();
@@ -256,9 +256,12 @@ angular.module('snapchat', ['ionic', 'ngCordova', 'satellizer'])
         }
     })
 
+    var heroku = 'https://snapchap2.herokuapp.com'
+    var local = "http://localhost:8100"
+    var baseUrl = heroku;
 
-    $authProvider.loginUrl = '/auth/login';
-    $authProvider.signupUrl = '/auth/signup';
+    $authProvider.loginUrl = baseUrl + '/auth/login';
+    $authProvider.signupUrl = baseUrl + '/auth/signup';
 
 })
 

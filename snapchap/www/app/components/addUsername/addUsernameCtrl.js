@@ -2,6 +2,7 @@ angular.module('snapchat').controller('addUsernameCtrl', function ($scope, $root
   $scope.flag = false;
   mainService.hideMenu();
   $scope.users = [];
+
   $scope.getSearchResults = function(searchText){
     $scope.hideExplanation = true;
     if(searchText){
@@ -16,11 +17,12 @@ angular.module('snapchat').controller('addUsernameCtrl', function ($scope, $root
       $scope.users = []
       $scope.hideExplanation = false;
     }
-  } 
+  }
   $scope.sendFriendRequest = function(acceptor){
-    
+
     mainService.sendFriendRequest({initiatorId :$rootScope.userInfo.id, acceptorId: acceptor}).then(function(flag){
       $scope.flag = flag;
+      $scope.getSearchResults($scope.searchText)
     })
   }
 });
