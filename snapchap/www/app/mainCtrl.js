@@ -12,6 +12,8 @@ angular.module('snapchat').controller('mainCtrl', function ($scope, $stateParams
       sourceType: Camera.PictureSourceType.CAMERA,
       allowEdit: false,
       encodingType: Camera.EncodingType.JPEG,
+      targetWidth: 50,
+      targetHeight: 66,
       // targetWidth: 400,
       // targetHeight: 500,
       // targetWidth: 640,
@@ -66,6 +68,7 @@ angular.module('snapchat').controller('mainCtrl', function ($scope, $stateParams
     });
   }
 
+
   // var socket;
   // $rootScope.connect = function(){
   //
@@ -106,6 +109,7 @@ angular.module('snapchat').controller('mainCtrl', function ($scope, $stateParams
   //       if(socket) socket.disconnect()
   //     // })
   // }
+
 
 
 

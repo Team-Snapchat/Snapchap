@@ -4,6 +4,10 @@ angular.module('snapchat').controller('cameraCtrl', function ($scope, $statePara
   mainService.showMenu();
   $('#index-html__chat-btn, #index-html__take-photo-btn, #index-html__dots-btn').removeClass('chatty-nav profile-nav');
 
+  $scope.goToChat = function() {
+    $state.go('chat');
+  }
+
 
 
   // $cordovaStatusbar.overlaysWebView(true);
