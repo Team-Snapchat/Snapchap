@@ -101,7 +101,7 @@ angular.module('snapchat', ['ionic', 'ngCordova', 'satellizer'])
       templateUrl: 'app/components/editMessage/editMessage.html',
       controller: 'editMessageCtrl',
       resolve: {
-          // loginRequired: loginRequired
+          loginRequired: loginRequired
           // skipIfLoggedIn: skipIfLoggedIn
         }
     })
@@ -251,8 +251,8 @@ angular.module('snapchat', ['ionic', 'ngCordova', 'satellizer'])
       templateUrl: 'app/components/watchMessages/watchMessages.html',
       controller: 'watchMessagesCtrl',
       resolve: {
-          // loginRequired: loginRequired
-          skipIfLoggedIn: skipIfLoggedIn
+          loginRequired: loginRequired
+          // skipIfLoggedIn: skipIfLoggedIn
         }
     })
 

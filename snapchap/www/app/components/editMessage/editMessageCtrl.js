@@ -13,7 +13,7 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
   }
 
   // Brings in the photo saved onto $rootScope by camera
-  // $rootScope.imgURI = './img/rr320.jpg';
+  $rootScope.imgURI = './img/rr320.jpg';
   $scope.snap = $rootScope.imgURI;
 
 
