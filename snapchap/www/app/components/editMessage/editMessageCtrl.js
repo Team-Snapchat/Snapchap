@@ -13,7 +13,7 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
   }
 
   // Brings in the photo saved onto $rootScope by camera
-  $rootScope.imgURI = './img/rr320.jpg';
+  // $rootScope.imgURI = './img/rr320.jpg';
   $scope.snap = $rootScope.imgURI;
 
 
@@ -23,6 +23,10 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
 
   // This is the drawing area
   var canvas = document.getElementById('canvas');
+  var canvasContainerWidth = $('.canvas-container').width();
+  var canvasContainerHeight = $('.canvas-container').height();
+  var baseImgApparentHeight;
+
 
   // Scaling variables that will scale canvas different for drawing vs. text
   var scaleUp, scaleDown;
@@ -34,18 +38,18 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
     baseImg.onload = function() {
       canvas.width = baseImg.width;
       canvas.height = baseImg.height;
-      var canvasContainerWidth = $('.canvas-container').width();
+      baseImgApparentHeight = canvasContainerWidth * baseImg.height / baseImg.width;
       scaleUp = baseImg.width / canvasContainerWidth; // This is the scale of the full-size image to the viewed image
       scaleDown = canvasContainerWidth / baseImg.width; // This is the scale of the viewed image to the full-size image
       context.drawImage(baseImg, 0, 0); // Puts the base image in the context
       context.scale(scaleUp, scaleUp); // Scales drawing area up to cover the full-sized image
     }
   }
-  makeBase()
+  makeBase();
+
 
 
   $scope.clearDrawing = function() {
-    console.log(text);
     signaturePad.clear(); // Clears canvas
     makeBase(); // Remakes the base image from $scope
     $timeout(function() {
@@ -103,7 +107,6 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
     // var pixelData = $('#color-picker').getContext('2d').getImageData(event.offsetX, event.offsetY, 1, 1).data;
     // The line above allows color selection of elements that are part of the canvas context
     selectedColor = $(this).css('background-color');
-    console.log(selectedColor);
     signaturePad.penColor = selectedColor;
     penButton.css('background-color', selectedColor);
   });
@@ -229,52 +232,63 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
     GEOFILTERS
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-  var geofilter = $('#geofilter');
+  var geofilterContainer, geofilterContainerWidth;
+
+  $scope.geofiltersMoveTo = function(position) {
+
+  }
+
+  geofilterContainer = $('#geofilter1-container');
+  geofilterContainerWidth = geofilterContainerHeight = geofilterContainer.width();
 
   $scope.geofilterMovesTo = function(position) {
     if (position === 'left') {
-      if (geofilter.hasClass('right')) geofilter.removeClass('right');
-      else if (geofilter.hasClass('left')) {
-        geofilter.css('visibility', 'hidden');
-        geofilter.removeClass('left')
-        geofilter.addClass('right');
+      if (geofilterContainer.hasClass('right')) geofilterContainer.removeClass('right');
+      else if (geofilterContainer.hasClass('left')) {
+        geofilterContainer.css('visibility', 'hidden');
+        geofilterContainer.removeClass('left')
+        geofilterContainer.addClass('right');
         setTimeout(function() {
-          geofilter.css('visibility', 'visible');
-          geofilter.removeClass('right');
+          geofilterContainer.css('visibility', 'visible');
+          geofilterContainer.removeClass('right');
         }, 400);
       }
-      else geofilter.addClass('left');
-
+      else geofilterContainer.addClass('left');
     }
     if (position === 'right') {
-      if (geofilter.hasClass('left')) geofilter.removeClass('left');
-      else if (geofilter.hasClass('right')) {
-        geofilter.css('visibility', 'hidden');
-        geofilter.removeClass('right')
-        geofilter.addClass('left');
+      if (geofilterContainer.hasClass('left')) geofilterContainer.removeClass('left');
+      else if (geofilterContainer.hasClass('right')) {
+        geofilterContainer.css('visibility', 'hidden');
+        geofilterContainer.removeClass('right')
+        geofilterContainer.addClass('left');
         setTimeout(function() {
-          geofilter.css('visibility', 'visible');
-          geofilter.removeClass('left');
+          geofilterContainer.css('visibility', 'visible');
+          geofilterContainer.removeClass('left');
         }, 400);
       }
-      else geofilter.addClass('right');
+      else geofilterContainer.addClass('right');
     }
-    // $scope.geofilter
-    // console.log(geofilter.hasClass('right'));
-
   };
 
-  function putGeofilterOnCanvas() {
+  $scope.saveGeofilter = function() {
     var geoImg = new Image();
-    geoImg.src = $scope.snap;
+    geoImg.src = $('#geofilter1').attr('src');
+
+    var scaleGeofilterUp = geoImg.width / geofilterContainer.width();
+    var scaleGeofilterDown = geofilterContainer.width() / geoImg.width;
+    var percentLeft = geofilterContainer.attr('data-left');
+    var percentTop = geofilterContainer.attr('data-top');
+    var geofilterXPos = (scaleGeofilterUp * canvasContainerWidth * percentLeft) - (geoImg.width * 0.5);
+    var geofilterYPos = (scaleGeofilterUp * baseImgApparentHeight * percentTop) - (geoImg.height * 0.5);
+
     geoImg.onload = function() {
-      canvas.width = geoImg.width;
-      canvas.height = geoImg.height;
-      var canvasContainerWidth = $('.canvas-container').width();
-      scaleUp = geoImg.width / canvasContainerWidth; // This is the scale of the full-size image to the viewed image
-      scaleDown = canvasContainerWidth / geoImg.width; // This is the scale of the viewed image to the full-size image
-      context.drawImage(geoImg, 0, 0); // Puts the base image in the context
-      context.scale(scaleUp, scaleUp); // Scales drawing area up to cover the full-sized image
+      context.scale(scaleGeofilterDown, scaleGeofilterDown);
+      geofilterContainer.addClass('left');
+      // geoImg.width = $('#geofilter').width();
+      // geoImg.height = $('#geofilter').height();
+      context.drawImage(geoImg, 0, geofilterYPos);
+      $scope.snap = canvas.toDataURL();
+      context.scale(scaleGeofilterUp, scaleGeofilterUp);
     }
   }
 

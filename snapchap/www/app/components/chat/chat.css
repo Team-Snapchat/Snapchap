@@ -29,15 +29,90 @@
 }
 #chat-view__input {
   width: 100%;
+  position: relative;
+  left: 37px;
+  font-size: 1.2em;
+  padding: 22px 0;
 }
 
+#chat-view ul>li {
+  padding: 10px;
+  font-weight: bold;
+  position: relative;
+}
+#chat-view ul>li>.tap-to-view {
+  font-weight: normal;
+  color: gray;
+  font-size: 0.8rem;
+}
+#chat-view ul>li>* {
+  position: relative;
+  left: 34px;
+}
+#chat-view ul>li>*:nth-child(1):after {
+  content: '';
+  position: absolute;
+  left: -30px;
+  top: 10px;
+  height: 20px;
+  width: 20px;
+  background-color: red;
+  border-radius: 3px;
+}
 
+#message-canvas-container {
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  position: fixed;
+  left: 100%;
+  bottom: 0px;
+  padding: 0px;
+  margin: 0px;
+}
+#message-canvas-container.active {
+  background-color: black;
+  z-index: 10;
+  left: 0px;
+  bottom: 0px;
+}
+#message-canvas {
+  width: 100vw;
+  height: 100%;
+  position: absolute;
+  left: 0px;
+  padding: 0px;
+  /*The following two lines aren't working. Vertical position is set in getMessage fn in chatCtrl*/
+  /*top: 50%;
+  transform: translateY(-50%);*/
+}
+
+#pending-messages {
+  margin-bottom: 100px;
+}
 
 
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   BOTTOM NAV (now resides in mainCtrl and main.css)
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#chat-view .nav-bottom {
+  /*background-color: white;*/
+  background-image: url('../../../img/icon/white-gradient.png');
+  background-repeat: repeat-x;
+  -webkit-background-size: auto 80px;
+  background-size: auto 80px;
+  position: fixed;
+  width: 100%;
+  height: 80px;
+  left: 0px;
+  top: calc(100% - 80px);
+
+  z-index: 1;
+  padding: 0px;
+  margin: 0px;
+}
+
 /*#chat-view__nav-bottom {
   top: calc(100vh - 60px);
   display: flex;

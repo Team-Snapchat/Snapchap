@@ -3,7 +3,8 @@ angular.module('snapchat')
 
   var heroku = "https://snapchap2.herokuapp.com"
   var local = "http://localhost:8100"
-  var baseUrl = local;
+  // var baseUrl = local;
+  var baseUrl = heroku;
 
   this.getUserFriends = function(id) {
     return $http({

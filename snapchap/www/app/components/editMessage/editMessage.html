@@ -51,12 +51,13 @@
     </div> -->
 
     <!-- test buttons -->
-    <!-- <div class="buttons"> -->
+    <div class="buttons">
+      <button type="button" ng-click="saveGeofilter()">Save Geofilter</button>
       <!-- <button type="button" ng-click="saveCanvas()">Send</button> -->
       <!-- <button type="button" ng-click="clearDrawing()">Clear Drawing</button> -->
       <!-- <button type="button" ng-click="clearCanvas()">Clear Canvas</button> -->
       <!-- <button type="button" ng-click="overlayText();">Overlay Text</button> -->
-    <!-- </div> -->
+    </div>
 
 
 
@@ -89,8 +90,17 @@
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
     GEOFILTERS
   <~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <div id="geofilter" class="left"></div>
+  <section on-swipe-left="geofiltersMoveTo('left')" on-swipe-right="geofilterMovesTo('right')">
 
+    <div id="geofilter1-container" class="geofilter-container left" data-left="0.5" data-top="0.7">
+      <img id="geofilter1" ng-src="./img/chap.png">
+      <!-- <img id="geofilter1" ng-src="./img/rr2.jpg"> -->
+    </div>
 
+    <!-- <div id="geofilter2-container" class="geofilter-container right" data-left="0.5" data-top="0.5">
+      <img id="geofilter2" ng-src="./img/snap-confetti2.png">
+    </div> -->
+
+</section>
 
 </ion-view>

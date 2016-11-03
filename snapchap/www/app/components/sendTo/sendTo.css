@@ -74,6 +74,7 @@
 .send-to-view__list {
   min-height: 115px;
   font-size: 1rem;
+  margin-bottom: 100px;
 }
   /*List items*/
   .send-to-view__list li {

@@ -1,46 +1,58 @@
 <ion-view title="Chat" id="chat-view" can-swipe-back="false">
-    <ion-content on-swipe-left="goToView('camera')">
+  <ion-content on-swipe-left="goToView('camera')">
 
-      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
-        TOP NAV
-          Top nav is 60px high and absolute-positioned
-          animateProfileNav directive alters bottom nav on view change
-          removeChattyNav is a fn in the animateProfileNav directive
-      <~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-      <nav id="chat-view__nav-top" class="nav-top">
-          <button id="chat-view__flash-btn" class="icon-btn"></button>
-          <!-- <button id="chat-view__profile-btn" class="icon-btn" ui-sref="profile"></button> -->
-          <div class="nav-top-heading">Chat</div>
-          <button id="chat-view__camera-btn" class="icon-btn" ui-sref="camera" animate-chatty-nav ng-click="removeChattyNav()"></button>
-      </nav>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
+      TOP NAV
+        Top nav is 60px high and absolute-positioned
+        animateProfileNav directive alters bottom nav on view change
+        removeChattyNav is a fn in the animateProfileNav directive
+    <~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <nav id="chat-view__nav-top" class="nav-top">
+        <button id="chat-view__flash-btn" class="icon-btn"></button>
+        <!-- <button id="chat-view__profile-btn" class="icon-btn" ui-sref="profile"></button> -->
+        <div class="nav-top-heading">Chat</div>
+        <button id="chat-view__camera-btn" class="icon-btn" ui-sref="camera" animate-chatty-nav ng-click="removeChattyNav()"></button>
+    </nav>
 
-      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
-        MAIN CONTENT
-          Main content is height of screen minus 60px and positioned below top nav
-      <~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-      <div id="chat-view__main-content">
-        <form>
-            <label>
-                <input id="chat-view__input" type="text" placeholder="Search">
-            </label>
-        </form>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
+      MAIN CONTENT
+        Main content is height of screen minus 60px and positioned below top nav
+    <~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <div id="chat-view__main-content">
+      <form>
+        <span class="magnifying-glass"></span>
+        <label>
+            <input id="chat-view__input" type="text" placeholder="Search">
+        </label>
+      </form>
 
-        <ul>
-          <li ng-repeat="pendingMessage in pendingMessages" ng-click="getMessage(pendingMessage.id)">
-            {{pendingMessage.first_name}} {{pendingMessage.last_name}}
-          </li>
-        </ul>
+      <ul id="pending-messages">
+        <li ng-repeat="pendingMessage in pendingMessages" ng-click="getMessage(pendingMessage.id)">
+          <div>{{pendingMessage.first_name}} {{pendingMessage.last_name}}</div>
+          <div class="tap-to-view">Tap to view</div>
+        </li>
+      </ul>
 
-        <canvas id="message-canvas" width="50" height="66"></canvas>
+    </div>
 
-      </div>
+  </ion-content>
 
-      <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
-        BOTTOM NAV
-      <~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-      <!-- <nav id="chat-view__nav-bottom" class="nav-bottom">
-          <button id="chat-view__chat-btn" class="icon-btn"></button>
-          <button id="chat-view__take-photo-btn" class="icon-btn" ui-sref="camera"></button>
-          <button id="chat-view__dots-btn" class="icon-btn"></button>
-      </nav> -->
+  <!-- <div id="incoming-snap">{{snappy}}</div> -->
+
+
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
+      BOTTOM NAV
+    <~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <!-- <nav id="chat-view__nav-bottom" class="nav-bottom">
+        <button id="chat-view__chat-btn" class="icon-btn"></button>
+        <button id="chat-view__take-photo-btn" class="icon-btn" ui-sref="camera"></button>
+        <button id="chat-view__dots-btn" class="icon-btn"></button>
+    </nav> -->
+    <nav class="nav-bottom">
+    </nav>
+
+    <div id="message-canvas-container">
+      <canvas id="message-canvas"></canvas>
+    </div>
+
 </ion-view>

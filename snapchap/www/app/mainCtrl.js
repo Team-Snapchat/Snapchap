@@ -12,17 +12,17 @@ angular.module('snapchat').controller('mainCtrl', function ($scope, $stateParams
       sourceType: Camera.PictureSourceType.CAMERA,
       allowEdit: false,
       encodingType: Camera.EncodingType.JPEG,
-      targetWidth: 50,
-      targetHeight: 66,
+      // targetWidth: 50,
+      // targetHeight: 66,
       // targetWidth: 400,
       // targetHeight: 500,
-      // targetWidth: 640,
-      // targetHeight: 1136,
+      targetWidth: 320,
+      targetHeight: 420,
       // targetWidth: 1280,
       // targetHeight: 2272,
       popoverOptions: CameraPopoverOptions,
       saveToPhotoAlbum: false,
-      correctOrientation: true
+      correctOrientation: false
     };
 
     $cordovaCamera.getPicture(options).then(function(imageData) {
