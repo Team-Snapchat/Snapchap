@@ -113,12 +113,8 @@ app.post('/api/TEST', function(req, res){
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   PORT
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-<<<<<<< HEAD
-var port = process.env.PORT || config.server.port;
-http.listen(port, function() {
-=======
+
 var port = config.server.port;
 http.listen(process.env.port || port, function() {
->>>>>>> c8b44c149e012cf575c481cd6ab3940e1a250f85
   console.log('Listening now on port ' + port);
 });

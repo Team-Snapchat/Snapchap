@@ -101,7 +101,7 @@ angular.module('snapchat', ['ionic', 'ngCordova', 'satellizer'])
       templateUrl: 'app/components/editMessage/editMessage.html',
       controller: 'editMessageCtrl',
       resolve: {
-          loginRequired: loginRequired
+          // loginRequired: loginRequired
           // skipIfLoggedIn: skipIfLoggedIn
         }
     })
