@@ -4,7 +4,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var massive = require('massive');
-// var cors = require('cors');
+var cors = require('cors');
 var config = require('./config.js');
 // var corsOptions = {
 //   origin: 'http://localhost:7000'
@@ -41,9 +41,9 @@ AWS.config.secretAccessKey = config.aws_secret_access_key;
 var db = massive.connectSync({
   // connectionString: 'postgres://lfplrggqqyouri:q3Gm_eM4QynflveLkI0mVNQ8Yu@ec2-54-235-180-14.compute-1.amazonaws.com:5432/dc0m2p77oia9at'
   // DATABASE_URL=$(heroku config:get DATABASE_URL -a snapchap) your_process
-  connectionString: process.env.DATABASE_URL
+  // connectionString: process.env.DATABASE_URL
   // connectionString: config.connectionString
-  // connectionString: 'postgres://postgres@localhost:5432/snap'
+  connectionString: 'postgres://postgres@localhost:5432/snap'
 });
 
 app.set('db', db);

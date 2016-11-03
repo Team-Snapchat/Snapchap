@@ -7,8 +7,8 @@ angular.module('snapchat').controller('addUsernameCtrl', function ($scope, $root
     $scope.hideExplanation = true;
     if(searchText){
       $scope.hideExplanation = true;
-      var TEST = "%"+searchText+"%"
-      mainService.getUsername(TEST).then(function(results){
+      var query = "%"+searchText+"%"
+      mainService.getUsername(query, $rootScope.userInfo.id).then(function(results){
         console.log(results.data)
         $scope.users = results.data;
       })

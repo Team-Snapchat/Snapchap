@@ -1,9 +1,7 @@
 SELECT id, username, first_name, last_name from users
-WHERE id IN 
-(SELECT id
-FROM users  
 WHERE username LIKE $1
-except 
-select friendships.initiator from friendships
-except 
-select friendships.acceptor from friendships)
+AND id != $2
+AND id not in (
+select initiator as friend from friendships where acceptor = $2 union
+select acceptor as friend from friendships where initiator = $2
+)
