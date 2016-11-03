@@ -228,6 +228,31 @@ canvas {
 
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  GEOFILTERS
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+#geofilter {
+  background-image: url('../../../img/snap-confetti.png');
+  background-position: center center;
+  -webkit-background-size: 100px;
+          background-size: 100px;
+  width: 100px;
+  height: 100px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+  z-index: 5;
+  transition: left 0.5s;
+}
+#geofilter.left {
+  left: -25%;
+}
+#geofilter.right {
+  left: 125%;
+}
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   BOTTOM NAV
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 #edit-message-view__nav-bottom {

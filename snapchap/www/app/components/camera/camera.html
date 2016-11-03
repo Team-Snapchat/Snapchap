@@ -1,5 +1,5 @@
-<ion-view title="Camera" hide-nav-bar="true" id="camera-view" has-bouncing="false" can-swipe-back="false" on-swipe-left="goToChat()">
-    <ion-content id="camera-view__content" >
+<ion-view title="Camera" hide-nav-bar="true" id="camera-view" has-bouncing="false" can-swipe-back="false">
+    <ion-content id="camera-view__content" on-swipe-right="goToView('chat')" on-swipe-left="goToView('profile')">
 
         <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
           TOP NAV

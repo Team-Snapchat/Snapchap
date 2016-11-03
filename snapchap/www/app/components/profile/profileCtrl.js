@@ -1,4 +1,4 @@
-angular.module('snapchat').controller('profileCtrl', function ($scope,$rootScope, $stateParams, mainService) {
+angular.module('snapchat').controller('profileCtrl', function ($scope,$rootScope, $stateParams, mainService, $state) {
 
   $scope.hideMenu = function() {
     document.getElementById('index-html__nav-bottom').style.display = 'none';
@@ -14,8 +14,9 @@ angular.module('snapchat').controller('profileCtrl', function ($scope,$rootScope
     })
   }
 
-
-
+  $scope.goToView = function(view) {
+    $state.go(view);
+  }
 
 
 

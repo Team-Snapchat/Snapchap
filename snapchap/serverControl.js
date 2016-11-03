@@ -106,7 +106,7 @@ module.exports = {
       }
       else if(!comparePassword(req.body.password, user.password, user)){
            return res.status(401).send({
-              message: 'Invalid email and/or password'
+              message: "That's not the right password. Sorry!"
             })
            }
            res.send({
@@ -115,6 +115,7 @@ module.exports = {
            })
 
      });
+
 
 
   },

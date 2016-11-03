@@ -1,5 +1,5 @@
 <ion-view title="Edit Message" id="edit-message-view" has-bouncing="false" can-swipe-back="false">
-  <ion-content id="edit-message-view__content" has-bouncing="false" ng-init="load()">
+  <ion-content id="edit-message-view__content" has-bouncing="false" ng-init="load()" on-swipe-left="geofilterMovesTo('left')" on-swipe-right="geofilterMovesTo('right')">
 
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
       TOP NAV
@@ -45,20 +45,22 @@
       <!-- <div class="color alpha"></div> -->
     </div>
 
-
-
     <!-- $scope.snap is normally hidden; display only for testing purposes-->
     <!-- <div class="scope-snap-container">
       <img id="scope-snap" ng-src="{{snap}}">
     </div> -->
 
     <!-- test buttons -->
-    <div class="buttons">
+    <!-- <div class="buttons"> -->
       <!-- <button type="button" ng-click="saveCanvas()">Send</button> -->
       <!-- <button type="button" ng-click="clearDrawing()">Clear Drawing</button> -->
       <!-- <button type="button" ng-click="clearCanvas()">Clear Canvas</button> -->
       <!-- <button type="button" ng-click="overlayText();">Overlay Text</button> -->
-    </div>
+    <!-- </div> -->
+
+
+
+
 
 
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
@@ -74,8 +76,21 @@
 
   </ion-content>
 
+
+
+  <!-- The following fixed elements are placed outside the ion-content -->
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
+    TEXT INPUT BAR
+  <~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
   <form id="edit-message-view__form" ng-submit="overlayText(); toggleTextBar()">
     <input id="edit-message-view__input" type="text" autocomplete="off"/>
   </form>
+
+  <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
+    GEOFILTERS
+  <~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+  <div id="geofilter" class="left"></div>
+
+
 
 </ion-view>

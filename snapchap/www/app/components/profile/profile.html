@@ -1,6 +1,6 @@
 <ion-view title="Profile" id="profile-view" can-swipe-back="false">
 
-    <ion-content>
+    <ion-content on-swipe-right="goToView('camera')" on-swipe-left="goToView('settings')">
         <nav id="profile-view__nav-top" class="nav-top">
             <button id="profile-view__share-btn" class="icon-btn"></button>
             <button id="profile-view__trophy-btn" class="icon-btn"></button>
