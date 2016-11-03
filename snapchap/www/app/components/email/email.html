@@ -1,3 +1,16 @@
-<ion-view title="Email" id="page16">
-    <ion-content padding="true" class="has-header"></ion-content>
+<ion-view id="email-view">
+    <ion-content>
+      <nav>
+        <button ui-sref="settings" id="email-view__back-btn" class="back-btn"><</button>
+        <div class="nav-top-heading">Email</div>
+      </nav>
+
+      <div id="email-warning">
+        Your email address is user to log in to <br>Snapchap<br> and for password recovery.
+      </div>
+      <input id="email-input" type="text" name="email" placeholder="{{currentEmail}}" ng-model="email" ng-keyup="stuff(email)"/>
+
+      <button id="continue-button" type="button" name="button" ng-show="continueButton" ng-click="addEmail(email)">Continue</button>
+
+    </ion-content>
 </ion-view>

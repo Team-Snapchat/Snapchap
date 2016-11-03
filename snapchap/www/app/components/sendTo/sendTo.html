@@ -1,9 +1,52 @@
-<ion-view title="Send To…" id="page10">
-    <ion-content padding="true" class="has-header">
-        <div id="sendTo-button-bar5" class="button-bar">
-            <button id="sendTo-button30" class="button button-light  button-block"></button>
-            <button id="sendTo-button31" class="button button-light  button-block"></button>
-            <button id="sendTo-button32" class="button button-light  button-block"></button>
+<ion-view title="Send To…" id="send-to-view" can-swipe-back="false">
+
+  <ion-content>
+
+      <nav id="send-to-view__top-nav">
+        <button ui-sref="editMessage" id="send-to-view_back-btn" class="back-btn" ng-click="showMenu()"><</button>
+        Send To…
+      </nav>
+
+      <form id="send-to-view__form">
+          <span class="magnifying-glass"></span>
+          <input type="text" placeholder="Search" ng-model="friendsList">
+      </form>
+
+      <div class="send-to-view__lists-container">
+
+        <!-- We may do the Best Friends section as a feature. For now, it is hard-coded (which is nice for tests). -->
+        <!-- <div class="send-to-view__list">
+          <p class="heading">BEST FRIENDS</p>
+          <ul>
+            <li ng-repeat="bestie in besties | filter: friendsList">
+              <label><span class="friend-name">{{bestie}}</span><input class="blue-checkbox" type="checkbox" ng-click="selectRecipients(friend.id); showSendBar()" /></label>
+            </li>
+          </ul>
+        </div> -->
+
+        <div class="send-to-view__list">
+          <p class="heading">FRIENDS</p>
+          <p class="send-to-text">Send a Snap directly to friends.</p>
+          <ul>
+            <li ng-repeat="friend in friends | filter: {username: friendsList}">
+              <label><span class="friend-name">{{friend.username}}</span><input class="blue-checkbox" type="checkbox" ng-click="selectRecipients(friend.id, friend.username); showSendBar()"/></label>
+            </li>
+          </ul>
         </div>
-    </ion-content>
+
+      </div>
+
+
+
+  </ion-content>
+
+  <!-- Send Bar -->
+  <section id="send-to-view__send-bar">
+    <div id="recipient-list">
+      <span class="recipient" ng-repeat="recipient in recipients track by $index">{{recipient}}</span>
+    </div>
+    <!-- <span>{{$rootScope.userInfo.username}}</span> -->
+    <div id="send-to-view__arrow-btn" ng-click="send()"></div>
+
+  </section>
 </ion-view>

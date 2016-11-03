@@ -1,0 +1,16 @@
+<ion-view id="name-view">
+    <ion-content>
+      <nav>
+        <button ui-sref="settings" id="name-view__back-btn" class="back-btn"><</button>
+        <div class="nav-top-heading">Name</div>
+      </nav>
+
+      <div id="name-warning">
+        This is how you appear on Snapchat, so pick a name your friends know you by.
+      </div>
+      <input id="name-input" type="text" name="name" value="" placeholder="First Name" ng-model="firstName" ng-keyup="showSaveButton(firstName, lastName)"/>
+      <input id="name-input" type="text" name="name" value="" placeholder="Last Name" ng-model="lastName" ng-keyup="showSaveButton(firstName, lastName)"/>
+      <button type="button" name="button">Remove name</button>
+      <button type="button" name="button" ng-show="saveButton" ng-click="saveFirstName(firstName); saveLastName(lastName)">Save</button>
+    </ion-content>
+</ion-view>

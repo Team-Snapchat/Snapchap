@@ -7,20 +7,30 @@
       Add Username
     </nav>
 
-    <form id="add-username-view__form">
+    <form id="add-username-view__form" >
         <span class="magnifying-glass"></span>
-        <input type="text" placeholder="Search">
+        <input type="text" placeholder="Search" ng-model="searchText" ng-keyup="getSearchResults(searchText)">
     </form>
 
-    <div class="add-username-view__text">
-      <p>username</p>
-      <p>is your username</p>
-    </div>
+    <ul class="userName" ng-repeat="user in users">
+      <li>
+        <p class="add-username-view__display-name">{{user.first_name}} {{user.last_name}}</p>
+        <p class="add-username-view__username">{{user.username}}</p>
+        <button class="pill-btn add-username-view__add-btn" ng-click="sendFriendRequest(user.id); getSearchResults(searchText)" ><span class="add-username-view__add-btn__plus">Add</span></button>
+      </li>
+    </ul>
+    <section ng-hide="hideExplanation">
+      <div class="add-username-view__explanation">
+        <p>{{userInfo.username}}</p>
+        <p>is your username</p>
+      </div>
 
-    <div class="add-username-view__text">
-      <p>Display Name</p>
-      <p>is how you appear on Snapchat</p>
-    </div>
+      <div class="add-username-view__explanation">
+        <p>{{userInfo.first_name}} {{userInfo.last_name}}</p>
+        <p>is how you appear on Snapchat</p>
+      </div>
+    </section>
+
 
   </ion-content>
 

@@ -10,16 +10,19 @@
         <h3>Log In</h3>
         <div>
           <p class="heading">USERNAME OR EMAIL</p>
-          <input class="input" />
+          <input class="input" ng-model="email"/>
         </div>
         <div>
           <p class="heading">PASSWORD</p>
-          <input class="input" />
+          <input class="input" type="password" ng-model="password"/>
         </div>
+        <p id="incorrect-information-message">
+          {{response}}
+        </p>
         <p id="forgot-your-password" class="text-link">
           Forgot your password?
         </p>
-        <button id="log-in-view__log-in-btn" class="btn pill-btn" ui-sref="camera" animate-profile-nav ng-click="showMenu(); removeProfileNav()">Log In</button>
+        <button id="log-in-view__log-in-btn" class="btn pill-btn" animate-profile-nav ng-click="showMenu(); removeProfileNav(); login(email, password)">Log In</button>
       </div>
 
       <div id="log-in-view__keyboard"></div>

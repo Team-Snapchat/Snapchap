@@ -18,11 +18,14 @@
     <preference name="BackupWebStorage" value="none" />
     <preference name="SplashScreen" value="screen" />
     <feature name="StatusBar">
-        <param name="ios-package" onload="true" value="CDVStatusBar" />
+        <param name="ios-package" onload="false" value="CDVStatusBar" />
+        <preference name="StatusBarOverlaysWebView" value="false" />
+        <preference name="StatusBarBackgroundColor" value="" />
     </feature>
     <plugin name="cordova-plugin-device" spec="~1.1.3" />
     <plugin name="cordova-plugin-statusbar" spec="~2.2.0" />
     <plugin name="ionic-plugin-keyboard" spec="~2.2.1" />
+    <preference name="KeyboardDisplayRequiresUserAction" value="false" />
     <platform name="ios">
         <icon height="57" src="resources/ios/icon/icon.png" width="57" />
         <icon height="114" src="resources/ios/icon/icon@2x.png" width="114" />
@@ -62,4 +65,12 @@
         <variable name="CAMERA_USAGE_DESCRIPTION" value=" " />
         <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
     </plugin>
+    <plugin name="cordova-custom-config" spec="~3.0.12" />
+    <config-file parent="UIStatusBarHidden" platform="ios" target="*-Info.plist">
+        <true />
+    </config-file>
+    <config-file parent="UIViewControllerBasedStatusBarAppearance" platform="ios" target="*-Info.plist">
+        <false />
+    </config-file>
+    <plugin name="cordova-plugin-file-transfer" spec="~1.6.0" />
 </widget>

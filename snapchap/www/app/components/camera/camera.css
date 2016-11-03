@@ -1,13 +1,13 @@
 #camera-view {
   height: 100%;
-  background-color: rgb(50, 50, 50);
+  background-color: black;
 }
 
 #camera-view__flash-btn {
   background-image: url('../../../img/icon/flash-white.png');
 }
 #camera-view__profile-btn {
-  background-image: url('../../../img/icon/snapchat-white.png');
+  background-image: url('../../../img/icon/snapchat-filled-white.png');
 }
 #camera-view__rear-camera-btn {
   background-image: url('../../../img/icon/rear-camera-white.png');
