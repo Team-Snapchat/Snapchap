@@ -101,7 +101,7 @@ angular.module('snapchat', ['ionic', 'ngCordova', 'satellizer'])
       templateUrl: 'app/components/editMessage/editMessage.html',
       controller: 'editMessageCtrl',
       resolve: {
-          // loginRequired: loginRequired
+          loginRequired: loginRequired
           // skipIfLoggedIn: skipIfLoggedIn
         }
     })
@@ -251,14 +251,14 @@ angular.module('snapchat', ['ionic', 'ngCordova', 'satellizer'])
       templateUrl: 'app/components/watchMessages/watchMessages.html',
       controller: 'watchMessagesCtrl',
       resolve: {
-          // loginRequired: loginRequired
-          skipIfLoggedIn: skipIfLoggedIn
+          loginRequired: loginRequired
+          // skipIfLoggedIn: skipIfLoggedIn
         }
     })
 
     var heroku = 'https://snapchap2.herokuapp.com'
     var local = "http://localhost:8100"
-    var baseUrl = local;
+    var baseUrl = heroku;
 
     $authProvider.loginUrl = baseUrl + '/auth/login';
     $authProvider.signupUrl = baseUrl + '/auth/signup';

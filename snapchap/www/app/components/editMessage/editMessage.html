@@ -1,5 +1,5 @@
 <ion-view title="Edit Message" id="edit-message-view" has-bouncing="false" can-swipe-back="false">
-  <ion-content id="edit-message-view__content" has-bouncing="false" ng-init="load()" on-swipe-left="geofilterMovesTo('left')" on-swipe-right="geofilterMovesTo('right')">
+  <ion-content id="edit-message-view__content" has-bouncing="false" ng-init="load()" on-swipe-left="geofiltersMoveTo('left')" on-swipe-right="geofiltersMoveTo('right')">
 
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
       TOP NAV
@@ -90,16 +90,16 @@
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
     GEOFILTERS
   <~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <section on-swipe-left="geofiltersMoveTo('left')" on-swipe-right="geofilterMovesTo('right')">
+  <section on-swipe-left="geofiltersMoveTo('left')" on-swipe-left="geofiltersMoveTo('left')" on-swipe-right="geofiltersMoveTo('right')">
 
     <div id="geofilter1-container" class="geofilter-container left" data-left="0.5" data-top="0.7">
       <img id="geofilter1" ng-src="./img/chap.png">
       <!-- <img id="geofilter1" ng-src="./img/rr2.jpg"> -->
     </div>
 
-    <!-- <div id="geofilter2-container" class="geofilter-container right" data-left="0.5" data-top="0.5">
+    <div id="geofilter2-container" class="geofilter-container right" data-left="0.5" data-top="0.5">
       <img id="geofilter2" ng-src="./img/snap-confetti2.png">
-    </div> -->
+    </div>
 
 </section>
 

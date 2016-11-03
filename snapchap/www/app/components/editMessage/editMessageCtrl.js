@@ -13,7 +13,7 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
   }
 
   // Brings in the photo saved onto $rootScope by camera
-  // $rootScope.imgURI = './img/rr320.jpg';
+  $rootScope.imgURI = './img/rr320.jpg';
   $scope.snap = $rootScope.imgURI;
 
 
@@ -235,11 +235,14 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
   var geofilterContainer, geofilterContainerWidth;
 
   $scope.geofiltersMoveTo = function(position) {
-
+    geofilterContainer = $('#geofilter1-container');
+    $scope.geofilterMovesTo(position);
+    geofilterContainer = $('#geofilter2-container');
+    $scope.geofilterMovesTo(position);
   }
 
-  geofilterContainer = $('#geofilter1-container');
-  geofilterContainerWidth = geofilterContainerHeight = geofilterContainer.width();
+  // geofilterContainer = $('#geofilter1-container');
+  // geofilterContainerWidth = geofilterContainerHeight = geofilterContainer.width();
 
   $scope.geofilterMovesTo = function(position) {
     if (position === 'left') {
@@ -250,7 +253,7 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
         geofilterContainer.addClass('right');
         setTimeout(function() {
           geofilterContainer.css('visibility', 'visible');
-          geofilterContainer.removeClass('right');
+          // geofilterContainer.removeClass('right');
         }, 400);
       }
       else geofilterContainer.addClass('left');
@@ -263,7 +266,7 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
         geofilterContainer.addClass('left');
         setTimeout(function() {
           geofilterContainer.css('visibility', 'visible');
-          geofilterContainer.removeClass('left');
+          // geofilterContainer.removeClass('left');
         }, 400);
       }
       else geofilterContainer.addClass('right');

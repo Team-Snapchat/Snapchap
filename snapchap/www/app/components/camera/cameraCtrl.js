@@ -90,49 +90,54 @@ angular.module('snapchat').controller('cameraCtrl', function ($scope, $statePara
      });
    } // upload to Amazon s3 bucket
 
-   //////////// Retrieve images from AWS ////////////
 
-   // Tells angular the url where our images are stored
-   $scope.s3Url = 'https://s3-us-west-2.amazonaws.com/snapchap-dev/';
+   //
+  //  //////////// Retrieve images from AWS ////////////
+   //
+  //  // Tells angular the url where our images are stored
+  //  $scope.s3Url = 'https://s3-us-west-2.amazonaws.com/snapchap-dev/';
+   //
+  //  var awsConfig = require('../../../AWS.config.js');
+  //  // Updating the AWS config file with the proper credentials so we can access the bucket
+  //  AWS.config.update({
+  //    accessKeyId: awsConfig.aws_access_key_id ,
+  //    secretAccessKey: awsConfig.aws_secret_access_key
+  //  });
+  //  AWS.config.region = "us-west-2";
+   //
+  //  //assigning the bucket to access to a variable to be able to access it more readily
+  //  var bucket = new AWS.S3({
+  //    params: {
+  //      Bucket: 'snapchap-dev'
+  //    }
+  //  });
+   //
+  //  // pull the list of files in the bucket
+   //
+  //  bucket.listObjects(function (err, data) {
+  //    if (err) {
+  //      console.log(err);
+  //    }
+  //    else {
+  //      console.log(data);
+  //      $scope.allImageData = data.Contents;
+  //    }
+  //  });
+  //  // load an image and converts it to base 64
+  //  bucket.getObject({Key: '.jpg'},function(err,file){
+  //    $timeout(function(){
+  //      $scope.s3url = "data:image/jpeg;base64," + encode(file.Body);
+  //    },1);
+  //  });
+  //  function encode(data) {
+  //    var str = data.reduce(function(a,b){
+  //      return a+String.fromCharCode(b);
+  //    },'');
+  //    return btoa(str).replace(/.{76}(?=.)/g,'$&\n');
+  //  }
 
-   var awsConfig = require('../AWS.config.js');
-   // Updating the AWS config file with the proper credentials so we can access the bucket
-   AWS.config.update({
-     accessKeyId: awsConfig.aws_access_key_id ,
-     secretAccessKey: awsConfig.aws_secret_access_key
-   });
-   AWS.config.region = "us-west-2";
 
-   //assigning the bucket to access to a variable to be able to access it more readily
-   var bucket = new AWS.S3({
-     params: {
-       Bucket: 'snapchap-dev'
-     }
-   });
 
-   // pull the list of files in the bucket
-
-   bucket.listObjects(function (err, data) {
-     if (err) {
-       console.log(err);
-     }
-     else {
-       console.log(data);
-       $scope.allImageData = data.Contents;
-     }
-   });
-   // load an image and converts it to base 64
-   bucket.getObject({Key: '.jpg'},function(err,file){
-     $timeout(function(){
-       $scope.s3url = "data:image/jpeg;base64," + encode(file.Body);
-     },1);
-   });
-   function encode(data) {
-     var str = data.reduce(function(a,b){
-       return a+String.fromCharCode(b);
-     },'');
-     return btoa(str).replace(/.{76}(?=.)/g,'$&\n');
-   }
 
 
 
