@@ -258,7 +258,7 @@ angular.module('snapchat', ['ionic', 'ngCordova', 'satellizer'])
 
     var heroku = 'https://snapchap2.herokuapp.com'
     var local = "http://localhost:8100"
-    var baseUrl = local;
+    var baseUrl = heroku;
 
     $authProvider.loginUrl = baseUrl + '/auth/login';
     $authProvider.signupUrl = baseUrl + '/auth/signup';
