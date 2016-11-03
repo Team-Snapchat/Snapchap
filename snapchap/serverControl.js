@@ -157,7 +157,7 @@ module.exports = {
     })
   },
   searchUsers: function(req, res){
-    db.search_users([req.body.data], function(err, results){
+    db.search_users([req.body.query, req.body.id], function(err, results){
     res.send(results);
     })
   },

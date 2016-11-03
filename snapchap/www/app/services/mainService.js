@@ -3,8 +3,8 @@ angular.module('snapchat')
 
   var heroku = "https://snapchap2.herokuapp.com"
   var local = "http://localhost:8100"
-  // var baseUrl = local;
   var baseUrl = heroku;
+  // var baseUrl = heroku;
 
   this.getUserFriends = function(id) {
     return $http({
@@ -79,8 +79,8 @@ angular.module('snapchat')
         });
       }
   }
-  this.getUsername = function(inputText){
-    return $http.post(baseUrl + '/api/searchUsers', {data: inputText}).then(function(results){
+  this.getUsername = function(inputText, id){
+    return $http.post(baseUrl + '/api/searchUsers', {query: inputText, id: id}).then(function(results){
         return results;
     })
   }
