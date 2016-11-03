@@ -53,6 +53,14 @@ getSafeUser = function(user){
   }
 }
 
+comparePassword = function(password, userPassword, user){
+  console.log(password, userPassword, user);
+     if (password === userPassword) {
+       return true
+      }
+      else return false
+   }
+
 
 
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
@@ -96,22 +104,20 @@ module.exports = {
           message: "We can't find an account with that username."
         })
       }
+      else if(!comparePassword(req.body.password, user.password, user)){
+           return res.status(401).send({
+              message: "That's not the right password. Sorry!"
+            })
+           }
+           res.send({
+             token: createJWT(user),
+             user: getSafeUser(user)
+           })
 
-    db.compare_password([req.body.password, user.id], function(err, correct){
+     });
 
-      if(err) console.log(err);
-      if(correct[0]['?column?']){
-        res.send({
-          token: createJWT(user),
-          user: getSafeUser(user)
-        })
-      }
-      else res.status(401).send({
-        message: "That's not the right password. Sorry!"
-      })
-    })
 
-    });
+
   },
 
   signUp: function(req, res) {
@@ -134,6 +140,7 @@ module.exports = {
   },
 
   getCurrentUser: function(req, res){
+    console.log("hey");
     if(!req.user){
       return res.status(404)
     }
@@ -142,6 +149,7 @@ module.exports = {
       res.json(user)
     }
   },
+
   getCurrentUserInfo: function(req, res){
     db.get_user_info([req.params.id], function(err, users){
       if(err) console.log(err)
@@ -161,15 +169,12 @@ module.exports = {
   },
 
   comparePassword: function(req, res) {
-    db.compare_password([req.body.password, req.body.id], function(err, correct){
-      if(err) console.log(err);
-      if(correct[0]['?column?']){
+    db.get_user_info([req.body.id], function(err, users){
+      if(err) console.log(err)
+      else if (comparePassword(req.body.password, users[0].password)){
         res.status(200).send(true)
       }
-      else res.status(401).send({
-        message: "That's not the right password. Sorry!"
-      })
-    });
+    })
   },
 
   updateEmail: function(req, res) {

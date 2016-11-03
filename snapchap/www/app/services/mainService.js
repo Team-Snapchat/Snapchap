@@ -103,8 +103,8 @@ angular.module('snapchat')
     })
   }
 
-  this.comparePassword = function(password, id){
-    return $http.put(baseUrl + '/api/comparePassword', {password: password, id: id}).then(function(confirmation){
+  this.comparePassword = function(id, password){
+    return $http.put(baseUrl + '/api/comparePassword', {id: id, password: password}).then(function(confirmation){
       return confirmation;
     })
   }

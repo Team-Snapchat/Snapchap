@@ -10,7 +10,7 @@ angular.module('snapchat').controller('passwordCtrl', function ($scope, $statePa
   }
 
   $scope.verifyPassword = function(password){
-    mainService.comparePassword(password, $rootScope.userInfo.id).then(function(response){
+    mainService.comparePassword($rootScope.userInfo.id, password).then(function(response){
       console.log(response);
       if(response.data){
         $state.go('newPassword')
