@@ -40,12 +40,16 @@ angular.module('snapchat').controller('sendToCtrl', function ($scope, $statePara
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
     Clicking a friend puts selected friends into an array (and displays in Send Bar)
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-  var recipients = [];
+  var recipients = [], recipientIds = [];
 
-  $scope.selectRecipients = function(recipientId) {
-      if (recipients.indexOf(recipientId) === -1) {
-        recipients.push(recipientId);
-      } else recipients.splice(recipients.indexOf(recipientId), 1);
+  $scope.selectRecipients = function(recipientId, recipientUsername) {
+      if (recipientIds.indexOf(recipientId) === -1) {
+        recipientIds.push(recipientId);
+        recipients.push(recipientUsername);
+      } else {
+        recipientIds.splice(recipients.indexOf(recipientId), 1);
+        recipients.splice(recipients.indexOf(recipientUsername), 1);
+      }
 
     setTimeout(function() {
         // console.log($(window).width() - $('#recipient-list').width());
@@ -55,8 +59,6 @@ angular.module('snapchat').controller('sendToCtrl', function ($scope, $statePara
     }, 10);
 
     $scope.recipients = recipients;
-    console.log(recipients);
-
   }
 
   // $('.blue-checkbox').each(function() {
@@ -69,40 +71,11 @@ angular.module('snapchat').controller('sendToCtrl', function ($scope, $statePara
     Send Button
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   $scope.send = function() {
-    console.log('sendTo view: recipients:', $scope.recipients);
+    // console.log('sendTo view: recipients:', $scope.recipients);
     // console.log('sendTo view: $rootScope.URI:', $rootScope.imgURI);
-    console.log('sendTo view: $rootScope.URI:', $rootScope.userInfo.id);
-    mainService.sendMessage($rootScope.userInfo.id, $scope.recipients, $rootScope.imgURI);
+    // console.log('sendTo view: $rootScope.URI:', $rootScope.userInfo.id);
+    mainService.sendMessage($rootScope.userInfo.id, recipientIds, $rootScope.imgURI);
   }
-
-  // MAINSERVICE FUNCTION
-  // this.sendPictureMsg = function(recipients, picMsg) {
-  //     recipients.forEach(function(curr, ind, a) {
-  //       return $http.post('/api/uploadPictureMsg').then(function(confirmation){
-  //         return confirmation;
-  //       })
-  //     })
-  // }
-
-
-  // SERVER ENDPOINT
-  // app.post('/api/uploadPictureMsg', controller.uploadPictureMsg);
-
-
-  // SERVERCONTROL FUNCTION
-  // uploadPictureMsg: function(req, res){
-  //   db.upload_picture_msg([req.body.senderId, req.body.recipientId, req.body.pictureMsg], function(err, pending_messages){
-  //      if(err) console.log(err);
-  //      else {
-  //        io.emit('getPendingMessages',{test: '.io working!!!'});
-  //        res.status(200).send('return through .then')
-  //      }
-  //    })
-  // },
-
-
-
-
 
 
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*

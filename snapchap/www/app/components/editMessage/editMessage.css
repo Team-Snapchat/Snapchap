@@ -97,7 +97,6 @@ canvas {
 .canvas-container, .scope-snap-container {
   display: block;
   float: left;
-  /*width: 320px;*/
   width: 100vw;
   position: relative;
   top: 50vh;
@@ -106,7 +105,7 @@ canvas {
 
 .buttons {
   position: fixed;
-  top: 50vw;
+  top: 20vw;
   left: 50vw;
   transform: translate(-50%, -50%);
   z-index: 3;
@@ -230,25 +229,36 @@ canvas {
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   GEOFILTERS
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-#geofilter {
-  background-image: url('../../../img/snap-confetti.png');
+#geofilter1-container, #geofilter2-container {
+  /*background-image: url('../../../img/snap-confetti.png');
   background-position: center center;
   -webkit-background-size: 100px;
-          background-size: 100px;
-  width: 100px;
-  height: 100px;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+          background-size: 100px;*/
+  /*background-color: red;*/
+  width: 300px;
+  height: 300px;
+  left: 0%;
+  top: calc(70% - 37.5px);
+  /*top: 50%;*/
+  transform: translate(0%, -50%);
+  /*transform: translate(-50%, -50%);*/
   position: fixed;
   z-index: 5;
   transition: left 0.5s;
 }
-#geofilter.left {
-  left: -25%;
+#geofilter1-container.left, #geofilter2-container.left {
+  left: -100%;
 }
-#geofilter.right {
-  left: 125%;
+#geofilter1-container.right, #geofilter2-container.right {
+  left: 200%;
+}
+#geofilter1, #geofilter2 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  /*height: 100%;*/
 }
 
 
@@ -257,7 +267,7 @@ canvas {
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 #edit-message-view__nav-bottom {
   top: calc(100vh - 60px);
-  background-color: black;
+  /*background-color: black;*/
 }
 #edit-message-view__nav-bottom .icon-btn {
   position: relative;

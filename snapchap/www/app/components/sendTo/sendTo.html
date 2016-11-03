@@ -14,22 +14,22 @@
 
       <div class="send-to-view__lists-container">
 
-        <div class="send-to-view__list">
-          <!-- We may do the Best Friends section as a feature. For now, it is hard-coded (which is nice for tests). -->
+        <!-- We may do the Best Friends section as a feature. For now, it is hard-coded (which is nice for tests). -->
+        <!-- <div class="send-to-view__list">
           <p class="heading">BEST FRIENDS</p>
           <ul>
             <li ng-repeat="bestie in besties | filter: friendsList">
               <label><span class="friend-name">{{bestie}}</span><input class="blue-checkbox" type="checkbox" ng-click="selectRecipients(friend.id); showSendBar()" /></label>
             </li>
           </ul>
-        </div>
+        </div> -->
 
         <div class="send-to-view__list">
           <p class="heading">FRIENDS</p>
           <p class="send-to-text">Send a Snap directly to friends.</p>
           <ul>
             <li ng-repeat="friend in friends | filter: {username: friendsList}">
-              <label><span class="friend-name">{{friend.username}}</span><input class="blue-checkbox" type="checkbox" ng-click="selectRecipients(friend.id); showSendBar()"/></label>
+              <label><span class="friend-name">{{friend.username}}</span><input class="blue-checkbox" type="checkbox" ng-click="selectRecipients(friend.id, friend.username); showSendBar()"/></label>
             </li>
           </ul>
         </div>
