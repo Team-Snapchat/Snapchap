@@ -67,6 +67,14 @@ angular.module('snapchat').controller('mainCtrl', function ($scope, $stateParams
           $state.go('logIn')
     });
   }
+
+
+
+  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+    SOCKETS
+  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+
   var heroku = "https://snapchap2.herokuapp.com"
   var local = "http://localhost:8100"
   var baseUrl = heroku;
@@ -74,7 +82,7 @@ angular.module('snapchat').controller('mainCtrl', function ($scope, $stateParams
   var socket;
   $rootScope.connect = function(){
   
-      socket = io.connect(heroku);
+      socket = io.connect(baseUrl);
       socket.emit('isLoggedin', {username: $rootScope.userInfo.username, id: $rootScope.userInfo.id})
   
       socket.on('getAccountInfo', function(accountInfo){
@@ -97,22 +105,21 @@ angular.module('snapchat').controller('mainCtrl', function ($scope, $stateParams
       $rootScope.pendingFriendRequests.push(pendingFriendRequests)
       $scope.$digest();
     })
-    socket.on('newMessage', function(data){
-      console.log(data)
+    socket.on('notification', function(data){
+      if(data.msgType === 'message')  if (confirm('New Message!'))        $state.go('chat');
+      if(data.msgType === 'request')  if (confirm('New Friend Request!')) $state.go('addedMe')
+      if(data.msgType === 'accepted') confirm('Request Accepted!')
     })
   
   };
   
   $rootScope.disconnect = function(){
-      // console.log('$rootScope.disconnect FIRED')
-      // socket.emit('startDisconnect', {username: $rootScope.userInfo.username, id: $rootScope.userInfo.id})
-      // socket.on('confirmDisconnect', function(message){
-      //   console.log(message.disconnected)
         if(socket) socket.disconnect()
-      // })
   }
 
-
+  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+    END OF SOCKETS
+  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 
 });
