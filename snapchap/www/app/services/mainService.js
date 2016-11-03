@@ -3,7 +3,7 @@ angular.module('snapchat')
 
   var heroku = "https://snapchap2.herokuapp.com"
   var local = "http://localhost:8100"
-  var baseUrl = heroku;
+  var baseUrl = local;
 
   this.getUserFriends = function(id) {
     return $http({
@@ -102,8 +102,8 @@ angular.module('snapchat')
     })
   }
 
-  this.comparePassword = function(password, id){
-    return $http.put(baseUrl + '/api/comparePassword', {password: password, id: id}).then(function(confirmation){
+  this.comparePassword = function(id, password){
+    return $http.put(baseUrl + '/api/comparePassword', {id: id, password: password}).then(function(confirmation){
       return confirmation;
     })
   }
