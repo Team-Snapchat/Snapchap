@@ -101,6 +101,7 @@ canvas {
   position: relative;
   top: 50vh;
   transform: translate(0%, -50%);
+  /*z-index: 1;*/
 }
 
 .buttons {
@@ -119,6 +120,7 @@ canvas {
 /* form */
 #edit-message-view__form {
   width: 100%;
+  z-index: 3;
 }
 /* input */
 #edit-message-view__input {
@@ -229,35 +231,50 @@ canvas {
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
   GEOFILTERS
 /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-#geofilter1-container, #geofilter2-container {
+.geofilter-container {
   /*background-image: url('../../../img/snap-confetti.png');
   background-position: center center;
   -webkit-background-size: 100px;
           background-size: 100px;*/
   /*background-color: red;*/
-  width: 300px;
-  height: 300px;
+  width: 100vw;
+  height: 400px;
   left: 0%;
-  top: calc(70% - 37.5px);
-  /*top: 50%;*/
+  /*top: calc(70% - 37.5px);*/
+  top: 50%;
   transform: translate(0%, -50%);
   /*transform: translate(-50%, -50%);*/
   position: fixed;
-  z-index: 5;
+  z-index: 1;
+  /*pointer-events: none;*/
   transition: left 0.5s;
 }
-#geofilter1-container.left, #geofilter2-container.left {
-  left: -100%;
+#geofilter1-container {
+  /*background-color: red;*/
 }
-#geofilter1-container.right, #geofilter2-container.right {
-  left: 200%;
+#geofilter2-container {
+  /*background-color: green;*/
 }
-#geofilter1, #geofilter2 {
+#geofilter3-container {
+  /*background-color: blue;*/
+}
+img {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
+  clip: rect(0px,100vw,400px,0px);
+}
+
+.geofilter-container.left {
+  left: -300%;
+}
+.geofilter-container.right {
+  left: 400%;
+}
+.geofilter-image {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  /*transform: translate(-50%, -50%);*/
+  /*width: 100%;*/
   /*height: 100%;*/
 }
 

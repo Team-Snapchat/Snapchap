@@ -1,6 +1,7 @@
 angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stateParams, mainService, $rootScope, $cordovaKeyboard, $timeout, $state) {
 
 
+
  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
    HIDE/SHOW MAIN MENU
  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -13,7 +14,7 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
   }
 
   // Brings in the photo saved onto $rootScope by camera
-  $rootScope.imgURI = './img/rr320.jpg';
+  // $rootScope.imgURI = './img/rr320.jpg';
   $scope.snap = $rootScope.imgURI;
 
 
@@ -222,7 +223,7 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
     SAVE IMAGE
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-    $scope.saveImage = function() {
+    $scope.saveAndContinue = function() {
       $rootScope.imgURI = canvas.toDataURL();
       // console.log('$rootScope.imgURI', $rootScope.imgURI);
       $state.go('sendTo');
@@ -232,50 +233,195 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
     GEOFILTERS
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-  var geofilterContainer, geofilterContainerWidth;
-
-  $scope.geofiltersMoveTo = function(position) {
-    geofilterContainer = $('#geofilter1-container');
-    $scope.geofilterMovesTo(position);
-    geofilterContainer = $('#geofilter2-container');
-    $scope.geofilterMovesTo(position);
-  }
-
-  // geofilterContainer = $('#geofilter1-container');
-  // geofilterContainerWidth = geofilterContainerHeight = geofilterContainer.width();
+  var geofilter1Container = $('#geofilter1-container');
+  var geofilter2Container = $('#geofilter2-container');
+  var geofilter3Container = $('#geofilter3-container');
+  var filters = ['./img/chap.png', '', './img/9000.png', './img/snapchap.png'];
+  var x = 0;
+  var y = 100;
 
   $scope.geofilterMovesTo = function(position) {
+
+    $('.left img').attr('src', filters[0]);
+    $('.center img').attr('src', filters[1]);
+    $('.right img').attr('src', filters[2]);
+
+
+
+
+    // $scope.filterOne = filters[0];
+    // $scope.filterTwo = filters[1];
+    // $scope.filterThree = filters[2];
+    // if ($('.center img').attr('ng-src') === filter2) {
+    //   $('.left img').attr('ng-src') = filter1;
+    //   $('.right img').attr('ng-src') = filter3;
+    // } else alert('nope');
+
+
+    // setTimeout(function() {
+      // var centerIndex = filters.indexOf($('.center img').attr('ng-src'));
+      // $scope.filterOne = $('.left img').attr('ng-src');
+      // $scope.filterThree = $('.right img').attr('ng-src');
+      // console.log('rightImgScr', $scope.filterThree);
+      //
+      //
+      // if (centerIndex === 0) {
+      //   $scope.filterOne = filters[4];
+      //   console.log('leftImgSrc', $scope.filterOne);
+      // } else {
+      //   $scope.filterOne = filters[centerIndex - 1];
+      // }
+      //
+      // if (centerIndex === 4) {
+      //   $scope.filterThree = filters[0];
+      // } else $scope.filterThree = filters[centerIndex + 1];
+    // }, 1000);
+
+
     if (position === 'left') {
-      if (geofilterContainer.hasClass('right')) geofilterContainer.removeClass('right');
-      else if (geofilterContainer.hasClass('left')) {
-        geofilterContainer.css('visibility', 'hidden');
-        geofilterContainer.removeClass('left')
-        geofilterContainer.addClass('right');
+      var firstFilter = filters.shift();
+      filters.push(firstFilter);
+      console.log('filters', filters);
+      console.log($('.center img').attr('src'));
+      if (geofilter1Container.hasClass('right')) {
+        geofilter1Container.removeClass('right').addClass('center');
+        geofilter2Container.css('visibility', 'hidden');
+        geofilter2Container.removeClass('left')
+        geofilter2Container.addClass('right');
         setTimeout(function() {
-          geofilterContainer.css('visibility', 'visible');
-          // geofilterContainer.removeClass('right');
+          geofilter2Container.css('visibility', 'visible');
+          // geofilter1Container.removeClass('right');
+        }, 400);
+        geofilter3Container.addClass('left').removeClass('center');
+      }
+      else if (geofilter1Container.hasClass('left')) {
+        geofilter1Container.css('visibility', 'hidden');
+        geofilter1Container.removeClass('left')
+        geofilter1Container.addClass('right');
+        setTimeout(function() {
+          geofilter1Container.css('visibility', 'visible');
+          // geofilter1Container.removeClass('right');
+        }, 400);
+        geofilter2Container.addClass('left').removeClass('center');
+        geofilter3Container.removeClass('right').addClass('center');
+      }
+      else {
+        geofilter1Container.addClass('left').removeClass('center');
+        geofilter2Container.removeClass('right').addClass('center');
+        geofilter3Container.css('visibility', 'hidden');
+        geofilter3Container.removeClass('left')
+        geofilter3Container.addClass('right');
+        setTimeout(function() {
+          geofilter3Container.css('visibility', 'visible');
+          // geofilter1Container.removeClass('right');
         }, 400);
       }
-      else geofilterContainer.addClass('left');
     }
     if (position === 'right') {
-      if (geofilterContainer.hasClass('left')) geofilterContainer.removeClass('left');
-      else if (geofilterContainer.hasClass('right')) {
-        geofilterContainer.css('visibility', 'hidden');
-        geofilterContainer.removeClass('right')
-        geofilterContainer.addClass('left');
+      var lastFilter = filters.pop();
+      filters.unshift(lastFilter);
+      console.log(filters);
+      console.log($('.center img').attr('src'));
+      if (geofilter1Container.hasClass('left')) {
+        geofilter1Container.removeClass('left').addClass('center');
+        geofilter2Container.addClass('right').removeClass('center');
+        geofilter3Container.css('visibility', 'hidden');
+        geofilter3Container.removeClass('right');
+        geofilter3Container.addClass('left');
         setTimeout(function() {
-          geofilterContainer.css('visibility', 'visible');
-          // geofilterContainer.removeClass('left');
+          geofilter3Container.css('visibility', 'visible');
+          // geofilter1Container.removeClass('right');
         }, 400);
       }
-      else geofilterContainer.addClass('right');
+      else if (geofilter1Container.hasClass('right')) {
+        geofilter1Container.css('visibility', 'hidden');
+        geofilter1Container.removeClass('right')
+        geofilter1Container.addClass('left');
+        setTimeout(function() {
+          geofilter1Container.css('visibility', 'visible');
+          // geofilter1Container.removeClass('right');
+        }, 400);
+        geofilter2Container.removeClass('left').addClass('center');
+        geofilter3Container.addClass('right').removeClass('center');
+      }
+      else {
+        geofilter1Container.addClass('right').removeClass('center');
+        geofilter2Container.css('visibility', 'hidden');
+        geofilter2Container.removeClass('right')
+        geofilter2Container.addClass('left');
+        setTimeout(function() {
+          geofilter2Container.css('visibility', 'visible');
+          // geofilter1Container.removeClass('right');
+        }, 400);
+        geofilter3Container.removeClass('left').addClass('center');
+      }
     }
+    // $(function() {
+      // $('#geofilter1-image').draggable({disabled: true});
+      // $('#geofilter2-image').draggable({disabled: true});
+      // $('#geofilter3-image').draggable({disabled: true});
+    // });
+
+    var $draggabilly1 = $('#geofilter1-image').draggabilly({
+      // containment: '#geofilter1-container',
+      x: 0,
+      y: 0
+
+    });
+    var $draggabilly2 = $('#geofilter2-image').draggabilly({
+      // containment: '#geofilter2-container',
+      x: 0,
+      y: 0
+
+    });
+    var $draggabilly3 = $('#geofilter3-image').draggabilly({
+      // containment: '#geofilter3-container',
+      x: 0,
+      y: 0
+
+    });
+
+
+
+    function listener(/* parameters */) {
+      var draggie = $(this).data('draggabilly');
+      console.log( 'eventName happened', draggie.position.x, draggie.position.y);
+      x = draggie.position.x;
+      y = draggie.position.y;
+    }
+
+    $draggabilly1.on('drag', listener);
+    $draggabilly2.on('drag', listener);
+    $draggabilly3.on('drag', listener);
+
+
+    // $scope.filterOne = filters[0];
+    // $scope.filterTwo = filters[1];
+    // $scope.filterThree = filters[2];
+    $('.left img').attr('src', filters[0]);
+    $('.center img').attr('src', filters[1]);
+    $('.right img').attr('src', filters[2]);
+
+    // $(function() {
+    //   console.log('NOT DRAGGING');
+    //   $('#geofilter1-image').draggable();
+    //   $('#geofilter2-image').draggable();
+    //   $('#geofilter3-image').draggable();
+    // });
+
+
+
+
+
   };
+
+  var geofilterContainer = $('.geofilter-container');
 
   $scope.saveGeofilter = function() {
     var geoImg = new Image();
-    geoImg.src = $('#geofilter1').attr('src');
+    // geoImg.src = $('#geofilter1-image').attr('src');
+    geoImg.src = filters[1];
+    // geoImg.src = $('.center img').attr('src');
 
     var scaleGeofilterUp = geoImg.width / geofilterContainer.width();
     var scaleGeofilterDown = geofilterContainer.width() / geoImg.width;
@@ -285,14 +431,18 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
     var geofilterYPos = (scaleGeofilterUp * baseImgApparentHeight * percentTop) - (geoImg.height * 0.5);
 
     geoImg.onload = function() {
-      context.scale(scaleGeofilterDown, scaleGeofilterDown);
+      // context.scale(scaleGeofilterDown, scaleGeofilterDown);
       geofilterContainer.addClass('left');
       // geoImg.width = $('#geofilter').width();
       // geoImg.height = $('#geofilter').height();
-      context.drawImage(geoImg, 0, geofilterYPos);
+      context.drawImage(geoImg, x, y);
       $scope.snap = canvas.toDataURL();
-      context.scale(scaleGeofilterUp, scaleGeofilterUp);
+      // context.scale(scaleGeofilterUp, scaleGeofilterUp);
     }
+
+    // $('.left img').attr('src', filters[0]);
+    // $('.center img').attr('src', filters[1]);
+    // $('.right img').attr('src', filters[2]);
   }
 
 

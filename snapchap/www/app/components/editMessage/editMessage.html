@@ -1,5 +1,5 @@
-<ion-view title="Edit Message" id="edit-message-view" has-bouncing="false" can-swipe-back="false">
-  <ion-content id="edit-message-view__content" has-bouncing="false" ng-init="load()" on-swipe-left="geofiltersMoveTo('left')" on-swipe-right="geofiltersMoveTo('right')">
+<ion-view title="Edit Message" id="edit-message-view" has-bouncing="false" can-swipe-back="false" on-swipe-left="geofilterMovesTo('left')" on-swipe-right="geofilterMovesTo('right')">
+  <ion-content id="edit-message-view__content" has-bouncing="false" ng-init="load()">
 
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
       TOP NAV
@@ -46,9 +46,9 @@
     </div>
 
     <!-- $scope.snap is normally hidden; display only for testing purposes-->
-    <!-- <div class="scope-snap-container">
+    <div class="scope-snap-container">
       <img id="scope-snap" ng-src="{{snap}}">
-    </div> -->
+    </div>
 
     <!-- test buttons -->
     <div class="buttons">
@@ -72,7 +72,7 @@
           <button id="edit-message-view__timer-btn" class="icon-btn"></button>
           <button id="edit-message-view__save-btn" class="icon-btn" ng-click="saveImage2Device()"></button>
         </div>
-        <button id="edit-message-view__arrow-btn" class="icon-btn" ng-click="saveImage()"></button>
+        <button id="edit-message-view__arrow-btn" class="icon-btn" ng-click="saveAndContinue()"></button>
     </nav>
 
   </ion-content>
@@ -90,17 +90,30 @@
   <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>
     GEOFILTERS
   <~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-  <section on-swipe-left="geofiltersMoveTo('left')" on-swipe-left="geofiltersMoveTo('left')" on-swipe-right="geofiltersMoveTo('right')">
+  <section>
 
-    <div id="geofilter1-container" class="geofilter-container left" data-left="0.5" data-top="0.7">
-      <img id="geofilter1" ng-src="./img/chap.png">
-      <!-- <img id="geofilter1" ng-src="./img/rr2.jpg"> -->
+    <div id="geofilter1-container" class="geofilter-container left" data-left="0.5" data-top="0.5">
+      <img id="geofilter1-image" class="geofilter-image" src="">
     </div>
 
-    <div id="geofilter2-container" class="geofilter-container right" data-left="0.5" data-top="0.5">
-      <img id="geofilter2" ng-src="./img/snap-confetti2.png">
+    <div id="geofilter2-container" class="geofilter-container center" data-left="0.5" data-top="0.5">
+      <img id="geofilter2-image" class="geofilter-image" src="">
     </div>
 
-</section>
+    <div id="geofilter3-container" class="geofilter-container right" data-left="0.5" data-top="0.5">
+      <img id="geofilter3-image" class="geofilter-image" src="">
+    </div>
+
+
+  </section>
+
+  <!-- <header class="splash-header">
+    <section class="carousel-container">
+      <img src="./img/snap-confetti.png"/>
+      <img src="./img/snap-confetti2.png"/>
+      <img src="./img/snap-confetti3.png"/>
+      <img src="./img/snap-confetti4.png"/>
+    </section>
+  </header> -->
 
 </ion-view>
