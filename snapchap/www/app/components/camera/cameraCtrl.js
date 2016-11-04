@@ -21,7 +21,7 @@ angular.module('snapchat').controller('cameraCtrl', function ($scope, $statePara
    function uploadToS3(imageURI) {
      var signingURI = API_URL + "s3signing";
      var fileName =  $scope.item.vendorId + new Date().getTime() + ".jpg"; //src("../img/rr.jpg")
-     $scope.item.picture = 'https://s3-eu-west-2.amazonaws.com/snapchap-dev/' + fileName;
+     $scope.item.picture = 'https://s3-eu-west-2.amazonaws.com/devmountain.snapchap.clone/' + fileName;
      console.log('Uploading ' + fileName + ' to S3');
 
      $http.post(signingURI, {

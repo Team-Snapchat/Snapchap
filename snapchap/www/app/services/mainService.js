@@ -127,7 +127,22 @@ angular.module('snapchat')
     })
   }
 
+ var snap = 'THIS IS A PICTURE FROM ALAZ AND JOSS' 
+ var key = 'code'
+ uploadToAWS = function(snap, key){
+   console.log("MAIN SERVICE", snap)
+   return $http.post('http://localhost:8100/api/uploadToAWS', {data: '../../www/img/rr.jpg' , key: key}).then(function(response){
 
+   })
+ }
+  uploadToAWS(snap, key).then(function(data){
+      getPhoto({key: 'code'})
+  })
+  getPhoto = function(){
+    return $http.get('http://localhost:8100/api/downloadFomeAWS').then(function(response){
+      console.log(response)
+    })
+  }
 
 
 
