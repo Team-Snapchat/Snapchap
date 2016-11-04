@@ -79,8 +79,8 @@ angular.module('snapchat')
         });
       }
   }
-  this.getUsername = function(inputText){
-    return $http.post(baseUrl + '/api/searchUsers', {data: inputText}).then(function(results){
+  this.getUsername = function(inputText, id){
+    return $http.post(baseUrl + '/api/searchUsers', {query: inputText, id: id}).then(function(results){
         return results;
     })
   }

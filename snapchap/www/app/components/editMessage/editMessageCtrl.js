@@ -18,6 +18,7 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
   $scope.snap = $rootScope.imgURI;
 
 
+
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
     CANVAS
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
