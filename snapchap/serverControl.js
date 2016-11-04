@@ -53,8 +53,7 @@ getSafeUser = function(user){
   }
 }
 
-comparePassword = function(password, userPassword, user){
-  console.log(password, userPassword, user);
+comparePassword = function(password, userPassword){
      if (password === userPassword) {
        return true
       }
@@ -104,7 +103,7 @@ module.exports = {
           message: "We can't find an account with that username."
         })
       }
-      else if(!comparePassword(req.body.password, user.password, user)){
+      else if(!comparePassword(req.body.password, user.password)){
            return res.status(401).send({
               message: "That's not the right password. Sorry!"
             })
@@ -140,7 +139,6 @@ module.exports = {
   },
 
   getCurrentUser: function(req, res){
-    console.log("hey");
     if(!req.user){
       return res.status(404)
     }
@@ -171,9 +169,12 @@ module.exports = {
   comparePassword: function(req, res) {
     db.get_user_info([req.body.id], function(err, users){
       if(err) console.log(err)
-      else if (comparePassword(req.body.password, users[0].password)){
+      if (comparePassword(req.body.password, users[0].password)){
         res.status(200).send(true)
       }
+      else res.status(401).send({
+         message: "That's not the right password. Sorry!"
+       })
     })
   },
 

@@ -9,13 +9,14 @@ angular.module('snapchat').controller('confirmPasswordCtrl', function($scope, $r
 
   $scope.confirmPassword = function(password){
     id = $rootScope.userInfo.id;
-    mainService.comparePassword(password, id)
+    mainService.comparePassword(id, password)
     .then(function(response){
       if(response.data){
         mainService.updateEmail($rootScope.updateEmail)
         .then(function(response){
           mainService.getCurrentUser().then(function(userInfo){
             $rootScope.userInfo = userInfo;
+            $rootScope.updateEmail = ''
             $state.go('settings')
           })
         })

@@ -110,7 +110,7 @@ angular.module('snapchat').controller('mainCtrl', function ($scope, $stateParams
         $scope.showAlert = function() {
          var alertPopup = $ionicPopup.alert({
            title: 'New Message!',
-           template: 'It might taste good'
+           subTitle: 'It might taste good'
          });
 
          alertPopup.then(function(res) {

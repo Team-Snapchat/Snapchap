@@ -13,7 +13,7 @@
 @import "./app/components/chat/chat.css";
 @import "./app/components/editMessage/editMessage.css";
 @import "./app/components/email/email.css";
-@import "./app/components/confirmPassword/confirmPassword.css"
+@import "./app/components/confirmPassword/confirmPassword.css";
 @import "./app/components/name/name.css";
 @import "./app/components/password/password.css";
 @import "./app/components/newPassword/newPassword.css";
