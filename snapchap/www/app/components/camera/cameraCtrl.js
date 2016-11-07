@@ -53,10 +53,27 @@ angular.module('snapchat').controller('cameraCtrl', function ($scope, $statePara
             var options = {
                 destinationType: Camera.DestinationType.FILE_URI,
                 sourceType: Camera.PictureSourceType.CAMERA,
+                // quality: 75,
+                // destinationType: Camera.DestinationType.DATA_URL,
+                // sourceType: Camera.PictureSourceType.CAMERA,
+                // allowEdit: false,
+                // encodingType: Camera.EncodingType.JPEG,
+                targetWidth: 640,
+                targetHeight: 1136,
+                // targetWidth: 640,
+                // targetHeight: 1136,
+                // // targetWidth: 1280,
+                // // targetHeight: 2272,
+                // popoverOptions: CameraPopoverOptions,
+                // correctOrientation: true
+                saveToPhotoAlbum: false
             };
             $cordovaCamera.getPicture(options).then(function(imageURI) {
+                $rootScope.imgURI = imageUri;
                 $scope.imageSrc = imageURI;
                 $scope.img = imageURI;
+                $state.go('editMessage');
+                
 
             }, function(err) {
                 alert(err);

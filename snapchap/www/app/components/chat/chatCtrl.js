@@ -15,9 +15,10 @@ angular.module('snapchat').controller('chatCtrl', function ($scope, $stateParams
   var image = new Image();
 
   var messageCanvasContainer = $('#message-canvas-container');
+  var messageCanvas = $('#message-canvas');
 
-  canvas.width = messageCanvasContainer.width();
-  canvas.height = messageCanvasContainer.height();
+  // canvas.width = messageCanvasContainer.width();
+  // canvas.height = messageCanvasContainer.height();
 
   $scope.getMessage = function(messageId) {
     mainService.getMessage(messageId).then(function(response) {
@@ -33,11 +34,15 @@ angular.module('snapchat').controller('chatCtrl', function ($scope, $stateParams
       }, 10000);
       messageCanvasContainer.addClass('active');
       mainService.hideMenu();
+      image.src = response.data[0].message;
       image.onload = function() {
-        $('#message-canvas').css('top', 'calc(50% - ' + image.height / 2 + 'px');
+        canvas.width = image.width;
+        canvas.height = canvas.width * image.height / image.width;
+        messageCanvas.width(canvas.width);
+        messageCanvas.height(canvas.height);
+        // $('#message-canvas').css('top', 'calc(50% - ' + image.height / 2 + 'px');
         context.drawImage(image, 0, 0);
       }
-      image.src = response.data[0].message;
     });
   }
 

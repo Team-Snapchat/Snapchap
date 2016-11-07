@@ -120,7 +120,7 @@ canvas {
 /* form */
 #edit-message-view__form {
   width: 100%;
-  z-index: 3;
+  z-index: 10;
 }
 /* input */
 #edit-message-view__input {
@@ -157,6 +157,7 @@ canvas {
   top: 10px;
   overflow: hidden;
   display: none;
+  z-index: 10;
 }
 #color-picker.active {
   display: block;
@@ -165,6 +166,7 @@ canvas {
 .color {
   height: calc(100% / 16);
   display: block;
+  z-index: 10;
 }
 
 .black {
@@ -246,7 +248,7 @@ canvas {
   /*transform: translate(-50%, -50%);*/
   position: fixed;
   z-index: 1;
-  /*pointer-events: none;*/
+  pointer-events: none;
   transition: left 0.5s;
 }
 #geofilter1-container {
@@ -260,7 +262,8 @@ canvas {
 }
 img {
   position: absolute;
-  clip: rect(0px,100vw,400px,0px);
+  clip: rect(0px,100vw,500px,0px);
+  pointer-events: visible;
 }
 
 .geofilter-container.left {
