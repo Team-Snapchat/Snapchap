@@ -1,4 +1,4 @@
-angular.module('snapchat').controller('sendToCtrl', function ($scope, $stateParams, $state, mainService, $rootScope) {
+angular.module('snapchat').controller('sendToCtrl', function ($scope, $stateParams, $state, mainService, $rootScope, $ionicHistory) {
 
 
   $scope.getUserFriends = function(userId) {
@@ -75,6 +75,9 @@ angular.module('snapchat').controller('sendToCtrl', function ($scope, $statePara
     // console.log('sendTo view: $rootScope.URI:', $rootScope.imgURI);
     // console.log('sendTo view: $rootScope.URI:', $rootScope.userInfo.id);
     mainService.sendMessage($rootScope.userInfo.id, recipientIds, $rootScope.imgURI);
+    $ionicHistory.clearCache();
+    $ionicHistory.clearHistory();
+    mainService.showMenu();
     $state.go('chat');
   }
 

@@ -1,7 +1,5 @@
 angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stateParams, mainService, $rootScope, $cordovaKeyboard, $timeout, $state) {
 
-
-
  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
    HIDE/SHOW MAIN MENU
  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
@@ -14,10 +12,8 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
   }
 
   // Brings in the photo saved onto $rootScope by camera
-  // $rootScope.imgURI = './img/rr320.jpg';
+  // $rootScope.imgURI = './img/rr.jpg';
   $scope.snap = $rootScope.imgURI;
-
-
 
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
     CANVAS
@@ -220,26 +216,18 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
  }
 
 
-
-  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
-    SAVE IMAGE
-  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-    $scope.saveAndContinue = function() {
-      $rootScope.imgURI = canvas.toDataURL();
-      // console.log('$rootScope.imgURI', $rootScope.imgURI);
-      $state.go('sendTo');
-    };
-
-
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
     GEOFILTERS
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   var geofilter1Container = $('#geofilter1-container');
   var geofilter2Container = $('#geofilter2-container');
   var geofilter3Container = $('#geofilter3-container');
-  var filters = ['./img/chap.png', '', './img/9000.png', './img/snapchap.png'];
+  var filters = ['./img/snapchap240.png', './img/invis1.png', './img/9000300.png', './img/mustache200.png'];
   var x = 0;
-  var y = 100;
+  var y = 0;
+
+  // dragListener(); // Fire once immediately to set geofilter default save position
+
 
   $scope.geofilterMovesTo = function(position) {
 
@@ -247,43 +235,11 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
     $('.center img').attr('src', filters[1]);
     $('.right img').attr('src', filters[2]);
 
-
-
-
-    // $scope.filterOne = filters[0];
-    // $scope.filterTwo = filters[1];
-    // $scope.filterThree = filters[2];
-    // if ($('.center img').attr('ng-src') === filter2) {
-    //   $('.left img').attr('ng-src') = filter1;
-    //   $('.right img').attr('ng-src') = filter3;
-    // } else alert('nope');
-
-
-    // setTimeout(function() {
-      // var centerIndex = filters.indexOf($('.center img').attr('ng-src'));
-      // $scope.filterOne = $('.left img').attr('ng-src');
-      // $scope.filterThree = $('.right img').attr('ng-src');
-      // console.log('rightImgScr', $scope.filterThree);
-      //
-      //
-      // if (centerIndex === 0) {
-      //   $scope.filterOne = filters[4];
-      //   console.log('leftImgSrc', $scope.filterOne);
-      // } else {
-      //   $scope.filterOne = filters[centerIndex - 1];
-      // }
-      //
-      // if (centerIndex === 4) {
-      //   $scope.filterThree = filters[0];
-      // } else $scope.filterThree = filters[centerIndex + 1];
-    // }, 1000);
-
-
     if (position === 'left') {
       var firstFilter = filters.shift();
       filters.push(firstFilter);
-      console.log('filters', filters);
-      console.log($('.center img').attr('src'));
+      // console.log('filters', filters);
+      // console.log($('.center img').attr('src'));
       if (geofilter1Container.hasClass('right')) {
         geofilter1Container.removeClass('right').addClass('center');
         geofilter2Container.css('visibility', 'hidden');
@@ -321,8 +277,8 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
     if (position === 'right') {
       var lastFilter = filters.pop();
       filters.unshift(lastFilter);
-      console.log(filters);
-      console.log($('.center img').attr('src'));
+      // console.log(filters);
+      // console.log($('.center img').attr('src'));
       if (geofilter1Container.hasClass('left')) {
         geofilter1Container.removeClass('left').addClass('center');
         geofilter2Container.addClass('right').removeClass('center');
@@ -357,62 +313,37 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
         geofilter3Container.removeClass('left').addClass('center');
       }
     }
-    // $(function() {
-      // $('#geofilter1-image').draggable({disabled: true});
-      // $('#geofilter2-image').draggable({disabled: true});
-      // $('#geofilter3-image').draggable({disabled: true});
-    // });
 
     var $draggabilly1 = $('#geofilter1-image').draggabilly({
       // containment: '#geofilter1-container',
       x: 0,
       y: 0
-
     });
     var $draggabilly2 = $('#geofilter2-image').draggabilly({
       // containment: '#geofilter2-container',
       x: 0,
       y: 0
-
     });
     var $draggabilly3 = $('#geofilter3-image').draggabilly({
       // containment: '#geofilter3-container',
       x: 0,
       y: 0
-
     });
 
-
-
-    function listener(/* parameters */) {
+    function dragListener(/* parameters */) {
       var draggie = $(this).data('draggabilly');
-      console.log( 'eventName happened', draggie.position.x, draggie.position.y);
+      // console.log( 'x and y coordinates', draggie.position.x, draggie.position.y);
       x = draggie.position.x;
       y = draggie.position.y;
     }
 
-    $draggabilly1.on('drag', listener);
-    $draggabilly2.on('drag', listener);
-    $draggabilly3.on('drag', listener);
+    $draggabilly1.on('drag', dragListener);
+    $draggabilly2.on('drag', dragListener);
+    $draggabilly3.on('drag', dragListener);
 
-
-    // $scope.filterOne = filters[0];
-    // $scope.filterTwo = filters[1];
-    // $scope.filterThree = filters[2];
     $('.left img').attr('src', filters[0]);
     $('.center img').attr('src', filters[1]);
     $('.right img').attr('src', filters[2]);
-
-    // $(function() {
-    //   console.log('NOT DRAGGING');
-    //   $('#geofilter1-image').draggable();
-    //   $('#geofilter2-image').draggable();
-    //   $('#geofilter3-image').draggable();
-    // });
-
-
-
-
 
   };
 
@@ -420,9 +351,7 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
 
   $scope.saveGeofilter = function() {
     var geoImg = new Image();
-    // geoImg.src = $('#geofilter1-image').attr('src');
     geoImg.src = filters[1];
-    // geoImg.src = $('.center img').attr('src');
 
     var scaleGeofilterUp = geoImg.width / geofilterContainer.width();
     var scaleGeofilterDown = geofilterContainer.width() / geoImg.width;
@@ -436,7 +365,7 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
       geofilterContainer.addClass('left');
       // geoImg.width = $('#geofilter').width();
       // geoImg.height = $('#geofilter').height();
-      context.drawImage(geoImg, x, y);
+      context.drawImage(geoImg, x, y + 13); // add a few pixels because saved filter is popping up
       $scope.snap = canvas.toDataURL();
       // context.scale(scaleGeofilterUp, scaleGeofilterUp);
     }
@@ -445,6 +374,20 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
     // $('.center img').attr('src', filters[1]);
     // $('.right img').attr('src', filters[2]);
   }
+
+
+
+  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+    SAVE IMAGE AND CONTINUE TO "SEND TO" VIEW
+  /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+    $scope.saveAndContinue = function() {
+      $scope.saveGeofilter();
+      $rootScope.imgURI = canvas.toDataURL();
+      // console.log('$rootScope.imgURI', $rootScope.imgURI);
+      $state.go('sendTo');
+    };
+
+
 
 
 });
@@ -456,6 +399,12 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
 
 
 
+
+
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  †† CODE GRAVEYARD ††
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
    // $scope.noScroll = function() {
    //   alert('yay');
@@ -469,9 +418,6 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
    //   alert('yay')
    //   $('#draw-canvas').scrollLeft(0);
    // })
-
-
-
 
 
 

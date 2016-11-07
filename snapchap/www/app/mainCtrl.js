@@ -42,8 +42,6 @@ angular.module('snapchat').controller('mainCtrl', function ($scope, $stateParams
   // console.log('status bar:', $cordovaStatusbar);
 
 
-
-
   }, false);
 
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
@@ -52,7 +50,7 @@ angular.module('snapchat').controller('mainCtrl', function ($scope, $stateParams
   $scope.takePhoto = function() {
     if ($state.current.name === 'camera') {
       $scope.takePicture();
-      // $state.go('editMessage');
+      $state.go('editMessage');
     }
   }
 

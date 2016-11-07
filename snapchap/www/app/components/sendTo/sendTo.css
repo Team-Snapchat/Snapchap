@@ -189,6 +189,9 @@
     right: 65px;
     /*right: auto;*/
   }
+    .recipient {
+      padding: 7px;
+    }
 
     /*Comma and padding between recipient names*/
     .recipient:after {

@@ -4,6 +4,7 @@
   padding: 18px;
   border-bottom: thin solid rgba(150, 150, 150, 0.3);
   margin-top: 10px;
+  position: relative;
 }
 #settings-view .heading {
   display: flex;
@@ -29,6 +30,9 @@
 #settings-view__back-btn {
   z-index: 1;
   color: #00A686;
+  position: absolute;
+  top: 9px;
+  left: 17px;
 }
 #settings-view .forward-btn {
   color: gray;

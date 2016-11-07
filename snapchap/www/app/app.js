@@ -99,6 +99,7 @@ angular.module('snapchat', ['ionic', 'ngCordova', 'satellizer'])
     .state('editMessage', {
       url: '/editmessage',
       templateUrl: 'app/components/editMessage/editMessage.html',
+      // cache: false,
       controller: 'editMessageCtrl',
       resolve: {
           loginRequired: loginRequired
@@ -285,7 +286,7 @@ angular.module('snapchat', ['ionic', 'ngCordova', 'satellizer'])
     var isIOS = ionic.Platform.isIOS();
     // alert (isIOS);
 
-    ionic.Platform.showStatusBar(false);
+    // ionic.Platform.showStatusBar(false);
     // ionic.Platform.fullscreen(true, false);
     // ionic.Platform.fullscreen(false, true);
     // ionic.Platform.fullscreen();

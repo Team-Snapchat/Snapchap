@@ -60,35 +60,43 @@
   border-radius: 3px;
 }
 
+#pending-messages {
+  margin-bottom: 100px;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+  MESSAGE CANVAS
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 #message-canvas-container {
   width: 100vw;
   height: 100vh;
+  background-color: black;
   z-index: -1;
   position: fixed;
-  left: 100%;
   bottom: 0px;
   padding: 0px;
   margin: 0px;
+  left: 200%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 #message-canvas-container.active {
-  background-color: black;
   z-index: 10;
-  left: 0px;
-  bottom: 0px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 #message-canvas {
-  width: 100vw;
+  width: 100%;
   height: 100%;
-  position: absolute;
+  position: fixed;
   left: 0px;
   padding: 0px;
+  background-color: yellow;
   /*The following two lines aren't working. Vertical position is set in getMessage fn in chatCtrl*/
-  /*top: 50%;
-  transform: translateY(-50%);*/
-}
-
-#pending-messages {
-  margin-bottom: 100px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 
