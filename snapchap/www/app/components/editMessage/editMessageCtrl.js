@@ -222,7 +222,7 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
   var geofilter1Container = $('#geofilter1-container');
   var geofilter2Container = $('#geofilter2-container');
   var geofilter3Container = $('#geofilter3-container');
-  var filters = ['./img/snapchap240.png', './img/invis1.png', './img/9000300.png', './img/mustache200.png'];
+  var filters = ['./img/snapchap230.png', './img/invis1.png', './img/9000300.png', './img/mustache200.png', './img/thanksgiving270.png'];
   var x = 0;
   var y = 0;
 
