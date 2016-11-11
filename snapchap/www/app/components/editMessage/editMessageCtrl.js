@@ -349,7 +349,7 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
 
   var geofilterContainer = $('.geofilter-container');
 
-  $scope.saveGeofilter = function() {
+  var saveGeofilter = function() {
     var geoImg = new Image();
     geoImg.src = filters[1];
 
@@ -381,10 +381,12 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
     SAVE IMAGE AND CONTINUE TO "SEND TO" VIEW
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     $scope.saveAndContinue = function() {
-      $scope.saveGeofilter();
-      $rootScope.imgURI = canvas.toDataURL();
+      saveGeofilter();
       // console.log('$rootScope.imgURI', $rootScope.imgURI);
-      $state.go('sendTo');
+      $timeout(function() {
+        $rootScope.imgURI = canvas.toDataURL();
+        $state.go('sendTo');
+      }, 500);
     };
 
 
