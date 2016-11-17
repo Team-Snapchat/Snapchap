@@ -27,6 +27,8 @@ FRIENDS
 
   Users can search for friends using their username. When a username is found, the user can click to request to add the friend. The friend can then see friend requests on their Added Me screen, which is reached through the Profile screen. There, they can accept the request, after which the two friends can send messages to each other.
 
+  ![Profile screen](/snapchap/www/img/screenshot/doodle2.png?raw=true "Profile view")
+
 
 CAMERA
 
@@ -67,6 +69,8 @@ VIEWING PHOTOS
 SETTINGS
 
   Users can visit the Settings screen to change user information or log out.
+
+  ![Settings screen](/snapchap/www/img/screenshot/settings.png?raw=true "Settings view")
 
 
 DATABASE
