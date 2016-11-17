@@ -38,7 +38,7 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
       canvas.height = baseImg.height;
       baseImgApparentHeight = canvasContainerWidth * baseImg.height / baseImg.width;
       scaleUp = baseImg.width / canvasContainerWidth; // This is the scale of the full-size image to the viewed image
-      scaleDown = canvasContainerWidth / baseImg.width; // This is the scale of the viewed image to the full-size image
+      scaleDown = canvasContainerWidth / baseImg  .width; // This is the scale of the viewed image to the full-size image
       context.drawImage(baseImg, 0, 0); // Puts the base image in the context
       context.scale(scaleUp, scaleUp); // Scales drawing area up to cover the full-sized image
     }
@@ -222,7 +222,7 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
   var geofilter1Container = $('#geofilter1-container');
   var geofilter2Container = $('#geofilter2-container');
   var geofilter3Container = $('#geofilter3-container');
-  var filters = ['./img/snapchap240.png', './img/invis1.png', './img/9000300.png', './img/mustache200.png'];
+  var filters = ['./img/snapchap230.png', './img/invis1.png', './img/9000300.png', './img/mustache200.png', './img/thanksgiving270.png'];
   var x = 0;
   var y = 0;
 
@@ -349,7 +349,7 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
 
   var geofilterContainer = $('.geofilter-container');
 
-  $scope.saveGeofilter = function() {
+  var saveGeofilter = function() {
     var geoImg = new Image();
     geoImg.src = filters[1];
 
@@ -381,10 +381,12 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
     SAVE IMAGE AND CONTINUE TO "SEND TO" VIEW
   /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     $scope.saveAndContinue = function() {
-      $scope.saveGeofilter();
-      $rootScope.imgURI = canvas.toDataURL();
+      saveGeofilter();
       // console.log('$rootScope.imgURI', $rootScope.imgURI);
-      $state.go('sendTo');
+      $timeout(function() {
+        $rootScope.imgURI = canvas.toDataURL();
+        $state.go('sendTo');
+      }, 500);
     };
 
 
