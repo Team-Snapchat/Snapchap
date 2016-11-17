@@ -14,6 +14,7 @@ MAJOR TECHNOLOGIES
 
 
 LOG IN / SIGN UP
+
 ![Snapchap icon](/snapchap/www/img/screenshots/login2.png?raw=true "LogInSignUp view icon")
 
 
@@ -29,6 +30,7 @@ PHOTO EDITING
 SENDING PHOTOS
 
   After selecting which friends are to receive the photo message, the user presses the Send button to send the photo to the database. Each recipient can then find a pending message on their Chat screen. When a message is clicked, it is displayed for 10 seconds and then deleted from the database.
+  
   ![Snapchap icon](/snapchap/www/img/screenshots/login2.png?raw=true "LogInSignUp view icon")
 
 
