@@ -38,7 +38,7 @@ angular.module('snapchat').controller('editMessageCtrl', function ($scope, $stat
       canvas.height = baseImg.height;
       baseImgApparentHeight = canvasContainerWidth * baseImg.height / baseImg.width;
       scaleUp = baseImg.width / canvasContainerWidth; // This is the scale of the full-size image to the viewed image
-      scaleDown = canvasContainerWidth / baseImg.width; // This is the scale of the viewed image to the full-size image
+      scaleDown = canvasContainerWidth / baseImg  .width; // This is the scale of the viewed image to the full-size image
       context.drawImage(baseImg, 0, 0); // Puts the base image in the context
       context.scale(scaleUp, scaleUp); // Scales drawing area up to cover the full-sized image
     }
