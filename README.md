@@ -34,7 +34,7 @@ CAMERA
 
   ![Photo1](/snapchap/www/img/screenshots/snap1.png?raw=true "Snap1")
 
-  ![Snapchap icon](/snapchap/www/img/screenshots/login2.png?raw=true "LogInSignUp view icon")
+  ![Snapchap icon](/snapchap/www/img/screenshots/snap1.png?raw=true "LogInSignUp view icon")
 
 
 PHOTO EDITING
