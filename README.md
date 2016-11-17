@@ -1,4 +1,5 @@
 # Snapchap
+![Snapchap doodle](/snapchap/www/img/snapchap-doodle300.png?raw=true "Profile view image")
 
 Camera
 
@@ -12,4 +13,4 @@ Authentication
 
 Friends
 
-![Alt text](/snapchap/www/img/snapchap-doodle300.png?raw=true "Optional Title")
+
