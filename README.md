@@ -35,6 +35,13 @@ CAMERA
   ![Photo1](/snapchap/www/img/screenshots/snap1.png?raw=true "Snap1")
 
 
+
+  ![Snapchap icon](/snapchap/www/img/screenshots/snap1.png?raw=true "LogInSignUp view icon")
+
+
+  ![Snapchap icon](/snapchap/www/img/screenshots/login2.png?raw=true "LogInSignUp view icon")
+
+
 PHOTO EDITING
 
   The photo editing view relies heavily on HTML5's canvas for each of its major features (text overlay, drawing, and filters). For each feature, the artwork is saved to the canvas and the canvas data is then saved to the $rootScope image variable when the user presses the Send To button.
