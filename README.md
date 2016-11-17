@@ -1,4 +1,8 @@
 # Snapchap
+![Snapchap doodle](/snapchap/www/img/snapchap-doodle300.png?raw=true "Profile view image")
+
+Log In / Sign Up
+![Snapchap icon](/snapchap/www/img/screenshots/login2.png?raw=true "LogInSignUp view icon")
 
 Camera
 
@@ -13,4 +17,3 @@ Authentication
 Friends
 
 
-![alt tag](/Users/ashman/DM13/projects/team-snapchap/snapchap/www/img/snapchap-doodle300.png)
