@@ -20,7 +20,7 @@ LOG IN / SIGN UP (AND AUTHENTICATION)
 
   From this screen, users can log in with valid credentials or can sign up as a new user. New users are automatically logged in after signing up. Credentials are validated through JSON Web Tokens.
 
-  ![Snapchap icon](/snapchap/www/img/screenshots/login2.png?raw=true "LogInSignUp view icon")
+  ![Snapchap icon](/snapchap/www/img/screenshot/login2.png?raw=true "LogInSignUp view icon")
 
 
 FRIENDS
@@ -32,9 +32,8 @@ CAMERA
 
   For the camera, we used the Cordova plugin to access the mobile phone's built-in camera. Cordova saves the photo data to a variable which we placed on the $rootScope to make it accessible elsewhere.
 
-  ![Photo1](/snapchap/www/img/screenshots/snap1.png?raw=true "Snap1")
+  ![Photo1](/snapchap/www/img/screenshot/snap1.png?raw=true "Snap1")
 
-  ![Photo1](/snapchap/www/img/snap1.png?raw=true "Snap1")
 
 
 
@@ -42,27 +41,27 @@ PHOTO EDITING
 
   The photo editing view relies heavily on HTML5's canvas for each of its major features (text overlay, drawing, and filters). For each feature, the artwork is saved to the canvas and the canvas data is then saved to the $rootScope image variable when the user presses the Send To button.
 
-  ![Photo2](/snapchap/www/img/screenshots/snap2.png?raw=true "Snap2")
+  ![Photo2](/snapchap/www/img/screenshot/snap2.png?raw=true "Snap2")
 
-  ![Photo3](/snapchap/www/img/screenshots/snap3.png?raw=true "Snap3")
+  ![Photo3](/snapchap/www/img/screenshot/snap3.png?raw=true "Snap3")
 
-  ![Photo4](/snapchap/www/img/screenshots/snap4.png?raw=true "Snap4")
+  ![Photo4](/snapchap/www/img/screenshot/snap4.png?raw=true "Snap4")
 
 
 SENDING PHOTOS
 
   After selecting which friends are to receive the photo message, the user presses the Send button to send the photo to the database.
 
-  ![Send To screen](/snapchap/www/img/screenshots/sendto.png?raw=true "Send To view")
+  ![Send To screen](/snapchap/www/img/screenshot/sendto.png?raw=true "Send To view")
 
 
 VIEWING PHOTOS
 
   After a photo is sent, each recipient can find a pending message on their Chat screen. When a message is clicked, it is displayed for 10 seconds and then deleted from the database.
 
-  ![Chat2](/snapchap/www/img/screenshots/chat2.png?raw=true "Chat2")
+  ![Chat2](/snapchap/www/img/screenshot/chat2.png?raw=true "Chat2")
 
-  ![Photo5](/snapchap/www/img/screenshots/snap5.png?raw=true "Snap5")
+  ![Photo5](/snapchap/www/img/screenshot/snap5.png?raw=true "Snap5")
 
 
 SETTINGS
