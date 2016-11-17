@@ -20,7 +20,7 @@ LOG IN / SIGN UP (AND AUTHENTICATION)
 
   From this screen, users can log in with valid credentials or can sign up as a new user. New users are automatically logged in after signing up. Credentials are validated through JSON Web Tokens.
 
-  ![Snapchap icon](/snapchap/www/img/screenshots/login2.png?raw=true "LogInSignUp view icon")
+  <!-- ![Snapchap icon](/snapchap/www/img/screenshots/login2.png?raw=true "LogInSignUp view icon") -->
 
 
 FRIENDS
